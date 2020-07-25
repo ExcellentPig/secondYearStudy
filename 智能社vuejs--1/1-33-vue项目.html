@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue项目</title>
+	</head>
+	<body>
+		<!--
+		
+		做项目基本流程:
+			1，规划组件结构
+				Nav.vue
+				Header.vue
+				Home.vue
+				...
+				
+			2,编写对应路由
+				vue-router
+				
+			3,具体写某些组件的功能
+			
+			一些公共的文件jquery,jquery插件,一般在index.html文件里面引入
+		
+			4，项目需要的模块:
+				vuex
+				vue-router
+				axios
+				...
+				
+				cnpm install vuex vue-router axios -D
+				
+			------------------------------------------------------------------
+			
+			架构:
+				assets  ----  静态资源   
+			
+				想在js里面引入css模块:style-loader,css-loader
+					cnpm install style-loader css-loader -D
+				
+				
+				new VueRouter({
+					routes:路由具配置
+				})
+				
+				watch:{ //监听路由变化
+					$router(){
+						
+					}
+				}
+				
+				-------------------------------------
+				
+				axios：可以配置
+			
+					axios不能 Vue.use(axios)
+					
+					axios.interceptors.request.use(); //发送请求配置
+					axios.interceptors.response.use(); //接收请求配置
+					
+					axios.defaults.baseURL='https://...' ; //配置请求根路径
+					
+					axios.defaults.headers.post-'Content-Type'='application/x-www-form-urlencoded'; //设置post头部信息
+		
+					
+		-->
+	</body>
+</html>

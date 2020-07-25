@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<!--
+		事件冒泡：
+				阻止冒泡
+					1,ev.cancelBubble=true;
+					2,@click.stop="show()"
+				
+				默认行为:
+					1,ev.preventDefault();
+					@contextmenu.prevent="show()"
+					
+				键盘事件:
+					@keydown  @keyup
+					keyCode
+					
+				简写:
+				@keyup.enter="show()"
+				@keyup.13="show()"
+				@keyup.up="show()"
+		-->
+		<div id="box">
+			<!-- <input type="text" @keyup.13="show()"> -->
+			<!-- <input type="text" @keyup.enter="show()"> -->
+			<!-- <input type="text" @keyup.up="show()"> -->
+			<input type="text" @keydown.down="show()">
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					
+				},
+				methods:{
+					show(){
+						alert(1)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数字变化和Math新增的东西</title>
+		<script type="text/javascript">
+			
+			// console.log(2**53);
+			// console.log(2**53-1);
+			
+			let a=2**53;
+			let b=2**53-1;
+			let c=-(2**53-1);
+			let d=-(2**53);
+			console.log(Number.isSafeInteger(a)); //false
+			console.log(Number.isSafeInteger(b)); //true
+			console.log(Number.isSafeInteger(c)); //true
+			console.log(Number.isSafeInteger(d)); //false
+			
+			console.log(a);
+			console.log(Number.MAX_SAFE_INTEGER);
+			console.log(c);
+			console.log(Number.MIN_SAFE_INTEGER);
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		数字(数值)变化:
+		
+				二进制(binary)
+						let a=0b010101; 
+						console.log(a); //21
+						
+				八进制(Octal)
+						
+						let b=0o666;
+						console.log(b); //438
+						
+				十六进制:
+						let c=0x456;
+						console.log(c); //1110
+						
+			------------------------------------------
+			
+				Number(),parseInt(),parseFloat()
+				
+			----------------------------------------------
+			
+				
+				Number.isNaN();  //NaN
+				Number.isFinite();  //数字
+				Number.isInteger();  //整数
+				Number.parseInt();
+				Number.parseFloat();
+				
+				
+			--------------------------------
+		
+			安全整数:
+			
+					安全整数:-(2**53-1) 到 (2**53-1)
+					
+					Number.isSafeInteger();
+					
+					console.log(Number.MAX_SAFE_INTEGER); //最大
+					console.log(Number.MIN_SAFE_INTEGER);//最小
+					
+					
+			-------------------------------
+			
+			
+			
+		-->
+	</body>
+</html>

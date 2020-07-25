@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES9新增</title>
+		<script type="text/javascript">
+			
+			
+			 let str = '2019-05-17';
+			
+			
+			 let reg=/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+			 
+			 // console.log(str.match(reg));
+			 // console.log(str.match(reg).groups);
+			 
+			 let {year,month,day}=str.match(reg).groups;
+			 console.log(year,month,day);
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		命名捕获:
+		
+				语法:
+					(?<名字>)
+		
+        
+
+       
+    
+		-->
+	</body>
+</html>

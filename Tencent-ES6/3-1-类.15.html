@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>class</title>
+		<script type="text/javascript">
+			
+			//父类
+			class Person{
+				constructor(name) {
+				    this.name=name;
+				}
+				
+				showName(){
+					return `name is ${this.name}`;
+				}
+			}
+			
+			
+			//子类
+			class Student extends Person{
+				
+				constructor(name,skill){
+					super(name);
+					this.skill=skill;
+				}
+				
+				showSkill(){
+					return `skill is ${this.skill}`
+				}
+			}
+			
+			//调用
+			let stu1=new Student('khan','go school');
+			
+			console.log(stu1.name); //undefined 需要继承
+			console.log(stu1.showName()); 
+			
+			console.log(stu1.skill);
+			console.log(stu1.showSkill()); 
+		</script>
+	</head>
+	<body>
+		<!---
+		
+		class：
+		
+			面向对象，类(属性，方法)
+				
+					之前，函数模拟
+					
+					
+					现在class
+					
+			
+			注意：
+				class不存在提升，和预解析
+				ES5可以用函数模拟
+				
+				
+			矫正this：
+				fn.call(this指向谁,arg1,arg2...)
+				fn.apply(this指向谁,[arg1,arg2...])
+				fn.bind(this)
+				
+				------------------------------
+				
+				class新增:
+				
+					取值函数getter
+					存值函数setter
+					
+				-----------------------------
+				
+				静态方法:
+				
+						就是类身上的方法
+				
+						static aaa(){
+							return `This is statiC methods`;
+						}
+						
+						父类.aaa();
+						
+				-----------------------------
+				
+				父类
+				子类
+				
+				----------------------------
+				
+				继承
+					
+					extends
+					super
+		->
+	</body>
+</html>

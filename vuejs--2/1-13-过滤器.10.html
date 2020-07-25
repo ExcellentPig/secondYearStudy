@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" v-model="msg">
+			<br>
+			<div v-html="msg">
+				
+			</div>
+		</div>
+		<script>
+			let vm = new Vue({
+				data: {
+					msg:'<strong>khan</strong>'
+				},
+				methods:{
+					
+				}
+			}).$mount('#box'); //手动挂载
+			
+		</script>
+		<!--
+		
+		过滤器:vue
+		
+		自定义过滤器:
+				
+				Vue.filter(name,function(){
+					
+				});
+				
+		-->
+	</body>
+</html>

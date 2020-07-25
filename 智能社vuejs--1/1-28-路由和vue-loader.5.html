@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>路由和vue-loader</title>
+		<script src="../js/vue.js"></script>
+		<script src="../js/vue-router.js"></script>
+		<link rel="stylesheet" href="../css/animate.css">
+		<style>
+			.router-link-active {
+				font-size: 20px;
+				color: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="添加一个路由" @click="push">
+			<input type="button" value="替换一个路由" @click="replace">
+			<div>
+				<router-link to="/home">主页</router-link>
+				<router-link to="/user">用户</router-link>
+			</div>
+			<div>
+				<transition enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight">
+					<router-view></router-view>
+				</transition>
+			</div>
+		</div>
+		<script>
+			//组件
+			var Home = {
+				template: '<h3>我是主页</h3>'
+			};
+			var User = {
+				template: `
+				<div>
+					<h3>我是用户</h3>
+						<ul>
+							<li><router-link to="/user/khan/age/10">khan</router-link></li>
+							<li><router-link to="/user/khan1/age/18">khan1</router-link></li>			
+							<li><router-link to="/user/khan2/age/20">khan2</router-link></li>			
+						</ul>
+						<div>
+							<router-view></router-view>
+						</div>
+				</div>				
+				`
+			}
+			var UserDetail = {
+				template: '<div>{{$route.params}}</div>'
+			}
+			//配置路由
+			var routes = [{
+					path: '/home',
+					component: Home
+				},
+				{
+					path: '/user',
+					component: User,
+					children: [{
+						path: ':username/age/:age',
+						component: UserDetail
+					}]
+				},
+				{
+					path: '*',
+					redirect: '/home'
+				}
+			];
+
+			//生成路由实例
+			var router = new VueRouter({
+				routes
+			})
+
+			//最后挂到vues上
+			new Vue({
+				el: '#box',
+				router,
+				methods:{
+					push(){
+						router.push({path:'home'})
+					},
+					replace(){
+						router.replace({path:'user'})
+					}
+				}
+			})
+		</script>
+		<!--
+		
+		http://router.vejs.org/zh-cn/index.html
+		
+		基本使用:
+				<router-link to="/home">主页</router-link>
+				....
+				
+				重定向:
+				
+					var routes=[
+						{path:'/home',component:Home},
+						{path:'/news',component:News},
+						{path:'*',redirect:'/home'}
+					];
+					
+					
+		--------------------------------------------------------
+		
+		嵌套路由，子路由
+		
+				var routes=[
+					{path:'/home',component:Home},
+					{path:'/user',
+					component:User,
+					children:[  //核心
+						{path:'username',component:UserDetail}
+					]
+					},
+					{path:'*',redirect:'/home'}
+				];
+				
+			
+			参数
+			
+			----------------------------------------------
+			
+			路由实例方法:
+					route.push({path:'home'}); //直接添加一个路由,表现切换路由，本质是往历史记录里面添加一个
+					
+					router.replace({path:'home'}) //替换路由，不会往历史记录里面添加
+					
+			
+			-----------------------------------------------------
+			
+			路由配合运动:
+			
+					加animated
+					
+			----------------------------------------------------------
+			
+			vue-cli
+			
+				vue init webpack-simple vue-demo
+				
+				脚手架:vue-loader
+					
+					1.0
+						new Vue({
+							el:'#app',
+							components:{App}
+						})
+						
+					2.0
+						new Vue({
+							el:'#app'，
+							render=>h(App)
+						})
+						
+			----------------------------------------------
+			
+			vue2.0
+				vue-loader和vue-router配合
+				
+					cnpm install vue-router --save
+					
+					
+					//配合动画
+					cnpm install css-loader style-loader --save-dev
+		-->
+	</body>
+</html>

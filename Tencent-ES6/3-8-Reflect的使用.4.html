@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Reflect的使用</title>
+		<script type="text/javascript">
+			
+			function show(...args){
+				console.log(this);
+				console.log(args);
+			}
+			
+			//show(1,2,3,4);
+			
+			//show.call('abc',1,2,3,4);
+			//show.apply('abc',[1,2,3,4]);
+			
+			
+			Reflect.apply(show,'aaa',[1,2,3,4]);
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		Reflect 反射
+		
+		Reflect.apply(调用的函数,this指向，参数数组);  //类似与fn.call();
+		
+		Objct.xxx   //语言内部的方法 
+				Object.defineProperty
+				...
+				
+		放到Reflect对象身上
+		
+		通过Reflect对象身上直接拿到语言内部的东西
+		
+		'xxx' in Object
+		
+		-->
+	</body>
+</html>

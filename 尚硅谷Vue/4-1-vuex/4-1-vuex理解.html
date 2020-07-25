@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vuex理解 </title>
+		<style>
+			img{
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="../../img/X67F8%7D%5DDDZRQ3TG2TBKYX9V.jpg" alt="" title="vuex結構圖">
+		<!--
+		
+		
+		vuex：
+			对vue应用中多个组件的共享状态进行集中式的管理(读/写)
+			
+			下载: cnpm install --save vuex
+			
+			状态自管理应用:
+				1,state:驱动应用的数据源
+				2,view:以声明方式将state映射到视图
+				3,actions:响应在view上的用户输入导致的状态变化(包含n个更新状态的方法)
+		
+				单项数据流:View => Actions => State
+				
+				
+			多组件共享状态:
+				1,多个视图依赖于同一个状态
+				2,来自不同视图的行为需要变更同一状态
+				3,一起的解决方法:
+					a,将数据以及操作数据的行为都定义在父组件
+					b,将数据以及操作数据的行为传递给需要的各个子组件(有可能需要多级传递)
+				4,vuex就是用来解决这个问题的
+				
+				
+			state:
+				1,vuex管理的状态对象
+				2,他应该是唯一的
+					const state={
+						xxx:initValue
+					}
+					
+			mutations:
+				1,包含多个直接更新state的方法(回到函数)的对象
+				2,谁来触发：action中的commit('mutation名称')
+				3,只能包含同步代码，不能写异步代码
+					const mytations={
+						yyy(state,data){
+							//更新state的某个属性
+						}
+					}
+			
+			actions:
+				1,包含多个事件回到函数的对象
+				2,通过执行:commit()来触发mutation的调用，间接各更新state
+				3,谁来触发:组件中:$store.dispatch('action名称') //'zzz'
+				4,可以包含异步代码(定时器,ajax)
+					const actions={
+						zzz({commit,state},data1){
+							commit('yyy',data2)
+						}
+					}
+					
+			getters:
+				1,包含多个计算属性(get)对象
+				2,谁来读取:组件中:$store.getters.xxx
+					const getters={
+						mmm(state){
+							return ...
+						}
+					}
+				
+			modules:
+				1,包含多个module
+				2,一个module是一个store的配置对象
+				3,与一个组件(包含有共享数据)对应
+				
+				
+			向外暴露store对象:
+				export default new Vuex.Store({
+					state,
+					mutations,
+					actions,
+					getters
+				})
+				
+			组件中:
+				import {mapState,mapGetters,mapActions} from 'vuex'
+				export defaule{
+					computed:{
+						...mapState(['xxx']),
+						...mapGetters(['mmm'])
+					}
+					methods:mapActions(['zzz'])
+				}
+				
+				{{xxx}}{{mmm}}@click="zzz(data)"
+			
+			
+			映射store:
+				import store from './store'
+				new Vue({
+					store
+				})
+			
+			
+			store对象:
+				1,所有用vuex管理的组件中都多了一个属性$store。他就是一个stroe对象
+				2,属性:
+					state:注册的state对象
+					getters:注册的getters对象
+				方法:
+					dispatch(actionName,data):分发调用action
+					
+					
+			
+						
+			
+		-->
+	</body>
+</html>

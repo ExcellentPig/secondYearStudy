@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>slot</title>
+		<script src="bower_components/vue/dist/vue.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<aaa>
+				<ul slot="ul-slot">
+					<li>111</li>
+					<li>2222</li>
+					<li>3333</li>
+				</ul>
+				<ol slot="ol-slot">
+					<li>111</li>
+					<li>222</li>
+					<li>333</li>
+				</ol>
+			</aaa>
+			<hr>
+			<aaa>
+				
+			</aaa>
+		</div>
+		<template id="aaa">
+			<h1>xxxxx</h1>
+			<slot name="ul-slot">
+				这是默认的情况
+			</slot>
+			<p>khan</p>
+			<slot name="ol-slot">
+				这是默认的情况2
+			</slot>
+		</template>
+		<script>
+			let vm = new Vue({
+				el:'#box',
+				data:{
+					a:'aaa'
+				},
+				components:{
+					'aaa':{
+						template:'#aaa'
+					}
+				}
+			});
+			
+			
+		</script>
+		<!--
+			
+			slot:
+				位置、槽口
+				作用：占个位置
+				
+				多个slot:
+					
+					name="a"
+					slot="a"
+		-->	
+	</body>
+</html>

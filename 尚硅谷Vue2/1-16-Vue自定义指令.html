@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue自定义指令</title>
+		<script src="../js/vue-2.5.15.js"></script>
+	</head>
+	<body>
+		<!--
+		
+		1,注册全局指令:
+			Vue.directiVe('my-directive',function(el,binding){
+				el.innerHTML=binding.value.toUpperCase();
+			})
+			
+		2,注册局部指令:
+			directives:{
+				'my-directive':{
+					bind(el,binding){
+						el.innerHTML=binding.value.toUpperCase();
+					}
+				}
+			}
+			
+		3,使用指令:
+			
+				v-my-directive='xxx'
+				
+		
+		-->
+		
+		<div id="test1">
+			<p v-upper-text="msg1"></p>
+			<p v-lower-text="msg1"></p>
+		</div>
+		<div id="test2">
+			<p v-upper-text="msg2"></p>
+			<p v-lower-text="msg2"></p>
+		</div>
+		<script type="text/javascript">
+			
+			//定义全局指令
+			Vue.directive('upper-text',function(el,binding){
+				//el:指令属性所在标签对象
+				//binding:包含指令相关信息数据的对象
+				//console.log(el,binding);
+				el.textContent=binding.value.toUpperCase();
+				
+			})
+			
+			new Vue({
+				el:'#test1',
+				data:{
+					msg1:'KHAN And ROSE'
+				},
+				directives:{  //注册局部指令
+					'lower-text':function(el,binding){
+						el.textContent=binding.value.toLowerCase();
+					}
+				}
+			})
+			
+			new Vue({
+				el:'#test2',
+				data:{
+					msg2:'JUST DO it'
+				}
+			})
+		</script>
+	</body>
+</html>

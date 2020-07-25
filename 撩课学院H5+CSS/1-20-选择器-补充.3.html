@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选择器-补充</title>
+		<style>
+			/* [class^="icon-"]{
+				background-color: lightcyan;
+			} */
+			[class^="icon-"],
+			[class*=" icon-"]{
+				background-color: lightcyan;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		class 选择器
+		
+		[class^="icon-"]{
+			background-color: lightcyan;
+		}
+		
+		只能匹配单个class名
+		
+		[class^="icon-"],
+		[class*=" icon-"]{
+			background-color: lightcyan;
+		}
+		这样更保险
+		
+		-->
+
+		<ul>
+			<li class="icon-1">11110001</li>
+			<li>11110002</li>
+			<li class="icon-2">11110003</li>
+			<li>11110004</li>
+			<li class="icon-3">11110005</li>
+			<li>11110006</li>
+		</ul>
+	</body>
+</html>

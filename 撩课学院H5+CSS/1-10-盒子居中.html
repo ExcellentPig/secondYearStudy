@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>盒子居中</title>
+	<style>
+		#box{
+			width: 400px;
+			height: 300px;
+			background-color: red;
+			margin: 50px;
+			
+			/* text-align: center; *//*文字水平居中*/
+			text-align: center;
+		}
+		
+		.test1{
+			background-color: cadetblue;
+			width: 200px;
+			height: 80px;
+			
+			margin: 0 auto; /*自适应水平居中*/
+		}
+		
+		span{
+			background-color: darkorange;
+			
+			/* margin: 0 auto; */ /*直针对块级元素*/
+			/*在父级标签设置text-align:center*/
+		}
+		
+		#box1{
+			width: 400px;
+			height: 300px;
+			background-color: darkcyan;
+			margin: 50px;
+			text-align: center;
+			line-height: 300px;
+			position: relative;
+		}
+		#box1 span{
+			line-height: 300px; /*垂直居中*/
+			text-align: center;
+		}
+		
+		.test2{
+			background-color: lightgreen;
+			width: 200px;
+			height: 80px;
+			line-height: 80px;
+			/* margin: 0 auto; */
+			position: absolute;
+			left: 50%;
+			top:50%;
+			margin-left: -100px;
+			margin-top: -20px;
+			
+		}
+		
+		#box3{
+			width: 400px;
+			height: 300px;
+			background-color: lightpink;
+			margin: 50px;
+			text-align: center;
+			line-height: 300px;
+		}
+		#box3 span{
+			background-color: darkorange;
+			/* vertical-align: baseline; */
+			/* vertical-align: top; */
+			vertical-align: middle;
+		}
+		
+		#box3 img{
+			/* vertical-align: baseline; */
+			/* vertical-align: top; */
+			vertical-align: middle;
+		}
+		
+	</style>
+</head>
+<body>
+	<!--
+	
+	水平居中 text-align:center（行内）  margin:0 auto 块级元素
+	
+	垂直居中  line-height=父级高度
+	
+	-->
+	<div id="box">
+		<div class="test1">我是块级元素</div>
+		<span>我是行内标签</span>
+		<button>按钮</button>
+	</div>
+	
+	<div id="box1">
+		<div class="test2">我是块级元素</div>
+		<!-- <span>我是行内标签</span>
+		<button>annu</button> -->
+	</div>
+	
+	<!--局部微调
+	
+		vertic-align
+	-->
+	<div id="box3">
+		<span>khan</span>
+		<img src="../img/favicon.ico" width="200px" />
+		<span>khan</span>
+		
+	</div>
+</body>
+</html>

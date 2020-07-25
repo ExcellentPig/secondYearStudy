@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>什么是正则表达式</title>
+	</head>
+	<body>
+		<!--
+		
+		正则(规则表达式):规则、模式
+		
+		强大的字符串匹配工具
+		
+		RegExp对象:
+			JS风格---new RegExp("a","i")
+			prel风格--/a/i
+		-->
+		<script>
+// 			var re = new RegExp('a'); ///a/
+// 			console.log(re);
+
+// 			var re = new RegExp('a');
+// 			var str='abcdksjdla';
+// 			console.log(str.search(re)); //0
+
+// 			var re=/a/;
+// 			var str='abcdksjdla';
+// 			console.log(str.search(re));
+
+// 			var re=/a/;
+// 			var str='Abcdksjdl';
+// 			console.log(str.search(re)); //-1区分大小写
+
+// 			var re = new RegExp('a','i'); //i忽略大小写
+// 			var str='Abcdksjdl';
+// 			console.log(str.search(re));
+			
+			var re = /a/i; //i忽略大小写
+			var str='Abcdksjdl';
+			console.log(str.search(re));
+		</script>
+	</body>
+</html>

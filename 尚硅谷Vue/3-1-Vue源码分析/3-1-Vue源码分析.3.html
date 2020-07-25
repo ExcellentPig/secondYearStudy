@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue源码分析</title>
+	</head>
+	<body>
+		<!--
+		https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
+		
+		https://github.com/DMQ/mvvm
+		
+		
+		
+		4,Object.keys(obj):得到对象自身可枚举属性组成的数组
+		5,obj.hasOwnProperty(prop):判断prop是否是obj自身的属性
+		6,DocumentFragment:文档碎片(高效批量更新多个节点)
+		
+		-->
+		<div id="test">khan</div>
+		<ul id="fragment_test">
+			<li>test1</li>
+			<li>test2</li>
+			<li>test3</li>
+		</ul>
+		<script>
+			
+			//3,Object.defineProperty(obj,propertyName,{}):给对象添加属性(指定描述符)
+			const obj={
+				firstName:'A',
+				lastName:'B'
+			}
+			//给obj添加fullName属性
+			//obj.fullName='A-B';
+			/*
+				属性描述符:
+				
+			数据描述符	configurable:是否可以重新定义
+						enumerable:是否可以枚举
+						value:初始值
+						writeable:是否可以修改属性值
+			访问描述符	get:回调函数，根据其他相关的属性计算动态计算得到当前属性值
+						set:回调函数,监视当前属性值的变化，更新其他相关的属性
+			*/
+			Object.defineProperty(obj,'fullName',{
+				get(){
+					return this.firstName+'-'+this.lastName
+				},
+				set(value){
+					const names = value.split('-');
+					this.firstName=names[0];
+					this.lastName=names[1];
+				}
+			});
+			console.log(obj.fullName);
+			obj.firstName='c';
+			obj.lastName = 'd';
+			console.log(obj.fullName);
+			obj.fullName = 'E-F';
+			console.log(obj.firstName,obj.lastName);
+			
+			
+			Object.defineProperty(obj,'fullName2',{
+				configyrable:false,
+				enumerable:true,
+				value:'G-H',
+				writeable:false
+			})
+			console.log(obj.fullName2);
+			obj.fullName2='J-K';
+			console.log(obj.fullName2);  //不能修改
+// 			
+// 			Object.defineProperty(obj,'fullName2',{ //不能重新定义
+// 				configyrable:false,
+// 				enumerable:false,
+// 				value:'G-H',
+// 				writeable:true
+// 			})
+// 			console.log(obj.fullName2);
+// 			obj.fullName2='J-K';
+// 			console.log(obj.fullName2);  //不能修改
+
+
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串模板</title>
+		<script>
+			let data=[
+				{
+					title:'1',read:1007
+				},
+				{
+					title:'100',read:1002
+				},
+				{
+					title:'10',read:1008
+				},
+				{
+					title:'11',read:1005
+				},
+				{
+					title:'12',read:1002
+				},
+				{
+					title:'15',read:1000
+				}
+			];
+			window.onload=function(){
+				var oUl=document.querySelector('#ul');
+				
+				for(let i=0;i<data.length;i++){
+					var oLi=document.createElement('li');
+					
+					oLi.innerHTML=
+						'<span>'+data[i].title+'</span>'+
+						'<span>'+data[i].read+'</span>'+
+						'<a href="">hhhh</a>';
+						
+					oUl.appendChild(oLi);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="ul">
+			<!-- <li>
+				<span>xxxx</span>
+				<span>ttttt</span>
+				<a href="">hhhh</a>
+			</li> -->
+		</ul>
+		<!--
+		
+		
+		字符串模板:
+					``
+					
+					let str=`my name is $name age is $age`;
+		
+		-->
+	</body>
+</html>

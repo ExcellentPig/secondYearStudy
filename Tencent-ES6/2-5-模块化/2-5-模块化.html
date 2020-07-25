@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模块化</title>
+	</head>
+	<body>
+		<!--
+		
+		
+		JS不支持模块化
+		
+		
+		ES6统一服务端和客户端模块规范:
+				import {xx} ddd
+				
+				
+		模块化:
+				
+				需要放到服务器环境
+				
+				a) 如何定义模块
+				
+					export 东西
+					
+					
+					export {
+						
+					}
+					
+					export default 12
+					
+					
+					
+					
+					
+				b) 如何使用 
+				
+					<script type="module">
+						
+						import '...'
+						
+					</script>
+					
+					
+				import 可以是相对路径也可以是绝对路径
+				
+				import './modules/1.js';
+				import './modules/1.js';
+				
+				import模块只会导入一次
+				
+				import './modules/1.js'; 相当于引入这个文件
+				import 'https://code.jquery.com/jquery-3.3.1.js'
+		
+				
+				有提升的效果，import会自动提升到顶部，优先执行
+				
+				导出去的模块内容，如果里面有定时器更改了内容，外面也会改变
+				
+				
+				动态引入:
+						import()  默认import不能写入循环和判断中
+						
+						import('./modules/2.js')
+						.then(res=>{
+							//console.log(res);
+							console.log(res.a,res.b)
+						})
+						
+						-------------------------
+						import('https://code.jquery.com/jquery-3.3.1.js')
+						.then(res=>{
+							$(function(){
+								$('body').css({
+									background:'gray'
+								})
+							})
+						})
+						
+						
+						
+						优点:
+							按需加载
+							可以写入判断语句中
+							路径也可以是动态的
+							
+							
+						Promise.all([
+							import('./modules/1.js'),
+							import('./modules/2.js')
+						]).then(([mod1,mod2])=>{
+							console.log(mod1);
+							console.log(mod2);
+						})
+						
+						
+				ES2017 加async await
+				
+					async function main(){
+						const mod1 = await import('./modules/1.js');
+						const mod2 = await import('./modules/2.js');
+						
+						console.log(mod1,mod2);
+						
+						const [m1,m2] = await Promise.all([
+							import('./modules/1.js'),
+							import('./modules/2.js')
+						]);
+						
+						console.log(m1,m2);
+					}
+					
+					main();
+					
+					------------------------------------------
+					
+					
+					'use strict'  使用严格模式(默认)
+					
+					
+		-->
+	</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>生命周期</title>
+		<script src="./vue2.0.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input @click="update" type="button" value="更新数据">
+			<input type="button" value="destroy" @click="destroy">
+			{{msg}}
+		</div>
+		
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					msg:'khan'
+				},
+				methods:{
+					update(){
+						this.msg='rose'
+					},
+					destroy(){
+						this.$destroy();
+					}
+				},
+				beforeCreate(){
+					console.log('组件实例刚刚被创建');
+				},
+				created(){
+					console.log('实例已经创建完成了');
+				},
+				beforeMount(){
+					console.log('模板挂载之前');
+				},
+				mounted(){
+					console.log('模板编译之后');
+				},
+				beforeUpdate(){
+					console.log('组件更新之前');
+				},
+				updated(){
+					console.log('组件更新完毕');
+				},
+				beforeDestroy(){
+					console.log('组件销毁之前');
+				},
+				destroyed(){
+					console.log('组件销毁之后');
+				}
+			});
+		</script>
+		<!--
+			
+			
+			vue2.0变化:
+				
+				1,在模板组件内,不支持片段形式的代码
+				
+						现在必须要一个根元素包裹住所有代码:
+						
+							<template id="aaa">
+								<div>
+									<h1>123</h1>
+									<h2>3333</h2>
+								</div>
+							</template>
+			
+				2,Vue.etend  写法改变了   不使用
+				
+				
+				3,Vue.component(组件名称,{
+					template:...
+				})
+				
+				
+				4,组件的简介定义方式
+				
+						var Home={ //组件
+							template:'#aaa'
+						}
+						
+						Vue.component('my-aaa',Home)  //注册组件
+						
+						
+							-------
+										
+							var Home={ //组件
+								template:'#aaa'
+							}
+							new Vue({
+								el:'#box',
+								data:{
+									
+								},
+								components:{
+									'aaa':Home
+								}
+							})
+							
+				5,生命周期:
+						
+						之前:
+							init
+							cerated
+							beforeCompile
+							conpiled
+							ready              变成了mounted
+							beforeDestroy
+							destroyed
+							
+						现在:
+							beforeCreate    组件刚刚被创建  属性都没有
+							created 		实例已经创建了  属性已经绑定了
+							beforeMount 	模板编译之前
+							mounted 		模板编译之后	   代替之前的ready
+							
+							增加:
+							beforeUpdate     组件更新之前
+							updated  		 组件更新之后
+							
+							beforeDestroy 	 组件销毁前
+							destroyed          组件销毁后
+		-->		
+	</body>
+</html>

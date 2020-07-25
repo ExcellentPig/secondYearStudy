@@ -1,0 +1,12 @@
+{
+  "name": "vue-loader-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "webpack-dev-server --inline --hot"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

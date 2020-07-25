@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Map和WeakSet</title>
+		<script type="text/javascript">
+			
+			let map=new Map();
+			
+			//map.set(key,value);
+			
+			let json={
+				a:1,
+				b:2
+			}
+			
+			map.set('a','aaa'); //正常情况
+			map.set(json,'aaa');
+			map.set('aaa',json);
+			map.set(true,json);
+			
+			//循环
+			for(let [key,value] of map){
+				console.log(key,value);
+			}
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		new Set([]); //存储数组，这种写法对
+		 
+		 new WeakSet({}) //存储json，这种写法不靠谱
+		 
+				WeakSize没有size，也又有clear
+				
+				有add(),has(),delete()
+		
+		确认，初始里面添加东西，是不行的，最好用add
+		
+		
+		----------------------------------
+		
+		map类型与json
+		但是json的的键(key)只能是字符串
+		map的key可以是任意类型
+		
+		使用:
+			let map=new Map();
+			map.set(key,value); //设置一个值
+			
+			//获取一个值
+			console.log(map.get(json));
+			console.log(map.get('aaa'));
+			
+			//删除
+			map.delete(key);
+			
+			//判断有无
+			map.has(key);
+		
+			//清空
+			map.clear();
+			
+			循环:
+				
+				for(let [key,value] of map){};
+				for(let key of map.keys()){};
+				for(let value of map.values()){};
+				for(let [k,v] of map.enteries()){};
+		-->
+	</body>
+</html>

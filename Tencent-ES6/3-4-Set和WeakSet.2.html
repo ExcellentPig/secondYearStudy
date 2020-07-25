@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Set和WeakSet</title>
+		<script type="text/javascript">			
+			let setArr=new Set();
+			
+			setArr.add('a');
+			setArr.add('b');
+			
+			setArr.delete('a');
+			
+			console.log(setArr);
+			console.log(setArr.has('b'));
+			console.log(setArr.size);
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		数据结构:
+			
+			数组
+			队列
+			json,二叉树...
+			
+			
+		---------------------------
+		
+		Set数据解构
+		
+			类似数组，但是里面不能有重复的值
+		
+			用法:
+					let serArr=new Set(['a','b']);
+		
+		
+			方法(属性):
+				setArr.add('a'); //添加
+				setArr.delete('a');//删除
+				console.log(setArr.has('b'));//检查有无
+				console.log(setArr.size); //查看个数
+		-->
+	</body>
+</html>

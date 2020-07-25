@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>条件渲染</title>
+	<script src="../js/vue-2.3.0.min.js"></script>
+</head>
+<body>
+	<!--
+	
+		条件渲染
+		
+		v-if  -- v-else  
+		
+		
+		
+		v-show  平凡切换v-show较好
+	
+	-->
+	
+	<div id="demo">
+		<p v-if="ok">成功了</p>
+		<!-- <p v-else="true">失败了</p> -->
+		<p v-else>失败了</p>
+		
+		<p v-show="ok">khan</p>
+		<p v-show="!ok">rose</p>
+		
+		<button @click="ok=!ok">切换</button>
+	</div>
+	<script>
+		new Vue({
+			el:'#demo',
+			data:{
+				ok:false
+			}
+		})
+	</script>	
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>循环</title>
+		<script src="./vue2.0.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li v-for="item,key in list">
+					{{item}}--{{key}}
+				</li>
+			</ul>
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					list:{
+						a:'a',
+						b:'b',
+						c:5
+					}
+				}
+			})
+		</script>
+		<!--
+			
+			
+			循环:
+				
+				不需要加track-by="$index" 了
+				
+				vue2.0默认可以添加重复数据
+				
+				
+				2.0去掉了一些隐式的变量 $index，$key 等
+				
+				之前:
+					v-for="(index,value) in arr"
+					
+				现在:
+					v-for="(val,index) in arr"
+					
+					
+				之前:
+					track-by="id"
+				
+				
+		-->	
+	</body>
+</html>

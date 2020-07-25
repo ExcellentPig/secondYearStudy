@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Array扩展</title>
+	</head>
+	<body>
+		<!--
+		
+		map 	映射  一一对应
+		
+		reduce  n=>1
+		
+		filter 	过滤
+		
+		forEach 循环 遍历
+		
+		
+		字符串模板
+				`` 反单引号
+		
+		-->
+		<script>
+			//map
+
+			//let arr=[68,52,12,98,20];
+
+			// 			let arr2=arr.map(item=>{
+			// 				if(item>=60){
+			// 					return 'yes';
+			// 				}else{
+			// 					return 'no';
+			// 				}
+			// 			})
+			// 			console.log(arr);
+			// 			console.log(arr2);
+
+			// 			let arr2=arr.map(item=>{
+			// 				return item>=60?'yes':'no';
+			// 			})
+			// 			console.log(arr);
+			// 			console.log(arr2);
+
+			// 			let arr2=arr.map(item=>item>=60?'yes':'no');
+			// 			console.log(arr);
+			// 			console.log(arr2);
+
+			//reduce
+			//let arr = [12, 5, 8, 9, 21, 100];
+
+			// 			let result=arr.reduce(function (tmp,item,index){
+			// // 				console.log(tmp);
+			// // 				console.log(item);
+			// 				
+			// 				//console.log(index+' '+tmp+' '+item);
+			// 				
+			// 				return tmp+item;
+			// 			})
+			// console.log(result);
+			// console.log(result/arr.length);
+
+			// 			let result = arr.reduce(function(tmp, item, index) {
+			// 				if(index==arr.length-1){//最后一次循环
+			// 					return (tmp + item)/arr.length;
+			// 				}else{
+			// 					return tmp + item;
+			// 				}
+			// 			})
+			// 			console.log(result);
+
+
+			//filter
+			//let arr = [12, 5, 8, 1, 3, 9, 5, 8, 10, 99, 20, 30, 50, 77];
+
+			// 			let arr2 = arr.filter((item)=>{
+			// 				if(item%2==1){
+			// 					return false;
+			// 				}else{
+			// 					return true;
+			// 				}
+			// 			})
+
+			// 			let arr2 = arr.filter(item=>{
+			// 				return item%2==0;
+			// 			})
+
+// 			let arr2 = arr.filter(item => item % 2 == 0);
+// 
+// 			console.log(arr);
+// 			console.log(arr2);
+
+			//forEach
+			let arr = [1,2,8,2,10,2];
+// 			let arr1=arr.forEach((item,index)=>{
+// 				console.log('di '+index+' shi '+item)
+// 			})
+
+			
+			//字符串模板
+			let arr1 = arr.forEach((item,index)=>{
+				console.log(`第${index}个是${item}`);
+			})
+			console.log(arr1);
+		</script>
+	</body>
+</html>

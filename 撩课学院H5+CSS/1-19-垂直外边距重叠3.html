@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>垂直外边距重叠</title>
+		<style>
+			#box1 {
+				border: 1px solid red;
+			}
+			#box2 {
+				width: 100px;
+				height: 200px;
+				background-color: lightcoral;
+		
+				float: right;
+				/*高度塌陷  元素位置上移*/
+		
+		
+			}
+		
+			#box3 {
+				/* width: 90%; */
+				height: 100px;
+				background-color: lightgray;
+			}
+			
+			/**
+			 * 通过after伪类清除浮动 开启BFC
+				
+				class=".clearfix"
+			 */
+			/* .clearfix:after{
+				content: "";  
+				display: block;
+				clear: both;
+			} */
+			
+			#box4{
+				width: 400px;
+				height: 400px;
+				background-color: purple;
+			}
+			
+			/*通过伪类解决*/
+			/* #box4::before{
+				content: "";
+				display: table;
+			} */
+			
+			#box5{
+				width: 100px;
+				height: 100px;
+				background-color: lightgreen;
+				
+				/*外部margin了*/
+				margin-top: 100px;
+			}
+			
+			
+			/*可以写在一起*/
+			.clearfix:after,
+			#box4::before{
+				content: "";  
+				display: table;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		
+		子元素和父元素相邻的垂直外边距会发生重叠，子元素的外边距会传递给父元素
+		
+		使用空的table标签可以隔离父子元素的外边距，阻止外边距的重叠
+		
+		-->
+		<div id="box1" class="clearfix">
+			<div id="box2">
+		
+			</div>
+		</div>
+		<div id="box3">
+		
+		</div>
+		<div id="box4" .class="clearfix">
+			<div id="box5"></div>
+		</div>
+	</body>
+</html>

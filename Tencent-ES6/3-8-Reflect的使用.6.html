@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Reflect的使用</title>
+		<script type="text/javascript">
+			 
+			let json={
+				a:1,
+				b:2
+			}
+			
+			// delete json.a;
+			// 
+			// console.log(json);
+			
+			Reflect.deleteProperty(json,'a');
+			console.log(json);
+			 
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		Reflect 反射
+		
+		Reflect.apply(调用的函数,this指向，参数数组);  //类似与fn.call();
+		
+		Objct.xxx   //语言内部的方法 
+				Object.defineProperty
+				...
+				
+		放到Reflect对象身上
+		
+		通过Reflect对象身上直接拿到语言内部的东西
+		
+		'xxx' in Object
+		
+		delete json .a   ----- Reflect.deleteProperty()
+		
+		-->
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>选择器-补充</title>
+		<style>
+			/* li{
+				color: lightblue;
+			} */
+			/* li:first-child{
+				color: lightcoral;
+			} */
+			/* li:last-child{
+				color: lightcoral;
+			} */
+			
+			/* li:nth-last-child(3){
+				color: lightcoral;
+			} */
+			li:nth-child(4){
+				color: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		不区分类型:
+				:first-child  选中同级别中的第一个标签
+				:last-child   选者同级别中的最后一个标签
+				:nth-last-child(n) 选者同级别中的倒数第n个标签
+				:nth-child(n) 选择同级别中第n个标签
+				:only-child 选择同级别中的唯一子元素标签
+				
+		区分类型:
+				:first-of-type 选中同级别中同类型第一个标签
+				:last-of-type 选中同级别中同类型最后一个标签
+				:nth-of-type(n) 选中同级别中同类型第n个标签
+				:nth-last-of-type(n) 选中同级别中同类型倒数第n个标签
+				:only-of-type 选中同级别中唯一同类型子元素标签
+				
+		奇偶选择:
+				:nth-child(odd) 选中级别所有奇数
+				:nth-child(even) 选中同级别中所有的偶数
+				:nth-child(xn+y) x,y是用户自定义的  n为计数器 从0开始递增选择，到元素的总个数停止
+		
+		
+		-->
+		
+		<ul>
+			<li>11110001</li>
+			<li>11110002</li>
+			<li>11110003</li>
+			<li>11110004</li>
+			<li>11110005</li>
+			<li>11110006</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组新增</title>
+		<script type="text/javascript">
+			
+			// let arr=[23,90,101,80,62,52,88];
+			let arr=[23,9000,101,80,62,52,88];
+			
+			let res=arr.find((val,index,arr)=>{
+				return val>100000;
+			});
+			console.log(res);
+ 		</script>
+	</head>
+	<body>
+		<!--
+		
+		扩展运算符:
+				
+				let arrLi = [...aLi]
+				arrLi.pop();
+		
+				let arr2=Array.from();
+				
+				Array.from: //具备length就可以用
+						把类数组(获取一组元素,arguments)对象转成数组
+		
+		
+				Array.of():
+						把一组值转成数组
+						
+				arr.find():
+						找出第一个复合要求的
+						没找到就返回undefined
+						
+				
+				arr.findIndex():
+						找位置
+		-->
+	</body>
+</html>

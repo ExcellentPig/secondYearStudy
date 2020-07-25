@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: '#box',
+					data: {
+						
+					},
+					methods:{
+// 						show(ev){
+// 							alert(1);
+// 							ev.cancelBubble=true; //阻止冒泡
+// 						},
+						show(){
+							alert(1);
+						},
+						show1(ev,b){  //参数换了位置,对应下面也要换
+							alert(ev.clientX);
+							alert(b);
+						},
+						show2(){
+							alert(2);
+						},
+// 						show3(ev){
+// 							alert(3);
+// 							ev.preventDefault()=true; //阻止默认行为
+// 						}
+						show3(){
+							alert(3);
+						},
+						show4(ev){
+							alert(ev.keyCode);
+						},
+// 						show5(ev){
+// 							if(ev.keyCode==13){
+// 								alert('按下回车了');
+// 							}
+// 						}
+						show5(ev){
+							alert('按下回车了');
+						},
+						show6(ev){
+							alert('up');
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		事件:
+			v-on:click/...
+			@click="show()"
+		
+		事件对象:
+				@click="show1($event)
+				
+		事件冒泡:
+				阻止冒泡:
+						1,ev.cancelBubble=true  原生方式
+						2,@click.stop="show()"
+		
+				默认行为(事件):
+						1,ev.preventDefault() = true  原生方式
+						2,@contentmenu.prevent
+				
+				键盘类事件:
+						@keydown="show4($event)"
+						@keyup="show4($event)"
+						@keyup.enter
+						@keyup.13
+						@keyup.up
+						
+						常用键:
+							回车
+							方向键
+							....
+
+					
+						
+		-->
+		<div id="box">
+			<input type="button" value="按钮" @click="show()">
+			<input type="button" value="按钮1" @click="show1($event)">
+			<input type="button" value="按钮1" @click="show1($event,12)">
+			
+			<div @click="show2()">
+				<!-- <input type="button" value="按钮" @click="show($event)"> -->
+				<input type="button" value="按钮" @click.stop="show()">
+			</div>
+			<!--@contextmenu右键-->
+			<!-- <input type="button" value="按钮" @contextmenu="show3($event)"> -->
+			<input type="button" value="按钮" @contextmenu.prevent="show3()">
+			
+			
+			<input type="text" @keydown="show4($event)" />
+			<input type="text" @keyup="show4($event)" />
+			<!-- <input type="text" @keyup.13="show5($event)" /> -->
+			<input type="text" @keyup.enter="show5($event)" />
+			<input type="text" @keyup.up="show6($event)" />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue模板语法</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<!--
+		
+		
+		大括号表达式:读取data中数据显示
+		数据绑定与双向数据绑定
+			数据绑定:数据在页面与内存中的变量自动转移
+			双向数据绑定:如果2个方向数据都可以自动转移
+		
+		-->
+	</head>
+	<body>
+		<div id="app"><!--view-->
+			<input type="text" v-model="name">
+			<p>Hello {{name}}</p>
+		</div>
+		<script>
+			//创建Vue实例
+			const vm=new Vue({ //配置对象
+				el:'#app', //element 选择器
+				data:{ //数据(model)
+					name:'khan'
+				}
+			})
+			vm.name='rose';
+		</script>
+		
+		<!--
+				
+		MVVM
+		
+		model:模型  数据对象(data)
+		
+		view:视图 模板页面
+		
+		viewModel:视图模型模型(Vue的实例)
+		
+		
+		-->
+	</body>
+</html>

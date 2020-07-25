@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES9新增</title>
+		<script type="text/javascript">
+			
+			let reg=/^(?<khan>welcome)-\k<khan>$/;
+			
+			let str='a-a';
+			let str1='khan-khan';
+			let str2='welcome-welcome';
+			
+			console.log(reg.test(str)); //false
+			console.log(reg.test(str1)); //false
+			console.log(reg.test(str2)); //true
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		命名捕获:
+		
+				语法:
+					(?<名字>)
+		
+        
+		反向引用命名捕获:
+				
+					语法:
+						\k<名字>
+
+       
+    
+		-->
+	</body>
+</html>

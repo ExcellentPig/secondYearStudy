@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>总结</title>
+	</head>
+	<body>
+		<!--
+		
+		vue：
+			1,直接页面级开发，script直接引入vue
+			2,工程性开发，webpack+loader\ vue-cli
+			
+		------------------------------------------
+		
+		webpack配置多文件入口
+		
+		-------------------------------------------
+		
+		webpack打包完很大?
+			bundle.js
+			build.js
+			
+			a)webpack代码拆分:code-spliting
+			b)提取公共部分(css,js)
+			c)预渲染:prerender-spa-plugin
+			d)后台-----开启压缩，gz
+			e)异步加载组件
+					require.ensure
+					
+		--------------------------------------------
+		
+		vuex
+		
+		---------------------------------------------
+		
+		组件之间通信:
+			vue1.0 -> props ->子组件可以更改父组件数据  .sync
+			
+				解决问题:
+					1)$emit 单一事件管理  Stroe.jS
+						var Event = new Vue()
+						export default Event
+						
+					2)对象之间引用:
+						msg:'khan' ->子级
+						
+						msg:{
+							title:'khan'
+						}
+						
+						msg.title
+						
+					3)vuex:
+						管理状态
+						
+			----------------------------------------------------
+			
+			axios ---- 不能use
+			
+				Vue.protptype.$http=axios
+				
+				this.$http.get
+				
+				loading
+					install
+					
+			-----------------------------------------------------
+			
+			vue:
+				指令
+				属性
+				事件
+				数据:data，props\computed
+				生命周期
+				
+			-------------------------------------------------
+				node_modules  rm-rf
+				
+				-g  -> 命令环境用
+		-->
+	</body>
+</html>

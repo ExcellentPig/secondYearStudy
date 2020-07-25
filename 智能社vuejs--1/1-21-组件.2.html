@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>组件</title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<aaa></aaa>
+		</div>
+		<script>
+			Vue.component('aaa',{
+				template:'<h3>khan</h3>'
+			})
+			
+			var vm = new Vue({
+				el: '#box',
+				data: {
+
+				}
+			})
+		</script>
+		<!--
+		
+		
+		vue组件:
+			组件:一个大对象
+			
+		1,	全局组件		
+			Vue.extend({
+				template:'<h3>khan</h3>'
+			});
+			
+			Vue.component('aaa',Aaa);
+		
+		-->
+	</body>
+</html>

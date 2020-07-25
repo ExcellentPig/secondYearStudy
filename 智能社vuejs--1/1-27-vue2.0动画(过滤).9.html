@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动画</title>
+		<script src="../js/vue.js"></script>
+		<link rel="stylesheet" href="../css/animate.css">
+		<style>
+			p{
+				width:100px;
+				height:100px;
+				background: red;
+				margin: 10px auto;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				new Vue({
+					el:'#box',
+					data:{
+						show:false
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="显示/隐藏" @click="show=!show">
+			<transition-group enter-active-class="animated zoomInLeft" leave-active-class="animated zoomOutRight">
+				<p v-show="show" :key="1"></p>
+				<p v-show="show" :key="2"></p>
+			</transition-group>
+		</div>
+		<!--
+		
+		vue动画
+		vue路由
+		
+		--------------------------------------------------------
+		
+		transition 
+				之前:属性
+				
+				<p transition="fade"><p>
+				
+				.fade-transition{}
+				.fade-enter{}
+				.fade-leave{}
+				
+				现在:transition 组件
+				
+				<transition name="fade">
+				//运动的东西(元素、属性、路由....)
+				</transition>
+				
+				class定义：
+				
+					.fade-enter-active,
+					.fade-leave-active{  //必须写
+						transition:1s all ease; 
+					}
+				
+					.fade-enter{} //初始状态
+					.fade-enter-active{} //变化成什么样 ==>当元素出来
+					
+					.fade-leave{} //
+					.fade-leave-active{} //变化成什么样 ==>当元素消失(离开)
+		
+				transition相关函数:
+						
+						@before-enter="beforEnter"
+						@enter="enter"
+						@after-enter="afterEnter"
+						@before-leave="beforeLeave"
+						@leave="leave"
+						@after-leave="afterLeave"
+						
+			-------------------------------------------------------
+			
+			transition 配合animate
+					
+					<input type="button" value="显示/隐藏" @click="show=!show">
+					<transition enter-active-class="animated zoomInLeft" leave-active-class="animated zoomOutRight">
+						<p v-show="show"></p>
+					</transition>
+						
+					多个元素:
+							<transition-group enter-active-class="animated zoomInLeft" leave-active-class="animated zoomOutRight">
+								<p v-show="show" :key="1"></p>
+								<p v-show="show" :key="2"></p>
+							</transition-group>
+		-->
+	</body>
+</html>

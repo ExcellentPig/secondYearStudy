@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>weibo</title>
+		<link href="style/weibo.css" rel="stylesheet" type="text/css" />
+		<script src="../vue.js"></script>
+		<script src="../vue-resource.js"></script>
+		<script>
+			Vue.filter('date',function(input){
+				var oDate=new Date(input*1000);
+				return oDate.getFullYear()+'-'+(oDate.getMonth()-1)+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+			})
+			window.onload=function(){
+				var URL = 'weibo.php';
+				new Vue({
+					el:'.znsArea',
+					data:{//vue的属性,数据
+						t1:'',
+						msgData:[]
+					},
+					methods:{
+						add(){
+							//alert(1)
+							//发送请求
+							this.$http({
+								url:URL,
+								data:{ //给后台发送的数据
+									act:'add',
+									content:this.t1
+								}
+							}).then((res)=>{
+								//console.log(res.data);
+								var json = res.data;
+								//添加数据
+								this.msgData.unshift({
+									content:this.t1,
+									time:json.time,
+									acc:0,
+									red:0,
+									id:json.id
+								});
+								this.t1='';
+							})
+						},
+						getPageData(n){
+							this.$http({
+								url:URL,
+								data:{
+									act:'get',
+									page:n
+								}
+							}).then((res)=>{
+								//console.log(res.data);
+								var arr = res.data;
+								for(var i=0;i<arr.length;i++){
+									this.msgData.push({
+										content:arr[i].content,
+										time:arr[i].time,
+										acc:arr[i].acc,
+										ref:arr[i].ref,
+										id:arr[i].id
+									})
+								}
+							})
+						}
+					},
+					ready(){
+						//alert(1)
+						//console.log(this.getPageData(1));
+						this.getPageData(1)
+					},
+				});
+			}
+		</script>
+		<style>
+			[v-cloak]{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="znsArea">
+			<!--留言-->
+			<div class="takeComment">
+				<textarea name="textarea" class="takeTextField" id="tijiaoText" v-model="t1"></textarea>
+				<div class="takeSbmComment">
+					<input type="button" class="inputs" value="" @click="add"  />
+					<span>(可按 Enter 回复)</span>
+				</div>
+			</div>
+			<!--已留-->
+			<div class="commentOn">
+				<div class="noContent" v-show="msgData.length==0">暂无留言</div>
+				<div class="messList">
+					<div class="reply" v-for="item in msgData" v-cloak>
+						<p class="replyContent">{{item.content}}</p>
+						<p class="operation">
+							<span class="replyTime">{{item.time | date}}</span>
+							<span class="handle">
+								<a href="javascript:;" class="top">{{item.acc}}</a>
+								<a href="javascript:;" class="down_icon">{{item.ref}}</a>
+								<a href="javascript:;" class="cut">删除</a>
+							</span>
+						</p>
+					</div>
+				</div>
+				<div class="page">
+					<a href="javascript:;" class="active">1</a>
+					<a href="javascript:;">2</a>
+					<a href="javascript:;">3</a>
+				</div>
+			</div>
+		</div>
+		<!--
+		
+		vue -》
+			vue-resoure  ajax  php
+			
+			服务器环境
+			
+			this.$http.get()/post()/jsonp()
+			
+			this.$http({
+				url:地址
+				data:给后台提交数据
+				method:
+				jsonp:'cb'  //cbName 
+			})
+			
+		-----------------------------------------
+		
+		vue生命周期:
+				钩子函数:
+					
+					created  		 =>  实例已经创建成功
+					beforeCompile 	 =>  编译之前
+					compiled 		 =>  编译之后
+					ready     		 =>	 插入到文档中
+					
+					
+					beforeDestroy    => 销毁之前
+					Destroyed        => 销毁之后
+		-->
+	</body>
+</html>

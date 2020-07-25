@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数</title>
+		<script type="text/javascript">
+			let json={
+				id:1,
+				show:function(){
+					setTimeout(()=>{
+						alert(this.id); //this ===> document
+					},2000)
+				}
+			};
+			
+			json.show();
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		函数
+			默认参数
+			
+			函数的参数默认被定义，不能在使用let,const再定义
+			
+			扩展运算符(rest运算符):
+					
+					...    
+					
+					展开数组
+					
+					剩余作用
+						放在最后
+						
+			
+			箭头函数:
+			
+					=>
+					
+					()=>return ...
+					
+					()=>{
+						
+					}
+					
+					注意:
+						
+						this问题
+								定义函数的时候所在的对象，不再是运行时所在的对象
+						
+						
+						arguments:
+								在箭头函数中没有arguments
+					
+		
+		-->
+	</body>
+</html>

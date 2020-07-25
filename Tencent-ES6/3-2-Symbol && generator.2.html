@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Symbol && generator</title>
+		<script type="text/javascript">
+			
+			let symbol=Symbol('khan');
+			
+			//console.log(symbol);
+			
+			let json={
+				a:'apple',
+				b:'banana',
+				[symbol]:'rose'  //key
+			}
+			
+			console.log(json);
+			console.log(json.a);
+			console.log(json[symbol]);
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		ES6：
+				数据类型:number,string,boolean...symbol  Object,undefined,function
+						
+						new String()
+						...
+			
+		symbol:
+				
+				let syml=Symbol('aaa');
+				
+				注意:
+					1,Symbol不能new
+					2,Symbol()返回是一个唯一的值---作为一个key，定义一些唯一或私有的东西
+					3,symbol是一个单独数据类型，就叫做symbol,基本类型
+		
+		
+		json  -> for in
+		
+		
+		-->
+	</body>
+</html>

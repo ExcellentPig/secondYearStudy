@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue2.0</title>
+		<script src="../js/vue-2.5.15.js "></script>
+		<script>
+// 			var Aaa=Vue.extend('aaa',{
+// 				template:"<h4>组件</h4>"
+// 			});
+// 			
+// 			Vue.component('my-aaa',Aaa); //error
+
+			
+// 			Vue.component('my-aaa',{
+// 				template:'<h4>组件</h4><strong>strong</strong>' //error
+// 			})
+
+			
+			
+			window.onload=function(){
+				new Vue({
+					el:'#box',
+					data:{
+						msg:'khan'
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+			<my-aaa></my-aaa>
+		</div>
+		<!--
+			vue2.0
+				
+				bower info vue   查看版本
+				
+				
+				变化:
+					1，在每个组件模板做，不再支持片段代码
+							组件中的模板:
+								之前:<template id="aaa">
+										....
+								
+									</template>
+									
+								现在:
+		-->	
+			
+	</body>
+</html>

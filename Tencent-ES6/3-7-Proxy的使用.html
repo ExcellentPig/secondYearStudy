@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Proxy的使用</title>
+		<script type="text/javascript">
+			
+			let obj={
+				name:'khan'
+			};
+			
+			
+			let newObj=new Proxy(obj,{
+				get(target,property){ //target --- obj  property --- name
+					//console.log(target,property);
+					// return 'aaa';
+					console.log(`你访问了${property}属性`);
+					return target[property];
+				}
+			});
+			
+			console.log(newObj.name);
+			
+			//console.log(obj.name);
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		Proxy  代理
+				
+			扩展(增强)了对象的一些功能
+				
+				Vue
+				
+				
+		Proxy作用:
+		
+			vue中拦截
+			预警
+			上报
+			扩展功能
+			统计
+			增强对象
+			...
+			
+			proxy是设计模式的一种，代理模式
+			
+			
+		---------------------------------------------------------
+		
+		
+		语法:
+		
+			new Proxy(target,handler);
+			let obj=new Proxy(被代理的对象,对代理的对象做什么操作);
+			
+			handler:
+			{
+				set(){},  //设置的时候干的事情
+				get(){},  //获取干的事情
+				deleteProperty(){}, //删除
+				has(){}, //属性有无
+				apply(){},//调用函数处理
+				...
+			}
+				
+		-->
+		
+	</body>
+</html>

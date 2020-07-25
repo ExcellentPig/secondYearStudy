@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>百度下拉列表</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+		<script src=""></script>
+		<script>
+			window.onload = function() {
+					new Vue({
+						el:'#box',
+						data:{
+							myData:[],
+							t1:''
+						},
+						methods:{
+							get(){
+								this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+									wd:this.ti
+								},{
+									jsonp:'cb'
+								}).then((res)=>{
+									this.myData=res.data.s;
+								},()=>{
+									
+								})
+							}
+						}
+					})
+				}
+		</script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<!--
+		https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=a&json=1&p=3&sid=1455_21126_18559_28724_28557_28697_28584_26350_28518_28627_28605&req=2&csor=1&cb=jQuery110207627890184324029_1553566540047&_=1553566540051
+		
+		-->	
+		<div id="box">
+			<input type="text" v-model="t1" @keyup="get()">
+			<ul>
+				<li v-for="value in myData">{{value}}</li>
+			</ul>
+			<p v-show="myData.length==0">暂无数据....</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue基本使用</title>
+		<script src="../js/vue-2.3.0.min.js"></script>
+	</head>
+	<body>
+		<!--
+		`
+		1,引入Vue.js
+		2,创建Vue对象
+				el:指定根element(选择器)
+				data:初始化数据(页面可以访问)
+		3,双向数据绑定:v-model
+		4,显示数据:{{xxx}}
+		5,理解vue的mvmm实现
+		
+		-->
+		<div id="app">
+			<input  type="text" v-model="username">
+			<P>hello{{username}}</P>
+		</div>
+		<script>
+			//创建Vue实例
+			const vm=new Vue({ //配置对象 
+				el:'#app', //元素  选择器
+				data:{ //数据(model)
+					// message:message
+					username:'khan'
+				}
+			})
+		</script>
+	</body>
+</html>

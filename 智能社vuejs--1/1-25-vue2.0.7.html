@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue2.0</title>
+		<script src="../js/vue-2.5.15.js "></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="add" @click="add">
+			<ul>
+				<li v-for="val,index in list" tyack-by="index" :key="index">{{val}}--{{index}}</li>
+			</ul>
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					list:['width','height','border']
+				},
+				methods:{
+					add(){
+						this.list.push('bgc')
+					}
+				}
+			})
+		</script>
+		<!--
+			vue2.0
+				
+				bower info vue   查看版本
+				
+				
+				变化:
+					1，在每个组件模板做，不再支持片段代码
+							组件中的模板:
+								之前:<template id="aaa">
+										....
+								
+									</template>
+									
+								现在:必须有一个根元素包裹住所有代码
+								
+					2，关于组件定义:
+							Vue.extend   改动
+							
+							Vue.component(组件名称,{  //继续能用
+								data(){},
+								methods:{},
+								template:
+							})
+							
+							var Home = {
+								template:
+							}
+							
+					3，生命周期
+							之前:
+									init 	
+									created
+									beforeCompile
+									compiled
+									ready
+									beforDestroy
+									destroyed
+									
+							现在:
+									beforeCreate    组件刚刚被创建，属性都没有
+									created 		实例已经创建完成，属性已经绑定
+									beforeMount 	模板编译之前
+									mounted 		模板编译之后
+									beforeUpdate 	组件更新之前
+									updated 		组件更新完毕
+									beforeDestroy 	组件销毁前
+									destroyed 		组件销毁后
+									
+					4,循环
+					
+						默认可以添加重复数据
+						
+						去掉了隐式的变量   {{$index}} $key....
+						
+						之前：
+								v-for="(index,val) in array"
+								
+						现在:
+								v-for="(val,index)" in array
+								
+						:key="index"  提高循环性能
+						
+						track-by="id" -> <li v-for="(val,index) in list :key="index></li>
+		-->	
+			
+	</body>
+</html>

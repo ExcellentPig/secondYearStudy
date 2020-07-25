@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Symbol && generator</title>
+		<script type="text/javascript">
+			
+		
+			function * gen(){
+				yield 'welcome';
+				yield 'khan';
+				return 'rose an jack';
+			}
+			
+			let g1 = gen();
+			
+			for(let val of g1){
+				console.log(val);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		ES6：
+				数据类型:number,string,boolean...symbol  Object,undefined,function
+						
+						new String()
+						...
+			
+		symbol:
+				
+				let syml=Symbol('aaa');
+				
+				注意:
+					1,Symbol不能new
+					2,Symbol()返回是一个唯一的值---作为一个key，定义一些唯一或私有的东西
+					3,symbol是一个单独数据类型，就叫做symbol,基本类型
+					4,如果Symbol作为key，用for in 循环不能输出
+		
+		json  -> for in
+		
+		--------------------------------------------------------
+		
+		generator函数:生成器  
+				
+				解决异步问题，深度嵌套
+				
+				语法:
+						
+					function * show(){
+						
+						yield
+						
+					}
+				
+				定义:
+				
+					function * gen(){
+						yield 'welcome';
+						yield 'khan';
+						return 'rose an jack';
+					}
+					
+				调用:
+				
+					let g1 = gen();
+					console.log(g1.next()); //{value: "welcome", done: false}
+					console.log(g1.next()); //{value: "khan", done: false}
+					console.log(g1.next()); //{value: "rose an jack", done: true}
+					console.log(g1.next()); //{value: undefined, done: true}
+		
+					上述调用是手动调用
+					
+					循环输出:
+						
+						for..of
+						
+						let g1 = gen();
+						
+						for(let val of g1){
+							console.log(val);
+						}
+						
+						可以自动遍历generator但是return不会被遍历
+						
+						
+				
+		-->	
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义指令.</title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+			<!-- <span v-text="msg"></span>
+			<span v-read="msg"></span> -->
+			
+			<div v-drag :style="{width:'100px',height:'100px',background:'blue',position:'absolute',right:0,top:0}"></div>
+		</div>
+		<script>
+			
+// 			Vue.directive('read',function(el,binding){
+// 				el.innerHTML = binding.value.toUpperCase();
+// 			})
+
+			Vue.directive('drag',function(){
+				var oDiv = this.el;
+				oDiv.onmousedown=function(ev){
+					var disX = ev.clientX-oDiv.offsetLeft;
+					var disY = ev.clientY-oDiv.offsetTop;
+					
+					document.onmousemove = function(ev){
+						var l = ev.clientX-disX;
+						var t = ev.clientY-disY;
+						
+						oDiv.style.left=l+'px';
+						oDiv.style.top=t+'px';
+					};
+					document.onmouseup=function(){
+						document.onmousemove=null;
+						document.onmouseup=null;
+					}
+					
+				}
+			}) 
+			
+			new Vue({
+				el:'#box',
+				data:{
+					msg:'khan'
+				}
+			})
+			
+		</script>
+		<!--
+		
+		自定义指令:
+				
+				Vue.directive(指令名称,function(){
+					
+				})
+		
+		-->
+	</body>
+</html>

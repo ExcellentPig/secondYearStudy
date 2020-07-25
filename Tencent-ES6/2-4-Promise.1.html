@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Promise</title>
+		<script type="text/javascript">
+			
+			let a=10;
+			let promise=new Promise(function(resolve,reject){
+				if(a==10){
+					resolve('成功');
+				}else{
+					reject('失败');
+				}
+			})
+			
+			//Promise.then(succrss,faile)
+			promise.then(res=>{
+				console.log(res);
+			},err=>{
+				console.log('失败');
+			})
+			
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		Promise:
+		
+			作用:解决异步回调问题
+		
+			
+			传统方式，大部分用回调函数，事件驱动
+			
+			ajax(url,{ //获取token
+				ajax(url,()=>{ //获取用户信息
+					...
+				})
+			})
+			
+			--------------------------
+			
+			语法:
+				
+				
+				new Promise(function(resolve,reject){
+					
+					//resolve 成功时调用
+					//reject  失败的时候调用
+					
+				})
+				
+				
+			
+				promise.then()
+				
+				promise.catch();
+				
+				
+			
+				
+			
+		-->
+	</body>
+</html>

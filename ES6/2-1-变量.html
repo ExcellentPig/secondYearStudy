@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>变量</title>
+	</head>
+	<body>
+		<!--
+		
+		变量:
+			var
+				可以重复声明
+				不能限制修改
+				函数级的作用域
+			let 	
+				变量	
+				不可以重复声明，
+				块级作用域
+			const  		
+				常量
+				不可以重复声明，
+				块级作用域
+		-->
+		<script>
+// 			var a = 12;
+// 			//...
+// 			var a = 5;
+// 			console.log(a);
+// 			
+// 			let b = 15;
+// 			//...
+// 			let b = 20;
+// 			console.log(b);  //error
+
+// 			const c = 20;
+// 			const c = 30;
+// 			console.log(c); //error
+
+// 			let a =12;
+// 			a = 30;
+// 			console.log(a); //right
+// 			
+// 			const c = 30;
+// 			const c;
+// 			console.log(c); //error
+
+			//块级作用域
+// 			{
+// 				var a = 12;
+// 			}
+// 			console.log(a);
+
+// 			{
+// 				let a = 12;
+// 			}
+// 			console.log(a); //error
+			
+		</script>
+	<!-- 	<input type="button" value="a">
+		<input type="button" value="b">
+		<input type="button" value="c"> -->
+		<script>
+			//let aBtn = document.getElementsByTagName('input');
+// 			for(var i=0;i<aBtn.length;i++){
+// 				aBtn[i].onclick=function(){
+// 					alert(i);  //3
+// 				}
+// 			}
+
+// 			for(var i=0;i<aBtn.length;i++){
+// 				(function(i){
+// 					aBtn[i].onclick=function(){
+// 						alert(i);  //闭包解决方法
+// 					}
+// 				})(i);
+// 			}
+
+// 			for(let i=0;i<aBtn.length;i++){
+// 				aBtn[i].onclick=function(){
+// 					alert(i);  //let 完美决绝
+// 				}
+// 			}
+		</script>
+	</body>
+</html>

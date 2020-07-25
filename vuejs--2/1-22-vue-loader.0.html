@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue-loader</title>
+		<script src="bower_components/vue/dist/vue.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script>
+			
+		</script>
+		<!--
+			
+			vue-loader:
+				简单的目录结构:
+					|-index.html
+					|-main.js	入口文件
+					|-App.vue	vue文件
+					|package.json 工程文件(项目依赖、名称、配置)
+						npm init --yes 生成
+					|-webpack.config.js	webpack配置文件
+					
+					
+				ES6:模块发开发
+					导出模块：
+						export defaut {}
+					引入模块：
+						import 模块名 from 地址
+						
+						
+			----------------------------------
+			
+			webpack准备工作
+				npm install webpack --save-dev
+				npm install webpack-dev-server --save-dev
+				
+				App.vue  变成正常代码   vue-loader
+				cnpm install vue-loader --save-dev
+				cnpm install vue-html-loader --save-dev
+				cnpm install css-loader --save-dev
+				cnpm install vue-style-loader --save-dev
+				cnpm install vue-hot-reload-api --save-dev
+				
+			-------------------------------------
+			cnpm install ...  --save-dev
+			
+			babel-loader
+			babel-core
+			babel-plugin-transform-runtime
+			babel-preset-es2015
+			babel-runtime
+			
+			------------------------------------
+			
+			最最核心:
+			
+			------------------------------
+			
+			配合vue-loader使用:
+				1，下载vue-router模块
+					cnpm install vue-router@0.7.13
+					
+				2,import VueRouter from 'vue-router'
+				
+				3,Vue.use(VueRouter);
+				
+				4,配置路由
+					var router=new VueRouter();
+					router.map({
+						路由规则
+						'home':{
+							component:Home
+						}
+					})
+					
+				5,开启路由:
+					router.start(App,'#app)
+					
+					注意:
+						index.html ->> <app></app>
+						现在:  <div id="app"></div>
+						
+						App.vue  需要<div id="app"></div>
+				
+		-->	
+	</body>
+</html>

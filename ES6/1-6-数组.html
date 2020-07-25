@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES6数组</title>
+	</head>
+	<body>
+		<script>
+			/**
+			 * map
+			 * 		映射  一个对一个
+			 * 
+			 * reduce
+			 * 		汇总  一堆出来一个  算总数
+			 * 
+			 * filter
+			 * 		过滤器	
+			 * 
+			 * forEach
+			 * 		循环(迭代)
+			 */
+			
+			
+			//map
+			// let arr=[12,5,8];
+// 			arr.map(function (item){
+// 				console.log(item*2);
+// 			})
+// 			let result=arr.map(function (item){
+// 				return item*2;
+// 			})
+// 			let result=arr.map(item=>item*2);
+// 			console.log(result);
+// 			
+// 			let score = [19,85,99,25,90];
+// 			let result1=score.map(item=>item>=60?'及格':'不及格');
+// 			console.log(result1);
+// 			
+			
+			//reduce
+// 			let arr1 = [1,2,3,4,5];
+// 			let result2=arr1.reduce(function(tmp,item,index){//tep 最终结果 item下一项 index下标
+// 				return tmp+item;
+// 			})
+// 			console.log(result2);
+
+// 			let arr2 = [1,2,3,4,5];
+// 			let result3 = arr2.reduce(function(tmp,item,index){
+// 				if(index==arr2.length-1){ //不是最后一次
+// 					return tmp+item;
+// 				}else{//最后一次
+// 					return (tmp+item)/arr2.length;
+// 				}
+// 			})
+// 			console.log(result3);
+
+
+			//filter
+		//	let arr3 = [12,5,8,99,27,19,11];
+// 			let result4 = arr3.filter(item=>{
+// 				if(arr3%3==0){
+// 					return true;
+// 				}else{
+// 					return false;
+// 				}
+// 			})
+// 			let result4 = arr3.filter(item=>item%3==0);
+// 			console.log(result4);
+
+// 			let arr4 = [
+// 				{title:'khan',price:75},
+// 				{title:'rose',price:7500},
+// 				{title:'jack',price:821235},
+// 				{title:'stone',price:10},
+// 			];
+// 			let result5 = arr4.filter(item=>item.price>=10000);
+// 			console.log(result5);
+
+
+			//forEach
+			let arr5 = [12,5,8,9];
+			// let result6 = arr5.forEach(item=>console.log(item));
+			let result7 = arr5.forEach((item,index)=>{
+				console.log(index+' '+item);
+			})
+			console.log(result7);
+		</script>
+	</body>
+</html>

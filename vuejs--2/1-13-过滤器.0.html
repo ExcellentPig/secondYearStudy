@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" @keyup="show | debounce 2000">
+		</div>
+		<script>
+			let vm = new Vue({
+				data: {
+					arr:['a','b','c']
+				},
+				methods:{
+					show(){
+						alert(1)
+					}
+				}
+			}).$mount('#box'); //手动挂载
+			
+		</script>
+		<!--
+		
+		过滤器:vue
+		
+		debounce  	延迟执行  配合事件
+		
+		-->
+	</body>
+</html>

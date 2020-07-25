@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue列表渲染</title>
+		<script src="../js/vue-2.5.15.js"></script>
+	</head>
+	<body>
+		<!--
+		
+		1，列表显示
+			数组:v-for /index
+			对象:v-for /key
+			
+		2,列表的更新显示
+			删除item
+			替换item
+			
+			
+			变异方法
+			
+				push()
+				pop()
+				shift()
+				unshift()
+				splice()
+				sort()
+				reverse()
+		
+		-->
+		<div id="demo">
+			<h2>测试：v-for 遍历数组</h2>
+			<ul>
+				<li v-for="(p,index) in persons" :key="index">
+					{{index}}----{{p.name}}---{{p.age}}
+					----<button @click="deleteP(index)">删除</button>
+					----<button @click="updateP(index,{name:'rose',age:25})">更新</button>
+				</li>
+			</ul>
+
+			<h2>测试：v-for 遍历对象</h2>
+			<ul>
+				<li v-for="(value,key) in persons[1]" :key="key">
+					{{key}}----{{value}}
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			//vue本身只是监视了persons的改变 没有监视数组内部的改变
+			//vue重写了数组中一系列改变数组内部数据的方法(先调用原生，更新界面) ---- 数组内部改变,界面自动变化
+			new Vue({
+				el: '#demo',
+				data: {
+					persons: [{
+							name: 'khan',
+							age: 18
+						},
+						{
+							name: 'khan1',
+							age: 19
+						},
+						{
+							name: 'khan2',
+							age: 20
+						},
+						{
+							name: 'khan3',
+							age: 21
+						}
+					]
+				},
+				methods: {
+					deleteP(index) {
+						//删除persons中指定index的p
+						this.persons.splice(index, 1);
+					},
+					updateP(index, newP) {
+						//this.persons[index]=newP; //error 没有改变persons本身 而是改变变量的内部数据
+						//数组内部发生了变化,但并没有调用变异方法 vue不会更新揭界面
+						//this.persons=[];
+
+						this.persons.splice(index, 1, newP);
+						// this.persons.splice(index,0,newP);
+
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

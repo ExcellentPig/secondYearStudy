@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模板</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: '#box',
+					data: {
+						msg:'khan'
+					}
+
+				})
+			}
+		</script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<!--
+		{{msg}}  数据更新模板也变化
+		
+		{{msg}}  数据只绑定一次  无效???
+		
+		{{{msg}}}  HTML转义输出  无效
+		
+		-->	
+		<div id="box">
+			<input type="text" v-model="msg">
+			<br>
+			{{msg}}
+			<br>
+			{{msg}}
+			<br>
+			<!-- {{{msg}}} -->
+		</div>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>循环嵌套</title>
+	</head>
+	<body>
+		<script>
+			for(var i=1;i<=5;i++){
+				for(var j=1;j<=4;j++){
+					console.log('i=',i,'j=',j)
+				}
+			}
+			
+			for(var i=1;i<=5;i++){
+				var s=""
+				for(var j=1;j<=i;j++){
+					s+="*"
+				}
+				console.log(s);
+			}
+		</script>
+	</body>
+</html>

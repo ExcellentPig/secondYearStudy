@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义元素指令.</title>
+		<script src="./vue.js"></script>
+		<style>
+			zns-red{
+				width:100px;
+				height:200px;
+				background-color: red;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<zns-red>
+				
+			</zns-red>
+		</div>
+		<script>
+			Vue.elementDirective('zns-red',{
+				bind(){
+					this.el.style.background='pink'
+				}
+			})
+			let vm = new Vue({
+				el:'#box'
+			});
+			
+		</script>
+		<!--
+		
+		自定义元素指令:
+				Vue.elementDirective('zns-red',{
+					bind(){
+						this.el.style.background='pink'
+					}
+				})
+		-->
+	</body>
+</html>

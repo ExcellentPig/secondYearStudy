@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>generator-yield</title>
+	</head>
+	<body>
+		<script>
+			// 			function *show(){
+			// 				console.log('a');
+			// 				
+			// 				let a=yield;
+			// 				
+			// 				console.log('b');
+			// 				console.log(a); //5  next的参数会到yield中
+			// 			}
+			// 			let gen = show();
+			// 			gen.next(12); 
+			// 			gen.next(5);
+
+			// 			function *show(num1,num2){
+			// 				console.log(`${num1},${num2}`);
+			// 				console.log('a');
+			// 				let a=yield;			
+			// 				console.log('b');
+			// 				console.log(a);
+			// 			}
+			// 			let gen = show(99,88);
+			// 			gen.next(12);//没法给yield传参
+			// 			gen.next(1)
+
+
+			//返回
+			// 			function *show(){
+			// 				console.log('a');
+			// 				
+			// 				yield 12;
+			// 				
+			// 				console.log('b');
+			// 				
+			// 			}
+			// 			let gen = show();
+			// 			let res1=gen.next();
+			// 			console.log(res1); //{value: 12, done: false}
+			// 			let res2=gen.next();
+			// 			console.log(res2); //{value: undefined, done: true}
+
+
+			function* show() {
+				console.log('a');
+
+				yield 12;
+
+				console.log('b');
+				
+				return 55;  //最后的值
+
+			}
+			let gen = show();
+			let res1 = gen.next();
+			console.log(res1); //{value: 12, done: false}
+			let res2 = gen.next();
+			console.log(res2); //{value: 55, done: true}
+
+
+		</script>
+		<!--
+		
+		yield  放弃执行
+		
+		yield 传参、返回
+		
+		next的参数会到yield中
+		yield的参数根据后者绝定
+		
+		
+		
+		-->
+	</body>
+</html>

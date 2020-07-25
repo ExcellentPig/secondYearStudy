@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue2.0</title>
+		<script src="../js/vue-2.5.15.js "></script>
+		<script>
+			
+			var Home = {//这是组件
+				template:'#aaa'
+			};
+			
+			Vue.component('my-aaa',Home)
+			
+			window.onload=function(){
+				new Vue({
+					el:'#box',
+					data:{
+						msg:'khan'
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<template id="aaa">
+				<h2>组件</h2>
+			</template>
+		</div>
+		<div id="box">
+			{{msg}}
+			<my-aaa></my-aaa>
+		</div>
+		<!--
+			vue2.0
+				
+				bower info vue   查看版本
+				
+				
+				变化:
+					1，在每个组件模板做，不再支持片段代码
+							组件中的模板:
+								之前:<template id="aaa">
+										....
+								
+									</template>
+									
+								现在:必须有一个根元素包裹住所有代码
+								
+					2，关于组件定义:
+							Vue.extend   改动
+							
+							Vue.component(组件名称,{  //继续能用
+								data(){},
+								methods:{},
+								template:
+							})
+							
+							var Home = {
+								template:
+							}
+		-->	
+			
+	</body>
+</html>

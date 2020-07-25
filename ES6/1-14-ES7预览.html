@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES7预览</title>
+		<script src="../js/jquery-3.2.1.js"></script>
+	</head>
+	<body>
+		<script>
+			// 			let arr=[12,5,8];
+			// 			console.log(arr.includes(8));
+
+
+			//for in  and for of
+			// 			let arr = [12,5,9,8,2,100];
+			// 			
+			// 			for(let i in arr){
+			// 				console.log(i);  //key
+			// 			}
+			// 			
+			// 				
+			// 			for(let j of arr){
+			// 				console.log(j);  //value
+			// 			}
+
+			// 			let json = {a:12,b:5,c:99};
+			// 			for(let i in json){
+			// 				console.log(i); //key a b c
+			// 			}
+			// 			for(let j of json){
+			// 				console.log(j); //error
+			// 			}
+
+			//keys
+			//let arr = [12,5,8,9,10];
+			// 			for(let key of arr.keys()){
+			// 				console.log(key);
+			// 			}
+			// 			//values
+			// 			for(let value of arr.values()){
+			// 				console.log(value);
+			// 			}
+			//entries
+			// 			for(let entries of arr.entries()){
+			// 				console.log(entries);
+			// 			}
+			// 			for(let [key,value] of arr.entries()){
+			// 				console.log(key,value);
+			// 			}
+			// 
+			// 			let json = {a:12,b:5};
+			// 			for(let key in json.keys()){
+			// 				console.log(key); //error
+			// 			}
+
+
+			//求幂
+			// 			console.log(Math.pow(2,2));
+			// 			console.log(2**3);
+
+			//字符串
+			// 			console.log('('+'abc'.padStart(15)+')');
+			// 			console.log('('+'abc'.padEnd(15)+')');
+			// 			console.log('('+'abc'.padEnd(15,0)+')');
+
+			//语法
+			// 			let arr = [12,5,8,];
+			// 			console.log(arr);
+			// 			
+			// 			function show(a,b,c,){
+			// 				console.log(a,b,c);
+			// 			}
+			// 			show(1,2,3);
+
+
+			//async await
+			// 			async function show(){
+			// 				console.log('a');
+			// 				
+			// 				await
+			// 				
+			// 				console.log('b');
+			// 			}
+
+			// 			async function show(){
+			// 				let data1 = await $.ajax({
+			// 					url:'../data/1.txt',
+			// 					dataType:'json'
+			// 				})
+			// 				let data2 = await $.ajax({
+			// 					url:'../data/2.txt',
+			// 					dataType:'json'
+			// 				})
+			// 				let data3 = await $.ajax({
+			// 					url:'../data/3.txt',
+			// 					dataType:'json'
+			// 				})
+			// 				console.log(data1);
+			// 				console.log(data2);
+			// 				console.log(data3);
+			// 			}
+			// 			show();
+
+			let show=async ()=>{
+				let data1 = await $.ajax({
+					url: '../data/1.txt',
+					dataType: 'json'
+				})
+				let data2 = await $.ajax({
+					url: '../data/2.txt',
+					dataType: 'json'
+				})
+				let data3 = await $.ajax({
+					url: '../data/3.txt',
+					dataType: 'json'
+				})
+				console.log(data1);
+				console.log(data2);
+				console.log(data3);
+			}
+			show();
+		</script>
+		<!--
+		
+		ES7
+		
+		数组
+			includes  数组是否包含某个东西
+			keys 所有的key拿出来
+			values 所有的value 拿出来
+			entries   key-value 对拿出来
+			for..of 循环迭代器
+			
+			json对象不是迭代对象 for of 不能使用
+			
+			
+		幂
+			** = Math.pow()
+		
+		字符串
+			padStart  前补充
+			padEnd    后
+			
+		语法容忍度
+			[12,5,8,]
+			function show(a,b,c,){
+				
+			}
+			
+			
+		
+		async await =》 generator yield
+		不再依赖于外部的runner   统一，性能高
+		可以写成箭头函数
+		-->
+	</body>
+</html>

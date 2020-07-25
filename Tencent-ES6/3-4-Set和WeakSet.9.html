@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Set和WeakSet</title>
+		<script type="text/javascript">			
+			
+			
+			let set=new Set([1,2,3]);
+			
+			let newset=new Set();
+			for(let value of set.values()){
+				newset.add(value*2);
+			}
+			console.log(newset);
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		数据结构:
+			
+			数组
+			队列
+			json,二叉树...
+			
+			
+		---------------------------
+		
+		Set数据解构
+		
+			类似数组，但是里面不能有重复的值
+		
+			用法:
+					let serArr=new Set(['a','b']);
+		
+		
+			方法(属性):
+				setArr.add('a'); //添加
+				setArr.delete('a');//删除
+				console.log(setArr.has('b'));//检查有无
+				console.log(setArr.size); //查看个数
+				setArr.clear();//清空
+				
+				
+			循环:
+					
+				for...of...
+					for(let item of setArr){ //默认是values()
+						console.log(item);
+					}
+					
+				setArr.forEach((value,index)=>{
+					console.log(value,index);
+				})
+					
+					
+			//链式操作
+			setArr.add('a').add('b').add('c');
+			
+			
+			set数据解构变成数组:
+						
+						[...set]
+						let newArr=[...new Set(arr)];
+						
+					map
+					filter
+				
+			
+		-->
+	</body>
+</html>

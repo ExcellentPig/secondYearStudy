@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Reflect的使用</title>
+		<script type="text/javascript">
+			
+			function sum(a,b){
+				return a+b;
+			}
+			
+			let newSum=new Proxy(sum,{
+				apply(target,context,args){
+					//console.log(target,context,args);
+					// console.log(arguments);
+					//console.log(...arguments);
+					
+					return Reflect.apply(...arguments)*5**2;
+				}
+			})
+			
+			console.log(newSum(1,2)); 
+			 
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		Reflect 反射
+		
+		Reflect.apply(调用的函数,this指向，参数数组);  //类似与fn.call();
+		
+		
+		
+		-->
+	</body>
+</html>

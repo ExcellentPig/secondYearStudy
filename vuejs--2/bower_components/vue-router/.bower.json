@@ -1,0 +1,15 @@
+{
+  "name": "vue-router",
+  "homepage": "https://github.com/vuejs/vue-router",
+  "version": "3.0.6",
+  "_release": "3.0.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.6",
+    "commit": "04e28ba116137e7fe13a79c3e92a801e6ccbf4fd"
+  },
+  "_source": "https://github.com/vuejs/vue-router.git",
+  "_target": "^3.0.6",
+  "_originalSource": "vue-router",
+  "_direct": true
+}

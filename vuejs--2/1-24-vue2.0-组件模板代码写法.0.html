@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue-cli</title>
+		<script src="./vue2.0.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+			<my-aaa></my-aaa>
+		</div>
+		<script>
+			//不能使用了
+// 			var Aaa=Vue.extend('aaa',{
+// 				template:'<h4>这是组件</h4>'
+// 			});
+// 			
+// 			Vue.component('my-aaa',Aaa);
+
+			Vue.component('my-aaa',{
+				template:'<h4>组件</h4>'
+			})
+			
+			new Vue({
+				el:'#box',
+				data:{
+					msg:'khan'
+				}
+			})
+		</script>
+		<!--
+			
+			
+			vue2.0变化:
+				
+				1,不支持片段形式的代码
+			
+		-->	
+	</body>
+</html>

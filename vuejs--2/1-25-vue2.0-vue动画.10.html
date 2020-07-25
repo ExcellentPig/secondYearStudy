@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue动画</title>
+		<script src="./vue2.0.js"></script>
+		<link rel="stylesheet" href="./bower_components/animate.css/animate.css">
+		<style>
+			p{
+				width: 100px;
+				height:100px;
+				background-color: red;
+				margin: 10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" v-model="show">
+			<transition-group enter-active-class="animated zoomInLeft" leave-active-class="animated zoomOutRight">
+				<p v-show="show" v-for="val,index in lists" :key="index">
+					{{val}}
+				</p>
+			</transition-group>
+		</div>
+		<script>
+			new Vue({
+				el: '#box',
+				data: {
+					show: '',
+					list: ['apple', 'banana', 'orange', 'pear']
+				},
+				computed: {
+					lists:function(){
+						var arr=[];
+						this.list.forEach(function(val){
+							if(val.indexOf(this.show)!=-1){
+								arr.push(val);
+							}
+						}.bind(this));
+						return arr;
+					}
+				}
+			});
+		</script>
+		<!--
+		
+		vue动画:
+			
+			transition 
+				之前  属性
+				<p transition="fade"></p>
+				
+				.fade-reansition{}
+				.fade-enter{}
+				.fade-leave{}
+				
+				现在  组件
+				<transition name="fade">
+					//运动(元素，属性，路由)
+				</transition>
+				
+				class定义:(顺序需要注意)
+					.fade-enter{}  //最初始状态
+					.fade-enter-active{}  //动画开始的时候  当元素出来
+					
+					.falde-leave{}  //离开的状态  推荐写 也可以忽略
+					.fade-leave-active{} // 变化  当元素离开  消失
+					
+					
+				----------------------------------------------------
+				
+				相关函数:
+					@before-enter="beforeEnter"    动画enter之前
+					@enter="enter"				   动画进入
+					@after-enter="afterEnter"	   动画进入之后
+					@before-leave="beforeLeave"	   动画离开之前
+					@leave="leave"				   动画离开
+					@after-leave="afterLeave"      动画离开之后
+					
+				-------------------------------------------
+				
+				配合animate.css
+					
+					<transition 
+					enter-active-class="animated zoomInLeft" 
+					leave-active-class="animated zoomOutRight"
+					>
+						<p v-show="show"></p>
+					</transition>
+					
+					
+				多个元素: transiton  :key=""
+					<transition-group 
+					enter-active-class="animated zoomInLeft" 
+					leave-active-class="animated zoomOutRight"
+					>
+						<p v-show="show" :key="1"></p>
+						<p v-show="show" :key="2"></p>
+						<p v-show="show" :key="3"></p>
+					</transition-group>
+		-->
+	</body>
+</html>

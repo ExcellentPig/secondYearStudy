@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件通信</title>
+		<script src="./vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			父级 ->>> {{giveData}}
+			<br>
+			<child-com :msg="giveData"></child-com>
+		</div>
+		<template id="child">
+			<div>
+				<span>我是子组件</span>
+				<input type="button" value="按钮" @click="change">
+				<strong>{{msg.a}}</strong>
+			</div>
+		</template>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					giveData:{
+						a:'我是父组件的数据'
+					}
+				},
+				components:{
+					'child-com':{
+						props:['msg'],
+						template:'#child',
+						methods:{
+							change(){
+								//this.msg='被更改了';
+								this.msg.a='change'
+							}
+						}
+					}
+				}
+			})
+		</script>
+		<!--
+			
+			
+			组件通信:
+				vm.$emit()
+				vm.$on();
+				
+				
+				父组件和子组件
+					
+					子组件想要拿到父组件的数据:
+						props
+						
+					之前子组件可以更改父组件的信息，并且可以同步(sync)
+					现在不允许
+					
+					需要改:
+						a):父组件每次传一个对象给子组件，对象之间引用
+						
+					
+		-->	
+	</body>
+</html>

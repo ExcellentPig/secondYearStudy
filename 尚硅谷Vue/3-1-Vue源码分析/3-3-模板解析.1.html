@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>模板解析</title>
+		<script src="./mvvm-master/js/compile.js"></script>
+		<script src="./mvvm-master/js/mvvm.js"></script>
+		<script src="./mvvm-master/js/observer.js"></script>
+		<script src="./mvvm-master/js/watcher.js"></script>
+	</head>
+	<body>
+		<div id="test">
+			<p>{{name}}</p>
+			<button v-on:click="show">提示</button>
+		</div>
+		<script>
+			new MVVM({
+				el:'#test',
+				data:{
+					name:'khan'
+				},
+				methods:{
+					show(){
+						alert(this.name);
+					}
+				}
+			})
+		</script>
+		<!--
+		
+		模板解析基本流程:
+				1，将el的所有子节点提出，添加到一个新建的文档fragment对象中
+				2，对fragment中的所有层次子节点递归进行编译解析处理
+					*对大括号表达式文本节点进行解析
+					*对元素节点的指令属性进行解析
+						*事件指令解析
+						*一般指令解析
+						
+					大括号表达式解析:
+						1,根据正则对象得到匹配出的表达式字符串:子匹配/ErgExp.$1   name
+						2,从data中取出表达式对应的属性值							
+						3,将属性值设置为文本节点的textContent
+						
+					事件指令解析:
+						1,从指令名中取出事件名
+						2,根据指令的值(表达式)从methods中得到对应的事件处理函数对象
+						3,给当前元素节点绑定指定事件名和回调函数的dom事件监听
+						4,指令解析完后，移除此指令属性
+		-->
+	</body>
+</html>

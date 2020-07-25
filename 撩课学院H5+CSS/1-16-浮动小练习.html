@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浮动小练习</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#header{
+				width: 1180px;
+				height: 130px;
+				background-color: lightblue;
+				margin: 0 auto;
+			}
+			
+			#content{
+				width: 1180px;
+				height: 450px;
+				background-color: rgba(0,0,255,.6);
+				margin: 20px auto;
+			}
+			
+			#content .left{
+				width: 240px;
+				height: 100%;
+				background-color: lightgreen;
+				
+				float: left;
+				
+				margin-right: 10px;
+			}
+			
+			#content .center{
+				width: 680px;
+				height: 100%;
+				background-color: lightgray;
+				
+				float: left;
+				margin-right: 10px;
+			}
+			
+			#content .right{
+				width: 240px;
+				height: 100%;
+				background-color: lightsalmon;
+				
+				float: left;
+			}
+			#footer{
+				width: 1180px;
+				height: 130px;
+				background-color: rgba(0,0,255,.6);
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!--头部-->
+		<header id="header">
+			khan
+		</header>
+		<!--内容-->
+		<section id="content">
+			<!--左侧-->
+			<div class="left">左边</div>
+			<!--中间-->
+			<div class="center">中间</div>
+			<!--右侧-->
+			<div class="right">右边</div>
+		</section>
+		<!--尾部-->
+		<footer id="footer">khan</footer>
+	</body>
+</html>

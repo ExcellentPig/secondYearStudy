@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue模板语法</title>
+		<script src="../js/vue-2.3.0.min.js"></script>
+	</head>
+	<body>
+		<!-- <div id="app">
+			<input type="text" v-model="name1">
+			<p>{{name}}</p>
+			<p v-text="name1"></p>
+		</div>
+		<script>
+			//创建Vue实例
+			const vm=new Vue({ //配置对象 
+				el:'#app', //元素  选择器
+				data:{ //数据(model)
+					name:'khan',
+					name1:'jack'
+				},
+			})
+			vm.name='rose';
+		</script> -->
+		<!--
+		
+		MVVM：
+		model：模型，数据对象(data)
+		view:视图，模板页面(#app) => DOM
+		viewModel:视图模型(Vue的实例,vm)
+		
+		-->
+		<!--
+		1,模板的理解：
+			动态的html页面
+			包含了一些JS语法代码
+				双大括号表示
+				指令(以v-开头的自定义标签属性)
+		2,双大括号表达式
+				语法:{{exp}} 或 {{{exp}}} (落后)
+				功能：向页面输出数据
+				可以调用对象的方法
+		
+		-->
+		<div id="app">
+			<p>{{msg}}</p>
+			<p>{{msg.toUpperCase()}}</p>
+			<!--
+			文本 textContent
+			
+			v-html:标签  innerHTML
+			-->
+			<p>{{o}}</p>
+			<p v-text="o"></p>
+			<p v-html="o"></p>
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					msg:'khan',
+					o:'<a href="http://www.baidu.com">click</a>'
+				}
+			})
+		</script>
+	</body>
+</html>

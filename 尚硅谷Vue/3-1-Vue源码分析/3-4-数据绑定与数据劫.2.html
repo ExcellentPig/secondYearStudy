@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="./mvvm-master/js/compile.js"></script>
+	<script src="./mvvm-master/js/mvvm.js"></script>
+	<script src="./mvvm-master/js/observer.js"></script>
+	<script src="./mvvm-master/js/watcher.js"></script>
+	<title>数据绑定与数据劫持</title>
+</head>
+<body>
+	<div id="test">
+		<p>{{name}}</p>
+		<p v-text="name"></p>
+		<button v-on:click="update">更新</button>
+	</div>
+	<script>
+		new MVVM({
+			el:'#test',
+			data:{
+				name:'khan'
+			},
+			methods:{
+				update(){
+					//更新数据
+					this.name='rose'
+				}
+			}
+		})
+	</script>
+	<!--
+	
+	数据绑定:
+		一旦更新了data中的某个属性数据，所有界面上直接使用或间接使用了此属性的节点都会更新
+		
+		*初始化显示:页面(表达式/指令)能从data读取数据显示(编译/解析)
+		*更新显示:更新data中的属性数据 ==> 页面更新
+		
+		
+	数据劫持:
+		1）数据劫持是vue中用来实现数据绑定的一种技术
+		2）基本思想:通过defineProperty()来监视data中所有属性(任意层次)数据的变化，一旦变化就去更新界面
+	
+	--------------------------------------------------------------------------------------------------
+	
+		Dep
+			它的实例什么时候创建:
+					初始化的给data的属性进行数据劫持时创建的
+			个数:
+					与data中的属性一一对应
+			Dep的结构:
+					id:标识
+					subs:[]  n个相关的watcher的容器
+		
+		Watcher
+			它的实例什么时候创建:
+					初始化的解析大括号表达式/一般指令时创建
+			个数?
+					与模板中表达式(不包含事件指令)一一对应
+			Watcher结构:
+					this.cb=cb;   //用于更新界面的回调
+					this.vm=vm;   //vm
+					this.exp=exp; //对应表达式
+					this.depIds={}; //相关的n个dep的容器对象
+					this.value=this.get(); //当前表达式对应的value
+					
+					
+			Dep与Watcher直接按的关系:
+					
+					什么关系?
+						多对多的关系
+						//name --》 Dep --》 n个watcher  / {{name}} v-text="name"
+						name --》Dep --》 n个watcher(属性在模板中多次被使用)
+						data属性--》Dep --》n个watcher(模板中有多个表达式使用了此属性 ： {{a}}/v-text="a")
+						表达式 --》Watcher --》n个Dep(多层表达式:a.b.c)
+						
+						
+					如何建立?
+						data属性中的get()中建立
+					
+					什么时候建立：
+						初始化的解析模板中的表达式创建watcher对象时
+					
+					
+					vm.name = 'abc'  ---》 data中的name属性变化 --》 name的set()调用 --》 dep --》 相关所有的watcher
+								--》 cb() --》 updater
+	-->
+</body>
+</html>

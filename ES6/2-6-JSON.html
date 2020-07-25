@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>JSON</title>
+</head>
+<body>
+<!--
+
+
+JSON.stringify  序列化  
+				json>字符串
+
+JSON.parse  	解序列化
+				字符串->json
+
+-->
+<script>
+	
+	//let json={"a":12,"b":5,"name":"khan"};
+	//console.log(json);
+	
+	//console.log(JSON.stringify(json));
+	
+// 	let str='{a:12,b:5}';
+// 	let json = JSON.parse(str);
+// 	console.log(json);  //error
+
+	let str='{"a":12,"b":5,"name":"khan"}'; //json标准写法
+	let json = JSON.parse(str);
+	console.log(json);  //error
+</script>
+</body>
+</html>

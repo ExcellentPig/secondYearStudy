@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>事件处理</title>
+	<script src="../js/vue-2.5.15.js"></script>
+</head>
+<body>
+	<!--
+	
+		1，绑定监听
+			v-on:xxx="fun"
+			@xxx="fun"
+			$xxx="fun(参数)"
+			默认事件形参:event
+			隐含属性对象:$event
+			
+		2，事件修饰符
+			.prevent:阻止事件的默认行为 event.preventDefault()
+			.stop:停止事件冒泡 event.stopPropagation()
+			
+		3，按键修饰符
+			.keycode:操作的是某个leycode值的键
+			.enter:操作的是enter键
+		
+	
+	-->
+	<div id="example">
+		<h2>1,绑定监听</h2>
+		<button @click="test1">test1</button>
+		<button @click="test2('rose')">test2</button>
+		<button @click="test3">test3</button>
+		<button @click="test4(123,$event)">test4</button>
+		
+		<h2>2,事件修饰符</h2>
+		<!--冒泡-->
+		<div
+		 style="width: 200px; height: 200px; background-color: lightcoral;"
+		 @click="test5"
+		>
+		<!--直接在这里停止事件冒泡-->
+			<div 
+			style="width: 100px; height: 100px; background-color: lightcyan;"
+			@click.stop="test6" 
+			></div>
+		</div>
+		
+		<!--在这里阻止默认行为-->
+		<a 
+		href="http://www.baidu.com"
+		@click.prevent="test7"
+		>
+			baidu
+		</a>
+		
+		
+		<h2>3,按键修饰符</h2>
+		
+		<!--在这里使用按键修饰符-->
+		<input type="test" @keyup.13="test8" />
+		<input type="test" @keyup.enter="test8" />
+	</div>
+	<script>
+		new Vue({
+			el:'#example',
+			data:{
+				test1(){
+					alert('khan');
+				},
+				test2(msg){
+					alert(msg);
+				},
+				test3(event){
+					alert(event.target.innerHTML);
+				},
+				test4(number,event){
+					alert(number+'----'+event.target.innerHTML);
+				},
+				test5(){
+					alert('out');
+				},
+// 				test6(envet){ 
+// 					event.stopPropagation(); //停止事件冒泡
+// 					alert('inner');
+// 				},
+				test6(envet){ 
+					alert('inner');
+				},
+// 				test7(event){
+// 					event.preventDefault(); //阻止默认行为
+// 					alert('baidu');
+// 				},
+				test7(event){
+					alert('baidu');
+				},
+// 				test8(event){
+// 					if(event.keyCode===13){
+// 						alert(event.target.value+' '+event.keyCode);
+// 					}
+// 					
+// 				},
+				test8(event){
+					alert(event.target.value+' '+event.keyCode);
+				}
+				
+			}
+		})
+	</script>
+
+</body>
+</html>

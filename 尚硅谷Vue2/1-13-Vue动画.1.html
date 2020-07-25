@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue动画</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<style type="text/css">
+			* {
+				overflow: hidden;
+			}
+
+			.bounce-enter-active {
+				/*进入*/
+				animation: bounce-in .5s;
+			}
+
+			.bounce-leave-active {
+				/*离开*/
+				animation: bounce-in 1s reverse;
+			}
+
+			@keyframes bounce-in {
+				0% { /*缩小 到 消失*/
+					transform: scale(0);
+				}
+
+				50% {/*放大*/
+					transform: scale(1.5);
+				}
+
+				100% { /*原始大小*/
+					transform: scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		
+	
+		
+		-->
+
+		<div id="test">
+			<center>
+				<button @click="show=!show">Toggle show</button><br><br>
+				<transition name="bounce">
+					<p v-if="show" style="display: inline-block;">khan khan khan khan khan khan</p>
+				</transition>
+			</center>
+		</div>
+
+		<script>
+			new Vue({
+				el: '#test',
+				data() {
+					return {
+						show: true
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

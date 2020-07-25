@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<!-- <li v-for="val in arr | limitBy 2 1">{{val}}</li> -->
+				<li v-for="val in arr | limitBy 2 arr.length-2">{{val}}</li>
+			</ul>
+		</div>
+		<script>
+			let vm = new Vue({
+				data: {
+					arr:[1,2,3,4,5]
+				},
+				methods:{
+					
+				}
+			}).$mount('#box'); //手动挂载
+			
+		</script>
+		<!--
+		
+		过滤器:vue
+		
+		debounce  	延迟执行  配合事件
+		
+		数据配合使用过滤器：
+			limitBy  限制几个
+		    limitBy 参数(取几个)
+			limitBy 取几个  从哪里开始
+		-->
+	</body>
+</html>

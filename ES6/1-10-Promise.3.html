@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Promise</title>
+		<script src="../js/jquery-3.2.1.js"></script>
+	</head>
+	<body>
+		<!--
+		
+			Promise------承诺
+			
+			异步:
+				操作之间没关系
+				同时进行多个操作
+				
+				代码更复杂
+			同步:
+				同时只能做一件事
+				
+				代码简单
+				
+			Promise---消除异步操作
+				用同步一样的方式来书写异步
+		-->
+		<script>
+// 			let p=$.ajax({
+// 				url:'../data/arr.txt',
+// 				dataType:'json'
+// 			})
+// 			console.log(p); //progress: ƒ ()
+							//promise: ƒ ( obj )
+							
+							
+			Promise.all([
+				$.ajax({
+					url:'../data/arr.txt',
+					dataype:'json'
+				}),
+				$.ajax({
+					url:'../data/json.txt',
+					dataType:'json'
+				})
+			]).then(function(result){
+				let [arr,json] = result;
+				console.log('resolve');
+				console.log(arr,json);
+			},function(){
+				console.log('reject');
+			})
+		</script>
+	</body>
+</html>

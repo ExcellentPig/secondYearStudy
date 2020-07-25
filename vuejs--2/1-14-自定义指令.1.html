@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义指令.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<span v-text="msg"></span>
+			<span v-red>sdaskdk</span>
+			<span v-red>sdaskdk</span>
+			<span v-red>sdaskdk</span>
+			<span v-red>sdaskdk</span>
+			<span v-red>sdaskdk</span>
+			<span v-red>sdaskdk</span>
+		</div>
+		<script>
+			Vue.directive('red',function(){
+				this.el.style.background='red'
+			})
+			
+			let vm = new Vue({
+				data: {
+					msg:'khan'
+				},
+				methods:{
+					
+				}
+			}).$mount('#box'); 
+			
+		</script>
+		<!--
+		
+		自定义指令:
+				Vue.directive(指令名称,function(){
+					
+				});
+				
+				指令名称 
+		-->
+	</body>
+</html>

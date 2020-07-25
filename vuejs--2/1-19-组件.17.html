@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件</title>
+		<script src="bower_components/vue/dist/vue.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<aaa>
+				
+			</aaa>
+		</div>
+		<template id="aaa">
+			<h3>i am aaaa</h3>
+			<bbb :m="msg"></bbb>
+		</template>
+		<script>
+			let vm = new Vue({
+				el:'#box',
+				data:{
+					a:'aaa'
+				},
+				components:{
+					'aaa':{
+						data(){
+							return {
+								msg:'==>我是父组件数据' //子组件无法使用父组件数据
+							}
+						},
+						template:'#aaa',
+						components:{
+							'bbb':{
+								props:{
+									'm':String
+								},
+								template:'<h4>i am bbb {{m}}</h4>'
+							}
+						}
+					}
+				}
+			});
+			
+			
+		</script>
+		<!--
+		组件:
+			
+			组件:一个大对象
+			
+				定义一个组件:
+				
+				1,	全局组件
+					var Aaa=Vue.extend({
+						template:`<h3>khan</h3>`
+					});		
+					Vue.component('aaa',Aaa);
+					
+				2,
+					Vue.component('aaa',{
+						template:`<h3>khan</h3>`
+					});
+					
+					放数据:
+						Vue.component('aaa',{
+							template:`<h3>{{msg}}</h3>`,
+							data(){ //函数形式，函数必须返回一个对象
+								return {
+									msg:'khan'
+								}
+							}
+						});
+						
+					放事件:
+						Vue.component('aaa',{
+							template:`<h3 @click="change">{{msg}}</h3>`,
+							data(){
+								return {
+									msg:'khan'
+								}
+							},
+							methods:{
+								change(){
+									this.msg='rose'
+								}
+							}
+						});
+						
+				3,局部组件:
+						var Aaa=Vue.component('aaa',{
+							template:`<h3 @click="change">khan{{msg}}</h3>`,
+							data(){
+								return {
+									msg:'aaa'
+								}
+							}
+						});
+						
+						let vm = new Vue({
+							el:'#box',
+							data:{
+								
+							},
+							components:{
+								'aaa':Aaa
+							}
+						});
+				4,配合模板:
+					template:'<h3 @click="change">13</h3>{{msg}}'
+					
+					单独放在某个地方:
+						（1）
+							<script type="x-template" id="aaa">
+								<h3 @click="change">13</h3>{{msg}}
+								<ul>
+									<li>111</li>
+									<li>2222</li>
+								</ul>
+							</script>
+							
+						（2）
+							<template id="aaa">
+								<h3 @click="change">13</h3>{{msg}}
+								<ul>
+									<li>111</li>
+									<li>2222</li>
+								</ul>
+							</template>
+							
+				5,动态组件
+					
+						<component :is="a">
+							
+						</component>	
+						
+				6,父子组件
+					vue默认情况下子组件无法访问父组件的数据
+					
+				7,父子组件的通信：
+				
+					子组件获取父组件的信息:
+						props:[]
+		-->
+	</body>
+</html>

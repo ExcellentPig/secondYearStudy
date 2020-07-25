@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Element-UI</title>
+		<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<!--
+		
+		UI组件:
+				提高开发效率
+				
+		vue-cli -> vue-loader	
+			
+		bootstrap  基于jQuery
+						
+		
+		bower 	前端包管理器  #   自动解决依赖		bower install bootstrap
+		npm 	node包管理器  @
+		
+		
+		------------------------
+		饿了么团队开源的一个基于vue的组件库
+		elementUI  PC
+		MintUI 	   移动端
+		...
+		
+		
+		-------------------------------
+		
+	elementUI:
+		使用:
+		官网:http://element.eleme.io/
+		
+		1,安装elementUI
+				npm i element-ui -D = npm install element-ui --save-dev
+				//i  -> install
+				//D  -> --save-dev
+				//-S -> --save
+				
+		2,引入:
+				main.js 		入口文件
+				
+				//全局引用
+				import ElementUI from 'element-ui'
+				import 'element-ui/lib/theme-chalk/index.css'
+				
+		3,使用组件:
+		
+				Vue.use(ElementUI)
+				
+				css-loader  引入css
+				字体图标	    file-loader
+				
+			less:
+				less
+				less-loader
+				cnpm i install less less-loader -D
+				
+			-------------------------------------
+			
+			按需要加载相应的组件:
+				
+				1，bable-plugin-component
+						cnpm install babel-plugin-component -D
+						
+						.balelrc新增配置
+								npm install --save-dev babel-preset-es2015
+		
+		
+			-----------------------------------------
+			发送请求:
+			
+			vue-rosource 交互
+				
+			axios:
+					下载:cnpm install axios -D
+					
+	-->
+	</body>
+</html>

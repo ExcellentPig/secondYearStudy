@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义过滤器</title>
+		<script src="./vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{msg | toDou}}
+		</div>
+		<script>
+			Vue.filter('toDou',function(n){
+				//alert(input);
+				return n<10?'0'+n:''+n
+			})
+			new Vue({
+				el:'#box',
+				data:{
+					msg:9
+				}
+			})
+		</script>
+		<!--
+			
+			
+			自定义过滤器:
+				
+				有变化
+				
+					
+		-->	
+	</body>
+</html>

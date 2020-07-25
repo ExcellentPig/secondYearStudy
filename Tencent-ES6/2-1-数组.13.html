@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组</title>
+		<script type="text/javascript">
+			
+			let arr=[2,2,4];
+			
+			//前一个元素,当前循环元素,索引,数组
+			let res=arr.reduce((prev,cur,index,arr)=>{
+				return Math.pow(prev,cur);
+			});
+			
+			console.log(res);
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		ES5里面新增的一些东西:
+		
+			循环:
+				1,for
+					for(let i=0;i<arr.length;i++)
+					
+				2,while
+				
+			
+			arr.forEach();  //代替普通的for循环
+			
+					arr.forEach(function (val,index,arr){
+						console.log(val,index,arr);
+					});
+					
+			arr.map(); //映射 数据交互时非常有用
+			
+					正常情况下需要配合return，返回的是一个新数组
+					如果没有return，相当于forEach()
+					
+					注意：用到map，一定要有return
+					
+					let newArray=arr.map((item,index,arr)=>{
+						console.log(item,index,arr);
+						return 1;
+					});
+					
+					console.log(newArray);
+					
+					重新整理数据结构
+					
+					let json={};
+					json.t=`^-^${item.title}-----`;
+					json.r=item.read+200;
+					json.hot=item.hot==true&&'666';
+					return json;
+					
+			
+			arr.filter();//过滤，过滤一些不合格的元素，如果回调函数返回true，就留下来
+			
+					let newArr=arr.filter((item,index,arr)=>{
+						return item.hot==false;
+					})
+			
+			
+			arr.some(); //类似于查找 返回true,false 某一个元素满足
+					
+					let newArr=arr.some((val,index,arr)=>{
+						return val=='b';
+					});
+					
+			arr.every(); //数组里面所有的元素都符合才返回true
+			
+			以上可以接收两个参数：
+				(回调函数,this指向谁)
+			
+			--------------------------------------------------
+			
+			arr.reduce(); //
+			
+					求数组的和\阶乘
+					
+					//前一个元素,当前循环元素,索引,数组
+					let res=arr.reduce((prev,cur,index,arr)=>{
+						return prev+cur;
+					});
+			
+			arr.reduceRight();
+				
+				
+		
+			ES2017新增运算符
+					
+					幂  **
+					
+					Math.pow(2,3);
+					2**3
+			
+		-->
+	</body>
+</html>

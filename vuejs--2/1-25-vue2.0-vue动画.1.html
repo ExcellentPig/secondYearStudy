@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue动画</title>
+		<script src="./vue2.0.js"></script>
+		<style>
+			p{
+				width: 300px;
+				height:300px;
+				background-color: red;
+			}
+			
+			.fade-enter-active,
+			.fade-leave-active{
+				transition: 3s all ease;
+			}
+			
+			.fade-enter-active{
+				opacity: 1;
+				width: 300px;
+				height: 300px;
+			}
+			.fade-leave-active{
+				opacity: 0;
+				width: 100px;
+				height: 100px;
+			}
+			
+			.fade-enter,
+			.fade-leave{
+				opacity: 0;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="显示/隐藏" @click="show=!show">
+			<transition name="fade">
+				<p v-show="show"></p>
+			</transition>
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					show:false
+				}
+			})
+		</script>
+		<!--
+		
+		vue动画:
+			
+			transition 
+				之前  属性
+				<p transition="fade"></p>
+				
+				.fade-reansition{}
+				.fade-enter{}
+				.fade-leave{}
+				
+				现在  组件
+				<transition name="fade">
+					//运动(元素，属性，路由)
+				</transition>
+				
+				class定义:(顺序需要注意)
+					.fade-enter{}  //最初始状态
+					.fade-enter-active{}  //动画开始的时候  当元素出来
+					
+					.falde-leave{}  //离开的状态
+					.fade-leave-active{} // 变化  当元素离开  消失
+		-->
+	</body>
+</html>

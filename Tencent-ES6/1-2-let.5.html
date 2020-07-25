@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>let</title>
+		<script type="text/javascript">
+			// var arr=[];
+			// for(var i=0;i<10;i++){
+			// 	arr[i]=function(){
+			// 		console.log(i);
+			// 	} 
+			// }
+			// arr[5](); //10
+			
+			var arr=[];
+			for(let i=0;i<10;i++){
+				arr[i]=function(){
+					console.log(i);
+				}
+			}
+			arr[5](); //5
+			arr[5](); //5
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		let  
+			1,没有预解析(不存在变量提升)
+				在代码块内，只要let定义变量，在之前使用，都是报错
+				先定义，再使用
+				
+			2,不能重复定义变量(可以赋值)
+			
+			3,for循环，里面是父级作用域，里面又一个(不同作用域可以重复定义)
+		const
+		
+		块级作用域:
+			
+			{
+				//块级
+			}
+			
+			{{{{{let a=12}}}}}
+			
+			if(){}
+			for(){}
+			while(){}
+			...
+		
+		-->
+	</body>
+</html>

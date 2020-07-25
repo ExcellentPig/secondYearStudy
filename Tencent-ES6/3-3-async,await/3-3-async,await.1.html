@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>async,await</title>
+		<script type="text/javascript">
+			
+			async function fn(){
+				throw new Error('错了');
+			}
+			fn().then(res=>{
+				console.log(res);
+			},err=>{
+				console.log(err);
+			})
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		读取文件
+		
+				promise
+				generator
+				async
+				
+				
+		async特点
+				
+				async function fn(){ //表示异步，这个函数里面有异步的任务
+					let result=await  xxx  //表示后面的结果需要等待
+				};
+				
+				
+				1,await 只能放在async函数中
+				2,相比generator语义化更强了
+				3,await后面可以是promise对象，也可以是数字，字符串，布尔值
+				4,async函数返回的是promise对象
+				5,只要await语句后面Promise状态变成reject，那么整个async函数就会中断执行
+		
+		-->
+	</body>
+</html>

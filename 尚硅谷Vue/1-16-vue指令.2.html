@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>vue</title>
+	<script src="../js/vue-2.5.15.js"></script>
+</head>
+<body>
+	<div id="app1">
+		<p v-reverse="msg1"></p>
+		<p v-upper="msg1"></p>
+	</div>
+	<div id="app2">
+		<p v-reverse="msg2"></p>
+		<p v-upper="msg2"></p>
+	</div>
+	<script>
+		
+		Vue.directive('reverse',function(el,binding){
+			el.textContent = binding.value.split("").reverse().join("");
+		})
+		
+		new Vue({
+			el:'#app1',
+			data:{
+				msg1:'khan'
+			},
+			directives:{
+				'upper'(el,binding){
+					el.textContent = binding.value.toUpperCase();
+				}
+			}
+		})
+		
+		new Vue({
+			el:'#app2',
+			data(){
+				return {
+					msg2:'hello khan'
+				}
+			}
+		})
+	</script>
+</body>
+</html>

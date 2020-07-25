@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue指令</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<style>
+			[v-cloak]{ /*属性选择器*/
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		常用内置指令：
+		
+			v-text:更新元素的textContent
+			v-html:更新元素的innerHTML
+			v-if:如果为true，当前标签才会输出到页面
+			v-else:如果为false,当前标签才会输出到页面
+			v-show:通过控制display样式来控制显示/隐藏
+			v-for:遍历数组/对象
+			v-on:绑定事件监听，简写为@
+			v-bind:强制绑定解析表达式,简写为:
+			v-model:双向数据绑定
+			ref:指定唯一标识，vue对象通过$els属性访问这个元素对象
+			v-cloak:防止闪现，与css配合:[v-clock]{display:none}	
+				
+				
+		自定义指令：
+		
+			1，注册全局指令
+				Vue.directive('my-direcive',function(el,binding){
+					el.innerHTML=binding.value.toupperCase()
+				})
+			
+			2，注册局部指令
+				directives:{
+					'my-directive':{
+						bind(el,binding){
+							el.innerHTML=binding.value.toupperCase()
+						}
+					}
+				}
+			
+			3，使用指令
+				v-my-directive='xxx'
+		
+		-->
+		<div id="example">
+			<p ref="content">khan</p>
+			<button @click="hint">提示</button>
+			<!-- <p v-text="msg"></p> -->
+			<p v-cloak>{{msg}}</p>
+		</div>
+		<script>
+			new Vue({
+				el:'#example',
+				data:{
+					msg:'khann'
+				},
+				methods:{
+					hint(){
+						alert(this.$refs.content.textContent);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

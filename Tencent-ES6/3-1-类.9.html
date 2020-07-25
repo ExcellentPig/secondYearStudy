@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>class</title>
+		<script type="text/javascript">
+		
+			class Person{
+				
+				constructor() {
+				    
+				}
+				
+				get aaa(){
+					return `aaa的属性`;
+				}
+				
+				set aaa(val){
+					console.log(`aaa= ${val}`);
+				}
+				
+			}
+			
+			let p1=new Person();
+			
+			p1.aaa='123';
+			
+			
+			console.log(p1.aaa); //undefined 需要get
+		</script>
+	</head>
+	<body>
+		<!---
+		
+		class：
+		
+			面向对象，类(属性，方法)
+				
+					之前，函数模拟
+					
+					
+					现在class
+					
+			
+			注意：
+				class不存在提升，和预解析
+				ES5可以用函数模拟
+				
+				
+			矫正this：
+				fn.call(this指向谁,arg1,arg2...)
+				fn.apply(this指向谁,[arg1,arg2...])
+				fn.bind(this)
+				
+				------------------------------
+				
+				class新增:
+				
+					取值函数getter
+					存值函数setter
+					
+				-----------------------------
+				
+				
+				
+		
+		->
+	</body>
+</html>

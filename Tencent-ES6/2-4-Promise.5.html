@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Promise</title>
+		<script type="text/javascript">
+			
+			// let p1=Promise.reject('aaaa');
+			// 
+			// p1.then(res=>{
+			// 	console.log(res);
+			// }).catch(err=>{
+			// 	console.log(err);
+			// })
+			
+			
+			let p1=new Promise(reject=>{
+				reject('aaa')
+			}).then(err=>{
+				console.log(err);
+			})
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		Promise:
+		
+			作用:解决异步回调问题
+		
+			
+			传统方式，大部分用回调函数，事件驱动
+			
+			ajax(url,{ //获取token
+				ajax(url,()=>{ //获取用户信息
+					...
+				})
+			})
+			
+			--------------------------
+			
+			语法:
+				
+				
+				new Promise(function(resolve,reject){
+					
+					//resolve 成功时调用
+					//reject  失败的时候调用
+					
+				})
+				
+				
+			
+				promise.then()
+				
+				promise.catch(); //抓取错误
+				
+				
+				-----------------
+				
+				Promise.resolve() //将现有的东西转成成功状态的Promise对象
+				Promise.reject() //将现有的东西转成失败状态的Promise对象
+				
+			
+				----------------
+				
+				Pomise.all([p1,p2,p3]) //把promise打包，仍到一个数组里面，仍然是一个promise对象
+			
+		-->
+	</body>
+</html>

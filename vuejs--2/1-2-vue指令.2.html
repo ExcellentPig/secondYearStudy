@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>data里的数据</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<!--
+		
+		
+		指令:
+			扩展html标签功能
+			
+		v-model:
+				一般用在表单元素上(input)
+				双向数据绑定
+				
+		v-for:
+				循环
+				v-for="name in arr"
+						{{$index}}
+						{{$key}}  --- json
+		
+		-->
+		<div id="box">
+			<!-- <input type="text" value="aaa"> -->
+			<input type="text" v-model="msg">
+			<input type="text" v-model="msg">
+			<p>{{msg}}</p>
+			<p>{{msg2}}</p>
+			<p>{{msg3}}</p>
+			<p>{{arr}}</p>
+			<!--[object Object]-->
+			<p>{{json}}</p>
+			
+			 <ul>
+			 	<li v-for="value in arr">{{value}}--{{$index}}</li>
+			 </ul>
+			 <hr>
+			 <ul>
+			 	<li v-for="val in json">{{$key}}--{{val}}--{{$index}}</li>
+			 </ul>
+			 <hr>
+			 <ul>
+			 	<li v-for="(k,v) in json">{{k}}--{{v}} -- {{$index}}---{{$key}}</li>
+			 </ul>
+		</div>
+		<script>
+			new Vue({
+				el:'#box', //放选择器  class id 标签
+				data:{
+					msg:'khan',
+					msg2:12,
+					msg3:true,
+					arr:['a','b','c'],
+					json:{a:'khan',b:'rose'}
+				}
+			})
+		</script>
+	</body>
+</html>

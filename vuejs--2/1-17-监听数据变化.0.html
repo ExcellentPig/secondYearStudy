@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>监听数据变化.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{a}}
+			<br>
+			{{b}}
+		<script>
+			let vm = new Vue({
+				el:'#box',
+				data:{
+					a:111,
+					b:222
+				},
+				methods:{
+					
+				}
+			});
+			
+			vm.$watch('a',function(){
+				alert('change');
+				
+				//this.b='khan'
+				this.b=this.a+1;
+			})
+			
+			document.onclick=()=>{
+				vm.a=1;
+			}
+			
+		</script>
+		<!--
+		监听数据变化:
+				 vm.$watch(name,fnCb);
+		-->
+	</body>
+</html>

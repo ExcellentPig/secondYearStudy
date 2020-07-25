@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>属性</title>
+		<script src="./vue.js"></script>
+		<style>
+			.red{
+				color: red;
+			}
+			.blue{
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		属性:
+			v-bind:src="url"
+			
+			简写:
+				:src="url"
+				
+			class和style:
+			
+				:class=""
+					1,:class="[red,b]"  data数据
+					2,:class="{red:true,blue:true}"  不需要data数据
+					3,:class="json"
+							data:{
+								json:{
+									red:true,
+									blue:false
+								}
+							}
+					
+				:style=""
+				
+				
+				:style="{color:'red'}"
+				:style="[c,d]"
+					data:{
+						c:{
+							color:'red'
+						},
+						d:{
+							backgroundColor:'pink' //驼峰
+						}
+					}
+		-->
+		<div id="box">
+			<strong :style="[c,d]">khan</strong>
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					c:{
+						color:'red'
+					},
+					d:{
+						backgroundColor:'pink'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

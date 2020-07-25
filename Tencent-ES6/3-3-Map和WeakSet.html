@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Map和WeakSet</title>
+		<script type="text/javascript">
+			let wSet=new WeakSet();
+			
+			let json={
+				a:1,
+				b:2
+			};
+			let json2={
+				a:'apple',
+				b:2
+			};
+			
+			wSet.add(json);
+			wSet.add(json2);
+			
+			console.log(wSet);
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		new Set([]); //存储数组，这种写法对
+		 
+		 new WeakSet({}) //存储json，这种写法不靠谱
+		 
+				WeakSize没有size，也又有clear
+		
+		-->
+	</body>
+</html>

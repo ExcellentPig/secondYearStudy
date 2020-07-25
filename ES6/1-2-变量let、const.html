@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>变量let、const</title>
+		<script>
+			/*块级作用域的作用*/
+			window.onload=function(){
+				var aBtn = document.getElementsByTagName('input');
+				
+// 				for(var i=0;i<aBtn.length;i++){
+// 					aBtn[i].onclick=function(){
+// 						alert(i);
+// 					}
+// 				}  //always 3
+
+// 				for(var i=0;i<aBtn.length;i++){
+// 					(function(i){
+// 						aBtn[i].onclick=function(){
+// 							alert(i);
+// 						}
+// 					})(i);  //旧的处理方法
+// 				}
+				
+				for(let i=0;i<aBtn.length;i++){
+					aBtn[i].onclick=function(){
+						alert(i);
+					}
+				}  // 0 1 2
+			}
+		</script>
+	</head>
+	<body>
+		<script>
+			/*
+			 *变量：
+			 * 
+			 * var
+			 * 1，可以重复声明
+			 * 2，无法限制修改
+			 * 3，没有块级作用域
+			 * 
+			 * 
+			 * let
+			 * 1，不能重复声明
+			 * 2，变量-可以修改
+			 * 3，有块级作用域
+			 * 
+			 * 
+			 * const
+			 * 1，不能重复声明
+			 * 2，常量-不可以修改
+			 * 3，有块级作用域
+			 * 4，声明了必须赋值
+			 * 
+			 */
+			
+// 			var a=10;
+// 			var a=20;
+// 			console.log(a);
+// 			
+// 			
+// 			if(true){
+// 				var b=12;
+// 			}
+// 			console.log(b);
+			
+			
+// 			let c = 10;
+// 			let c = 20;
+// 			console.log(c);  //error
+
+// 			const d = 12;
+// 			const d = 20;
+// 			console.log(d); //error
+
+// 			let a =20;
+// 			a = 200;
+// 			console.log(a);
+// 			
+// 			const b = 20;
+// 			b = 30;
+// 			console.log(b);  //error
+
+// 			if(true){
+// 				let a = 12;
+// 			}
+// 			console.log(a); //a is not defined
+
+// 			if(true){
+// 				const a = 12;
+// 				console.log(a);  //right
+// 			}
+
+
+			
+		</script>
+		<input type="button" value="按钮一">
+		<input type="button" value="按钮二">
+		<input type="button" value="按钮三">
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>属性</title>
+		<script src="./vue.js"></script>
+		<style>
+			.red{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		属性:
+			v-bind:src="url"
+			
+			简写:
+				:src="url"
+				
+			class和style:
+			
+				:class=""
+					
+					:class="red"  red是data数据
+					
+				:style=""
+		-->
+		<div id="box">
+			<strong :class="red">khan</strong>
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					red:'red'
+				}
+			})
+		</script>
+	</body>
+</html>

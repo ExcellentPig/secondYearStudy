@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义过滤器</title>
+		<script src="./vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<!-- {{msg | toDou '12' '5'}} -->
+			{{msg | toDou(12,5)}}
+		</div>
+		<script>
+			Vue.filter('toDou',function(n,a,b){
+				//alert(input);
+				alert(a+' '+b)
+				return n<10?'0'+n:''+n
+			})
+			new Vue({
+				el:'#box',
+				data:{
+					msg:9
+				}
+			})
+		</script>
+		<!--
+			
+			
+			自定义过滤器:
+				
+				有变化
+				
+				自定义过滤传参发生了变化
+				
+				之前:
+					{{msg | toDou '12' '5'}}
+					
+			    现在:
+					{{msg | toDou('12','5')}}
+					
+		-->	
+	</body>
+</html>

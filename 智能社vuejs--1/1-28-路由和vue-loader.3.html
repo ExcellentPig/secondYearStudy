@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>路由和vue-loader</title>
+		<script src="../js/vue.js"></script>
+		<script src="../js/vue-router.js"></script>
+		<style>
+			.router-link-active {
+				font-size: 20px;
+				color: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div>
+				<router-link to="/home">主页</router-link>
+				<router-link to="/user">用户</router-link>
+			</div>
+			<div>
+				<router-view></router-view>
+			</div>
+		</div>
+		<script>
+			//组件
+			var Home = {
+				template: '<h3>我是主页</h3>'
+			};
+			var User = {
+				template: `
+				<div>
+					<h3>我是用户</h3>
+						<ul>
+							<li><router-link to="/user/khan/age/10">khan</router-link></li>
+							<li><router-link to="/user/khan1/age/18">khan1</router-link></li>			
+							<li><router-link to="/user/khan2/age/20">khan2</router-link></li>			
+						</ul>
+						<div>
+							<router-view></router-view>
+						</div>
+				</div>				
+				`
+			}
+			var UserDetail = {
+				template: '<div>{{$route.params}}</div>'
+			}
+			//配置路由
+			var routes = [{
+					path: '/home',
+					component: Home
+				},
+				{
+					path: '/user',
+					component: User,
+					children: [{
+						path: ':username/age/:age',
+						component: UserDetail
+					}]
+				},
+				{
+					path: '*',
+					redirect: '/home'
+				}
+			];
+
+			//生成路由实例
+			var router = new VueRouter({
+				routes
+			})
+
+			//最后挂到vues上
+			new Vue({
+				el: '#box',
+				router
+			})
+		</script>
+		<!--
+		
+		http://router.vejs.org/zh-cn/index.html
+		
+		基本使用:
+				<router-link to="/home">主页</router-link>
+				....
+				
+				重定向:
+				
+					var routes=[
+						{path:'/home',component:Home},
+						{path:'/news',component:News},
+						{path:'*',redirect:'/home'}
+					];
+					
+					
+		--------------------------------------------------------
+		
+		嵌套路由，子路由
+		
+				var routes=[
+					{path:'/home',component:Home},
+					{path:'/user',
+					component:User,
+					children:[  //核心
+						{path:'username',component:UserDetail}
+					]
+					},
+					{path:'*',redirect:'/home'}
+				];
+				
+			
+			参数
+		-->
+	</body>
+</html>

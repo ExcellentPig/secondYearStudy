@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>展开</title>
+</head>
+<body>
+<!--
+
+...
+
+参数展开
+	收集
+	展开
+	
+数组展开
+	...arr
+
+json展开
+-->
+<script>
+	//剩余参数
+	//必须放在最后
+// 	function show(a,b,...c){
+// 		console.log(a);
+// 		console.log(b);
+// 		console.log(c);
+// 	}
+// 	show(12,5,8,3,1,0,2,5,63);
+
+// 	function show(a,b,...c){
+// 		console.log(a);
+// 		console.log(b);
+// 		console.log(c);
+// 	}
+// 	show(12,5); //c []
+
+	//展开
+// 	let arr1=[12,5,8];
+// 	
+// 	function show(a,b,c){
+// 		console.log(a+b+c);
+// 	}
+// 	show(...arr1);
+
+// 	let arr1 = [12,5,8];
+// 	let arr2 = [2,5,8];
+// 	let arr3=[...arr1,...arr2];
+// 	console.log(arr3);
+
+	//json
+	let json={
+		a:12,
+		b:5,
+		c:99
+	};
+	let json2={
+		...json,
+		d:999
+	}
+	console.log(json2);
+</script>
+</body>
+</html>

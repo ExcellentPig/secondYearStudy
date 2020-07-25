@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES9新增</title>
+		<script type="text/javascript">
+			
+			let reg=/^\w+.\w+$/s;
+			
+			// let str='welcome-khan';
+			// let str='welcomeaaakhan';
+			 //let str='welcome🛫khan'; //false
+			//let str='welcome\nkhan'; //true
+			
+			console.log(reg.test(str)); //true
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		命名捕获:
+		
+				语法:
+					(?<名字>)
+		
+        
+		反向引用命名捕获:
+				
+					语法:
+						\k<名字>
+
+       
+	   替换:
+			
+				$<名字>
+				
+				
+		
+		
+		-------------------------------------------------
+		
+		
+		.  (任意)
+		
+			之前'.'在正则里面表示匹配任意东西，但是不包括\n等等
+			
+		
+		dotAll模式:  s
+				
+				let reg=/\w+/gims;
+		
+    
+		-->
+	</body>
+</html>

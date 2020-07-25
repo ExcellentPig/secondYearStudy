@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>动画(过渡)</title>
+		<script src="bower_components/vue/dist/vue.js"></script>
+		<link rel="stylesheet" href="bower_components/animate.css/animate.css">
+		<style>
+			#box{
+				width: 100px;
+				margin: 0 auto;
+			}
+			#div1{
+				width:100px;
+				height:100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button"  value="btn" @click="toggle" />
+			<div id="div1" class="animated" v-show="bSign" transition="bounce">
+				
+			</div>
+		<script>
+			let vm = new Vue({
+				el:'#box',
+				data:{
+					bSign:true
+				},
+				methods:{
+//					toggle:function(){
+//						alert(1);
+//					}
+					toggle(){
+						//alert(1);
+						this.bSign=!this.bSign
+					}
+				},
+				transitions:{ //定义所有动画名称
+					bounce:{
+						enterClass:'zoomInLeft',
+						leaveClass:'zoomOutRight'
+					}
+				}
+			});
+			
+			
+		</script>
+		<!--
+		
+		
+		bower =》(前端)包管理器
+			npm install bower -g
+			
+		bower install <包名>	bower install vue#1.0.28
+		bower uninstall <包名>
+		bower info <包名>
+		
+			
+		动画(过渡):
+			animate.css
+			
+			
+		-->
+	</body>
+</html>

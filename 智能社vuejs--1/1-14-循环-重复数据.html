@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-text</title>
+		<script src="../js/vue-2.5.15.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="button" value="add" @click="add">
+			<ul>
+				<li v-for="val in arr" track-by="$index">{{val}}</li>
+			</ul>
+		</div>
+		<script>
+			let vm=new Vue({
+				el:'#box',
+				data:{
+					arr:['a','b','c']
+				},
+				methods:{
+					add(){
+						this.arr.push('d');
+					}
+				}
+			})
+			/**
+			 * 循环-重复数据
+			 * 
+			 *  track-by='索引'   提高循环性能
+			 */
+		</script>
+	</body>
+</html>

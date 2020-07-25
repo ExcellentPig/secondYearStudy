@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>标签类型划分</title>
+	<style>
+		div{
+			background-color: red;
+			width: 300px;
+			height: 200px;
+		}
+		p{
+			background-color: gray;
+			width: 300px;
+			height: 200px;
+		}
+		ul{
+			background-color: darkcyan;
+			width: 50%;
+		}
+		li{
+			background-color: darkorange;
+			width: 50%;
+		}
+		a{
+			background-color: skyblue;
+			width: 200px; /*不会改变*/
+			height: 60px;
+		}
+		
+		button{
+			width: 200px;
+			height: 50px;/*改变*/
+		}
+		.div1{
+			/* display:none; */
+			display:inline;
+			
+		}
+		.a{
+			display: block;
+			width: 200px;
+			height: 100px;
+		}
+		.btn{
+			display: block; <!---->
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<!--
+	
+	块元素 
+	 独占一行，随时设置高度和宽度
+	 ul li form ...
+	
+	-->
+	<div>111</div>
+	<p>222</p>
+	<ul>
+		<li>222</li>
+		<li>333</li>
+		<li>444</li>
+	</ul>
+	<!--
+		
+		行内(内联)元素
+		不独占一行
+		宽度，高度，内边距都不可以改变
+		span,a，img,em,bt,label....
+		
+	-->
+	<a href="">1</a>
+	<a href="">2</a>
+	<a href="">3</a>
+	<span>111111</span>
+	<span>222222</span>
+	<!--
+	行内(内联)块级标签
+	多个可以在一行，能设置高度宽度
+	input select textarea...
+	-->
+	<button>click1</button>
+	<button>click2</button>
+	<button>click3</button>
+	
+	<!--
+		块元素和内联元素的转换4
+		display:block
+	-->
+	<br>
+	<br>
+	<br>
+	<div class="div1">111111</div>
+	<a class="a" href="">222</a>
+	<a class="a" href="">333</a>
+	<a class="a" href="">444</a>
+	<button class="btn">click</button>
+</body>
+</html>

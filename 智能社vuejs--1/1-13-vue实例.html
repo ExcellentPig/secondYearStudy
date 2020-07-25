@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue实例</title>
+		<script src="../js/vue-2.5.15.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<!-- {{a}}
+			<span v-text="a"></span>
+			{{aa}} -->
+			
+			<span v-text="a"></span>
+		</div>
+		<script>
+			let vm=new Vue({
+				el:'#box',
+				data:{
+					a:1,
+					b:1
+				}
+			});
+
+// 			let vm=new Vue({
+// 				//aa:11, //自定义属性
+// 				show(){
+// 					alert(1);
+// 				},
+// 				data:{
+// 					a:1
+// 				}
+// 			}).$mount('#box');  //手动挂载vue
+// 			
+// 			console.log(vm.$el);
+// 			vm.$el.style.background='red';
+			
+			
+// 			console.log(vm.$data);
+// 			console.log(vm.$data.a);
+			
+			//vm.$mount('#box');
+			
+			
+			//console.log(vm.$options.aa);
+			//vm.$options.show();
+			
+			
+			console.log(vm.$log);
+				
+			/**
+			 * vue实例方法
+			 * 
+			 * 		$el  元素
+			 * 		$data	数据
+			 * 		vm.$mount('#box');	手动挂载
+			 * 		vm.$options.aa  	访问自定义属性 
+			 * 		vm.$destory			销毁对象
+			 * 		vm.$log()			查看现在数据的状态
+			 */
+		</script>
+	</body>
+</html>

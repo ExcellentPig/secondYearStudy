@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器</title>
+		<script src="../js/vue-2.5.15.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<!-- <input type="text" @keyup="show | debounce 2000"> -->
+			
+			<!-- <ul>
+				<li v-for="val in arr | orderBy 'o'"> 
+					{{val}}
+				</li>
+			</ul> -->
+			
+			<!-- {{a | toDou}} -->
+			<!-- {{a | toDou 1 2}} -->
+			
+			
+			{{b | date}}
+		</div>
+		<script>
+// 			Vue.filter('toDou',function(input){
+// 				return input<10?'0'+input:''+input;
+// 			})
+// 			Vue.filter('toDou',function(input,a,b){
+// 				alert(a+','+b);
+// 				return input<10?'0'+input:''+input;
+// 			})
+			
+			
+			Vue.filter('date',function(input){
+				// console.log(input);
+				var oDate=new Date(input);
+				return oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+			})
+			
+			let vm=new Vue({
+				el:'#box',
+				data:{
+					// arr:[1,2,3,4,5]
+					// a:9
+					b:Date.now()
+				},
+				methods:{
+// 					show(){
+// 						alert(1);
+// 					}
+				}
+			})
+			/**
+			 * 过滤器
+			 * 	capitalize	uppercase	currency
+			 * 
+			 * 	debounce->配合事件	延迟执行
+			 * 
+			 * 	数组配合使用:
+			 * 		limitBy	限制几个
+			 * 		limitBty 参数(几个)
+			 * 		limitBt	 取几个  从哪里开始
+			 * 
+			 * 		filterBy 过滤数据
+			 * 		filterBy '谁'
+			 * 		
+			 * 
+			 * 		orderBy	排序
+			 * 		orderBy	1/-1  正序/倒叙
+			 * 
+			 * 
+			 * 
+			 * 	自定义过滤器:
+			 * 		Vue.filter(name,funciton(input){
+					
+					})
+			 */
+		</script>
+	</body>
+</html>

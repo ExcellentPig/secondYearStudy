@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="./mvvm-master/js/compile.js"></script>
+	<script src="./mvvm-master/js/mvvm.js"></script>
+	<script src="./mvvm-master/js/observer.js"></script>
+	<script src="./mvvm-master/js/watcher.js"></script>
+	<title>数据绑定与数据劫持</title>
+</head>
+<body>
+	<div id="test">
+		<p>{{name}}</p>
+		<button v-on:click="update">更新</button>
+	</div>
+	<script>
+		new MVVM({
+			el:'#test',
+			data:{
+				name:'khan'
+			},
+			methods:{
+				update(){
+					//更新数据
+					this.name='rose'
+				}
+			}
+		})
+	</script>
+	<!--
+	
+	数据绑定:
+		一旦更新了data中的某个属性数据，所有界面上直接使用或间接使用了此属性的节点都会更新
+		
+		*初始化显示:页面(表达式/指令)能从data读取数据显示(编译/解析)
+		*更新显示:更新data中的属性数据 ==> 页面更新
+		
+		
+	数据劫持:
+		1）数据劫持是vue中用来实现数据绑定的一种技术
+		2）基本思想:通过defineProperty()来监视data中所有属性(任意层次)数据的变化，一旦变化就去更新界面
+	
+	
+	
+	-->
+</body>
+</html>

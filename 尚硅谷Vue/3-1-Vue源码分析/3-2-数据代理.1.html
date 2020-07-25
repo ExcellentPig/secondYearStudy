@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据代理</title>
+		<script src="./mvvm-master/js/compile.js"></script>
+		<script src="./mvvm-master/js/mvvm.js"></script>
+		<script src="./mvvm-master/js/observer.js"></script>
+		<script src="./mvvm-master/js/watcher.js"></script>
+	</head>
+	<body>
+		<!--
+		
+		数据代理
+		
+			通过一个对象代理另一个对象中属性的操作(读/写)
+			
+			vue数据代理:
+					通过vm对象来代理data对象中所有属性的操作
+					
+			好处:
+				更方便的操纵data中的数据
+				
+			基本实现流程:
+				通过Object.defineProperty()给vm添加与data对象的属性对应的属性描述符
+				所有添加的属性都包含getter/setter
+				getter/setter内部去操作data中对应的属性数据
+		
+		-->
+		<div id="test">
+			
+		</div>
+		<script>
+			const vm=new MVVM({
+				el:'#test',
+				data:{
+					name:'khan123'
+				}
+			})
+			
+			console.log(vm.name,vm); //vm代理对data数据的读操作
+			
+			vm.name = 'rose';
+			console.log(vm._data.name);//vm代理对数据的写操作
+			console.log(vm.name);
+		</script>
+	</body>
+</html>

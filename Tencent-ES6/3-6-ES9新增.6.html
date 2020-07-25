@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES9新增</title>
+		<script type="text/javascript">
+			
+			let str='2019-05-17';
+			
+			let reg=/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+			
+			
+			let str1=str.replace(reg,(...args)=>{
+				//console.log(...args);
+				
+				let {year,month,day}=args[args.length-1];
+				
+				return `${day}/${month}/${year}`;
+			});
+			
+			console.log(str1);
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		命名捕获:
+		
+				语法:
+					(?<名字>)
+		
+        
+		反向引用命名捕获:
+				
+					语法:
+						\k<名字>
+
+       
+	   替换:
+			
+				$<名字>
+				
+				
+		
+    
+		-->
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue.js</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<!--vue-app 是根容器-->
+		<div id="vue-app">
+			<h1>Events</h1>
+			
+			<button @click.once="add(1)">加一岁</button>
+			<button v-on:click="subtract(1)">减一岁</button>
+			<br><br>
+			<button v-on:dblclick="add(10)">加一岁</button>
+			<button v-on:dblclick="subtract(10)">减一岁</button>
+			<p>my age is {{age}}</p>
+			
+			<div id="canvas" v-on:mousemove="updateXY">
+				{{x}},{{y}} - <span @mousemove="stopMoving">Stop Moving</span>
+				<p @mousemove.stop="">Stop Moving</p>
+			</div>
+			
+			<a @click.prevent="alert()" href="http://www.baidu.com">阻止跳转</a>
+			
+			<h1>键盘Events</h1>
+			<label for="">性名:</label>
+			<input type="text" @keyup.enter="logName"><br><br>
+			<label for="">年龄:</label>
+			<input type="text" @keyup.alt.enter="logAge">
+			
+			<h1>双向数据绑定 /input /select /textarea </h1>
+			<label for="">姓名:</label>
+			<input ref="name" type="text" @keyup="logName1">
+			<br><br>
+			<input ref="name" type="text" v-model="name" placeholder="v-model">
+			<span>{{name}}</span>
+			<br><br>
+			<label for="">年龄:</label>
+			<input ref="age1" type="text" @keyup="logAge1">
+			<span>{{age1}}</span>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义键盘信息.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<!-- <input type="text" @keydown.17="show"> -->
+			<input type="text" @keydown.ctrl="show">
+		</div>
+		<script>
+			document.onkeydown=function(ev){
+				console.log(ev.keyCode);
+			};
+			
+			Vue.directive('on').keyCodes.ctrl=17;
+			let vm = new Vue({
+				el:'#box',
+				methods:{
+					show(){
+						alert(1);
+					}
+				}
+			});
+			
+		</script>
+		<!--
+			
+			@keydown.a="show"
+		自定义键盘信息:
+				 
+		-->
+	</body>
+</html>

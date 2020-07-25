@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>量词</title>
+</head>
+<body>
+	<!--
+	
+	量词：
+		出现的次数
+		{n,m}  至少n次 最多m次
+		
+	
+	常用量词：
+		{n,}    至少n次
+		*		任意次{0,}
+		?		零次或一次 {0,1}
+		+		一次或任意次	 {1,}
+		{n}     正好n次
+	
+	-->
+	<script>
+// 		var str='sd465as4d65s 465s4ad s5d46a ';
+// 		console.log(str.match(/\d*/g));  //出问题 *
+	</script>
+	<input type="text" id="txt1">
+	<input type="button" value="校验" id="btn1">
+	<script>
+		var oTxt1 = document.getElementById('txt1');
+		var oBtn=document.getElementById('btn1');
+		
+		oBtn.onclick=()=>{
+			// \.代表.本身   i不检验大小写
+			// var re=/\w+@[a-z0-9]+\.[a-z]+/i;
+			
+			//test 检验合法性
+			//test 字符串一部分符合要求  就返回true		
+// 			if(re.test(oTxt1.value)){
+// 				alert('right');
+// 			}else{
+// 				alert('err');
+// 			}
+
+
+			//[^abc] 排除
+			//不在方括号内  ^行首  $行尾
+			var re=/^\w+@[a-z0-9]+\.[a-z]+$/i;
+			if(re.test(oTxt1.value)){
+				alert('right');
+			}else{
+				alert('err');
+			}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue指令</title>
+		<script src="../js/vue-2.3.0.min.js"></script>
+	</head>
+	<body>
+		<!--
+		强制数据绑定：
+			指定变化的属性值
+			v-bind:xxx='yyy'  //yyy会作为表达式解析执行
+			简写：:xxx='yyy'
+			
+			绑定事件监听：
+				绑定指定事件的回调函数
+				v-on:click='xxx'
+				简写:@click='xxx'
+		-->
+		<div id="app">
+			<!--强制绑定-->
+			<img src="imgUrl">
+			<br><br>
+			<img v-bind:src="imgUrl" >
+			<br><br>
+			<img :src="imgUrl" >
+			<!--监听-->
+			<br><br>
+			<button v-on:click="test">test1</button>
+			<br><br>
+			<button @click="test">test1</button>
+			<br><br>
+			<button @click="test2('khan')">test2</button>
+			<br><br>
+			<button @click="test2(msg)">test2</button>
+		</div>
+		<script>
+			new Vue({
+				el:'#app',
+				data:{
+					msg:'<b>123</b>',
+					imgUrl:'https://s1.hdslb.com/bfs/static/jinkela/video/asserts/33.png'
+				},
+				methods:{
+					test(){
+						alert('123')
+					},
+					test2(content){
+						alert(content)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

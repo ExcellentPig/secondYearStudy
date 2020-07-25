@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>组件</title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<my-aaa></my-aaa>
+		</div>
+		<script type="x-template" id="aaa">
+			<h2 @click="change">{{msg}}</h2>
+			<ul>
+				<li>1111</li>
+				<li>1111</li>
+				<li>1111</li>
+				<li>1111</li>
+				<li>1111</li>
+			</ul>
+		</script>
+		<script>
+			
+			var vm = new Vue({
+				el: '#box',
+				components:{
+					'my-aaa':{
+						data(){
+							return {
+								msg:'rose'
+							}
+						},
+						methods:{
+							change(){
+								this.msg='change'
+							}
+						},
+						template:'#aaa'
+					}
+				}
+			})
+		</script>
+		<!--
+		
+		
+		vue组件:
+			组件:一个大对象
+			
+		1,	全局组件		
+			Vue.extend({
+				template:'<h3>khan</h3>'
+			});
+			
+			Vue.component('aaa',Aaa);
+		
+			组件里面放数据:
+				data要是函数形式
+				var Aaa=Vue.extend({
+					data(){
+						return {
+							msg:'kahnn'
+						}
+					},
+					template:'<h3>{{msg}}</h3>'
+				});
+				
+			
+		局部组件:放在组件内部
+				var vm = new Vue({
+					el: '#box',
+					data: {
+				
+					},
+					components:{//局部组件
+						aaa:Aaa
+					}
+				})
+				
+		------------------------------------------------------------
+		
+		Vue.component('my-aaa',{
+			template:'<strong>khan</strong>'
+		})
+					
+		//局部
+		components:{
+			'my-aaa':{
+				template:'<h2>khan</h2>'
+			}
+		}
+		
+		
+		-------------------------------------------------------------
+		
+		配合模板:
+				template:'标签'
+				
+				单独放在某个地方
+					
+				1,	<script type="x-template" id="aaa">
+						<h2 @click="change">{{msg}}</h2>
+						<ul>
+							<li>1111</li>
+							<li>1111</li>
+							<li>1111</li>
+							<li>1111</li>
+							<li>1111</li>
+						</ul>
+					</script>
+		
+					template:'#aaa'	
+		-->
+	</body>
+</html>

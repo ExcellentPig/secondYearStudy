@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue.js</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<link rel="stylesheet" href="./style.css">
+	</head>
+	<body>
+		<!--vue-app 是根容器-->
+		<div id="vue-app">
+			<h1>{{greet('afternoon')}}</h1>
+			<h1>{{name}}</h1>
+			<a v-bind:href="website">Baidu</a>
+			<!-- <a :href="website">Baidu</a> -->
+			<br><br><br>
+			<input type="text" v-bind:value="name">
+			<br><br>
+			<p v-html="Tag"></p>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>

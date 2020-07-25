@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义键盘指令</title>
+		<script src="./vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" @keyup.ctrl="change">
+		</div>
+		<script>
+			//Vue.directive('on').keyCodes.ctrl=17;
+			Vue.config.keyCodes.ctrl=17;
+			new Vue({
+				el:'#box',
+				data:{
+					
+				},
+				methods:{
+					change(){
+						alert('该变了');
+					}
+				}
+			})
+		</script>
+		<!--
+			
+			
+			自定义键盘指令：
+				
+				之前:
+					Vue.directive('on').keyCodes.ctrl=112;
+				
+				现在:
+					Vue.config.keyCodes.ctrl=17
+					
+		-->	
+	</body>
+</html>

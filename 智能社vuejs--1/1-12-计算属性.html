@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算属性</title>
+		<script src="../js/vue-2.5.15.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			a==>{{a}}
+			<br>
+			b==>{{b}}
+		</div>
+		<script>
+			var vm = new Vue({
+				el: '#box',
+				data: {
+					a: 1
+				},
+				computed: {
+					// 					b(){
+					// 						//业务逻辑代码
+					// 						//return 2;
+					// 						return this.a+1;
+					// 					}
+					b: {
+						get() {
+							return this.a + 2;
+						},
+						set(value) {
+							//alert(value);
+							this.a = value;
+						}
+					}
+				}
+			});
+			//console.log(vm.a);
+
+			//alert(vm.b);
+			document.onclick = () => {
+				//vm.a=101;
+				//vm.b=101; //error
+
+				vm.b = 101; //加get set
+			}
+			/**
+			 * 计算属性
+			 * 
+			 * 		computed:{
+						b(){
+							return 值
+						}
+					}
+					
+					-----------------
+					computed:{
+									b(){
+										get(){},
+										set(){}
+									}
+							}
+							
+					computed里面可以放一些业务逻辑代码，一定要加return
+			 */
+		</script>
+	</body>
+</html>

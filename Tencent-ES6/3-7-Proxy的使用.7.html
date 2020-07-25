@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Proxy的使用</title>
+		<script type="text/javascript">
+			
+			let json={
+				a:1,
+				b:2
+			}
+			
+			let newJson=new Proxy(json,{
+				
+				deleteProperty(target,property){
+					console.log(`你要删除${property}`);
+					//TODO 
+					delete target[property];
+				}
+				
+			});
+			
+			delete newJson.a;
+			
+			console.log(newJson);
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		Proxy  代理
+				
+			扩展(增强)了对象的一些功能
+				
+				Vue
+				
+				
+		Proxy作用:
+		
+			vue中拦截
+			预警
+			上报
+			扩展功能
+			统计
+			增强对象
+			...
+			
+			proxy是设计模式的一种，代理模式
+			
+			
+		---------------------------------------------------------
+		
+		
+		语法:
+		
+			new Proxy(target,handler);
+			let obj=new Proxy(被代理的对象,对代理的对象做什么操作);
+			
+			handler:
+			{
+				set(){},  //设置的时候干的事情   
+				get(){},  //获取干的事情
+				deleteProperty(){}, //删除
+				has(){}, //属性有无
+				apply(){},//调用函数处理
+				...
+			}
+			
+			
+			---------------------
+			
+			set()  设置，拦截
+			deleteProperty()  删除，拦截
+			has()  检测有无
+				
+		-->
+
+	</body>
+</html>

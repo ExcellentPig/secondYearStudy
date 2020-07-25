@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue指令</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<style type="text/css">
+			
+			[v-cloak]{ /*属性选择器*/
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		v-text:更新元素的textContent
+		v-html:更新元素的innerHTML
+		v-if:如果为true，当前标签才会输出到页面
+		v-else:如果为false，当前标签才会输出到页面
+		v-show:通过控制display样式来控制显示/隐藏
+		v-for:遍历数组/对象
+		v-on:绑定监听事件，简写为@
+		v-bind:强制绑定解析表达式，简写为:
+		v-model:双向数据绑定
+		ref:指定唯一的标识，vue对象通过$els属性访问这个元素对象
+		v-cloak:防止闪现，与css配合:[v-cloak]{display:none}
+		
+		-->
+		
+		<div id="app">
+			<p ref="content">khan</p>
+			<button @click="hint">alert</button>
+			
+			<!-- <p v-text="msg"></p> -->
+			<p v-cloak>{{msg}}</p>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					msg:'rose'
+				},
+				methods:{
+					hint(){
+						alert(this.$refs.content.textContent);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: '#box',
+					data: {
+						a:'khan'
+					}
+
+				})
+			}
+		</script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		系統提供了一些过滤器:
+				{{msg.filterA}}
+				{{msg.filterA.filterB}}
+		
+		-->	
+		<div id="box">
+			{{a}}
+			{{'rose'}}
+			{{'welcome'.toUpperCase()}}
+			{{'WWWWW'.toLowerCase()}}
+			<br>
+			{{'WECSD'.toLowerCase().toUpperCase()}}
+			<br>
+			<!-- {{12.currency '￥'}} -->
+		</div>
+	</body>
+</html>

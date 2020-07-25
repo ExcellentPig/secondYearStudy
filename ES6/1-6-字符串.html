@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串</title>
+	</head>
+	<body>
+		<!--
+		
+		1,多了两个新方法
+		
+			startsWith
+			
+			endsWith
+		
+		2,字符串模板
+		
+			字符串连接
+			
+			直接把东西塞进字符串  ${xx}
+			可以折行
+		-->
+		<script>
+			
+// 			let str ='khan';
+// 			console.log(str.startsWith('K')); //false
+			
+// 			let str = 'https://baidu.com';
+// 			if(str.startsWith('http://')){
+// 				console.log('普通网址');
+// 			}else if(str.startsWith('https://')){
+// 				console.log('加密网址');
+// 			}else if(str.startsWith('git://')){
+// 				console.log('git地址')
+// 			}else if(str.startsWith('svn://')){
+// 				console.log('svn网址')
+// 			}else{
+// 				console.log(其他)
+// 			}
+
+			
+// 			let str = '1.txt';
+// 			if(str.endsWith('.txt')){
+// 				console.log('txt document')
+// 			}else if(str.endsWith('.jpg')){
+// 				console.log('jpg document')
+// 			}else{
+// 				console.log('other')
+// 			}
+
+
+			//模板字符串
+			
+// 			let a = 12;
+// 			let str=`a${a}bc`;
+// 			console.log(str);
+			
+			
+			//old
+			let title='a';
+			let content = 'b';
+// 			let str = '<div>\
+// 			<h1>'+title+'</h1>\
+// 			<p>'+content+'</p>\
+// 			</div>';
+// 			console.log(str);
+
+			let str = `<div>
+			<h2>${title}</h2>
+			<p>${content}</p>
+			</div>`
+			console.log(str);
+		</script>
+	</body>
+</html>

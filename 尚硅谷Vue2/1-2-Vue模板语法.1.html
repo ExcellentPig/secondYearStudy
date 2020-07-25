@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue模板语法</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<!--
+		
+		
+		1，模板的理解:
+			动态的html页面
+			包含了一些JS语法代码
+				双大括号表达式
+				指令(以v-开头的自定义标签属性)
+				
+		2，双大括号表达式
+			语法:{{exp}} 或 {{{exp}}}
+			功能:向页面输出数据
+			可以调用对象的方法
+			
+		3，指令1：强制数据绑定
+			功能:指定变化的属性值
+			写法:
+				v-bind:xxx='xxx'  //xxx会作为表达式解析执行
+			简洁写法:
+				:xxx='yyy'
+				
+		4,指令2:绑定事件监听
+			功能:绑定指定事件名的回调函数
+			写法:
+				v-on:click='xxx'
+			
+		
+		-->
+	</head>
+	<body>
+		<div id="app"><!--view-->
+			<h2>1,双大括号表达式</h2>
+			<p>{{msg}}</p>
+			<p>{{msg.toUpperCase()}}</p>
+			<p v-html="msg1"></p><!--innerHTML-->
+			<p v-text="msg1"></p><!--textContent-->
+			
+			
+			<h2>2,指令一：强制数据绑定</h2>
+			<!-- <img src="https://s1.hdslb.com/bfs/static/jinkela/video/asserts/33.png" alt=""> -->
+			<img :src="imgUrl">
+			
+			
+			<h2>指令二：绑定事件监听</h2>
+			<button v-on:click="test">Test1</button>
+			<button @click="test('abc')">Test2</button>
+			<button @click="test1(msg1)">Test3</button>
+		</div>
+		<script>
+			
+			new Vue({
+				el:'#app',
+				data:{
+					msg:'khan',
+					msg1:'<a href="http://www.baidu.com">Baidu</a>',
+					imgUrl:'https://s1.hdslb.com/bfs/static/jinkela/video/asserts/33.png'
+				},
+				methods:{
+					test(arg){
+						alert(1);
+						alert(arg);
+					},
+					test1(content){
+						alert(content);
+					}
+				}
+			})
+			
+		</script>
+		
+		<!--
+				
+		MVVM
+		
+		model:模型  数据对象(data)
+		
+		view:视图 模板页面
+		
+		viewModel:视图模型模型(Vue的实例)
+		
+		
+		-->
+	</body>
+</html>

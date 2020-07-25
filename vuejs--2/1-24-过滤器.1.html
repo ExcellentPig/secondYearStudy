@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器</title>
+		<script src="./vue2.0.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+		</div>
+		<script>
+			//Vue.directive('on').keyCodes.ctrl=17;
+			Vue.config.keyCodes.ctrl=17;
+			new Vue({
+				el:'#box',
+				data:{
+					msg:{a:1,b:2,c:3}
+				}
+			})
+		</script>
+		<!--
+			
+			
+			过滤器:
+				之前:
+					系统自带了很多的过滤器；
+						{{msg | currency}}
+						{{msg | json}}
+						
+				现在:
+					内置的过滤器都被删除了	
+					
+		-->	
+	</body>
+</html>

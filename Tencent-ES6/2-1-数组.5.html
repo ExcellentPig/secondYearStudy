@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数组</title>
+		<script type="text/javascript">
+			
+			let arr=[
+				{title:'aaaa',read:100,hot:true},
+				{title:'dddd',read:100,hot:true},
+				{title:'ccc',read:100,hot:true},
+				{title:'eeeee',read:100,hot:true}
+			];
+			
+			arr.map((item,index,arr)=>{
+				console.log(item,index,arr);
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		
+		ES5里面新增的一些东西:
+		
+			循环:
+				1,for
+					for(let i=0;i<arr.length;i++)
+					
+				2,while
+				
+			
+			arr.forEach();  //代替普通的for循环
+			
+					arr.forEach(function (val,index,arr){
+						console.log(val,index,arr);
+					});
+					
+			arr.map(); //映射 数据交互时非常有用
+			
+					正常情况下需要配合return，返回的是一个新数组
+					如果没有return，相当于forEach()
+			
+			arr.filter();
+			arr.some();
+			arr.every();
+			
+			以上可以接收两个参数：
+				(回调函数,this指向谁)
+			
+			arr.reduce();
+			arr.reduceRight();
+				
+				
+		
+		-->
+	</body>
+</html>

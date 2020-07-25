@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>函数</title>
+	</head>
+	<body>
+		<!--
+
+箭头函数
+()=>{
+	
+}
+
+有且仅有一个参数 ()可以不写
+有且仅有一个return时, {}可以不写
+
+
+修正this  把this固定到当前环境
+-->
+		<script>
+			//排序
+			//let arr=[12,8,1,3,45,100,101];
+			// 	arr.sort(function(n1,n2){
+			// 		return n1-n2;
+			// 	})
+			// 	console.log(arr);
+
+			// 	arr.sort((n1,n2)=>{
+			// 		return n1-n2;
+			// 	})
+			// 	console.log(arr);
+
+			// 	arr.sort((n1,n2)=>n1-n2);
+			// 	console.log(arr);
+
+			//省略
+			// 	function add(n){
+			// 		return n+5;
+			// 	}
+			// 	function show(n,fn){
+			// 		console.log(fn(n));
+			// 	}
+			// 	show(12,add);
+
+
+			// 	let add=n=>n+5;
+			// 	let show=(n,fn)=>console.log(fn(n));
+			// 	show(12,add);
+
+			// 	let json={
+			// 		a:12,
+			// 		fn:function (){
+			// 			console.log(this); //json
+			// 			console.log(this.a);
+			// 		}
+			// 	}
+			// 	// json.fn();
+			// 	
+			// 	let oDate = new Date();
+			// 	oDate.fn=json.fn;
+			// 	oDate.fn(); //undefined
+			
+// 			console.log(this); //Window
+// 			let json = {
+// 				a: 12,
+// 				//this -> 当前的环境
+// 				fn: ()=>{
+// 					console.log(this); //window
+// 					console.log(this.a);
+// 				}
+// 			}
+// 			json.fn();
+
+// 			let oDate = new Date();
+// 			oDate.fn = json.fn;
+// 			oDate.fn(); //undefined
+
+// 			class Json{
+// 				constructor(){
+// 					this.a = 12;
+// 					this.fn=function(){
+// 						console.log(this.a);
+// 					}
+// 				}
+// 			}
+// 			let json=new Json();
+// 			json.fn();
+
+// 			class Json{
+// 			constructor(){
+// 				console.log(this); //Json {}
+// 				
+// 				this.a = 12;
+// 				this.fn=()=>{
+// 					console.log(this.a);
+// 					}
+// 				}
+// 			}
+// 			let json=new Json();
+// 			//json.fn();
+// 			
+// 			let oDate = new Date();
+// 			oDate.fn = json.fn;
+// 			oDate.fn(); //12
+			
+// 			console.log(this); //Window
+// 			function show(){
+// 				console.log(this); //Window
+// 			}
+// 			show();
+// 			
+// 			let show1=(a)=>{
+// 				console.log(this); //Window
+// 				console.log(a);
+// 			}
+// 			show1(12)
+
+			
+		</script>
+	</body>
+</html>

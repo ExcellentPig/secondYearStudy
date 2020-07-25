@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>相对定位</title>
+		<style>
+			/*
+			
+			相对定位  relative
+				
+				开启元素的相对定位后，如果不设置偏移量元素不会发生任何变化
+				相对定位元素对其自身在文档流中的位置来定位
+				相对定位的元素不会脱离文档流
+				相对定位不会改变元素的性值，块元素还是块元素内联元素还是内联元素
+				相对定位的元素会提升一个层级
+			
+			
+			*/
+			#box1{
+				width: 200px;
+				height: 200px;
+				background-color: lightblue;
+				
+				/* position: static; */ /*默认定位*/
+			}
+			#box2{
+				width: 200px;
+				height: 200px;
+				background-color: lightcoral;
+				/*相对定位*/
+				position: relative;
+				/*偏移量*/
+				
+				top: 200px;
+				left: 100px; /*层级提升*/
+			}
+			#box3{
+				width: 200px;
+				height: 200px;
+				background-color: lightsalmon;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box1">box1</div>
+		<div id="box2">box2</div>
+		<div id="box3">box3</div>
+		
+	</body>
+</html>

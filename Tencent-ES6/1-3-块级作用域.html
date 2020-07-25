@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>块级作用域</title>
+		<script type="text/javascript">
+			{
+				let a=12;
+				{
+					let a=5
+				}
+				console.log(a); //12
+			}
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		不同作用域可以重复定义
+		
+		-->
+	</body>
+</html>

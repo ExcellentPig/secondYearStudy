@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义指令.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<span v-red>khan</span>
+		</div>
+		<script>
+			Vue.directive('red',{
+				bind(){
+					this.el.style.background='red';
+				}
+			});
+			
+			let vm = new Vue({
+				el:'#box'
+			});
+			
+		</script>
+		<!--
+		
+		自定义指令:
+				Vue.directive(指令名称,function(参数){
+					this.el 
+				});
+				
+				指令名称  v-red  -- red
+				
+				v-red="参数"
+		-->
+	</body>
+</html>

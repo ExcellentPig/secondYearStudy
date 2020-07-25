@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>属性</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<!--
+		属性:
+			v-bind:src="url"
+			
+			简写:
+				:src="url"
+				
+		-->
+		<div id="box">
+			<img :src="url" alt="" :width="w">
+			<br>
+			<img :src="url" alt="" :width="w" :height="h">
+			<br>
+			<img :src="url" alt="" :title="t">
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					url:'../img/google-icon.png',
+					w:'20px',
+					h:'50px',
+					t:'khan'
+				}
+			})
+		</script>
+	</body>
+</html>

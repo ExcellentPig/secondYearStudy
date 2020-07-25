@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue实例简单方法</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<span v-text="a"></span>
+			<br>
+			{{aa}}
+		</div>
+		<script>
+			let vm = new Vue({
+				aa: 11, //自定义属性
+				show: function() {
+					alert(1);
+				},
+				data: {
+					a: 1
+				}
+			}).$mount('#box'); //手动挂载
+
+			console.log(vm.$options); //访问自定义属性
+			console.log(vm.$options.aa);
+
+			vm.$options.show();
+		</script>
+	</body>
+</html>

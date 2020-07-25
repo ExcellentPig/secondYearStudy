@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{a | date}}
+		</div>
+		<script>
+			Vue.filter('date',function(input){
+				var oDate=new Date(input);
+				return oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+			});
+			let vm = new Vue({
+				data: {
+					a:Date.now()
+				},
+				methods:{
+					
+				}
+			}).$mount('#box'); //手动挂载
+			
+		</script>
+		<!--
+		
+		过滤器:vue
+		
+		自定义过滤器:
+				
+				Vue.filter(name,function(){
+					
+				});
+				
+		-->
+	</body>
+</html>

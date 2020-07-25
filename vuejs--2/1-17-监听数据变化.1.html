@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>监听数据变化.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{a | json}}
+			<br>
+			{{b}}
+		<script>
+			let vm = new Vue({
+				el:'#box',
+				data:{
+					a:{name:'khan',age:16},
+					b:222
+				},
+				methods:{
+					
+				}
+			});
+			
+			vm.$watch('a',function(){
+				alert('change');
+			},{deep:true})
+			
+			document.onclick=()=>{
+				vm.a.name='rose';
+			}
+			
+		</script>
+		<!--
+		监听数据变化:
+				 vm.$watch(name,fnCb); //浅度监视
+				 
+				 vm.$watch(name,fnCb,{deep:true})
+				 
+				 
+				 
+				 
+		-->
+	</body>
+</html>

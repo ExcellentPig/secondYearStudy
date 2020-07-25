@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue-cli</title>
+		<script src="./vue2.0.js"></script>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+			<my-aaa></my-aaa>
+		</div>
+		<template id="aaa">
+			<div>
+				<h1>123</h1>
+				<h2>3333</h2>
+			</div>
+		</template>
+		<script>
+			//不能使用了
+// 			var Aaa=Vue.extend('aaa',{
+// 				template:'<h4>这是组件</h4>'
+// 			});
+// 			
+// 			Vue.component('my-aaa',Aaa);
+
+			Vue.component('my-aaa',{
+				template:'#aaa'
+			})
+			
+			new Vue({
+				el:'#box',
+				data:{
+					msg:'khan'
+				}
+			})
+		</script>
+		<!--
+			
+			
+			vue2.0变化:
+				
+				1,在模板组件内,不支持片段形式的代码
+				
+						现在必须要一个根元素包裹住所有代码:
+						
+							<template id="aaa">
+								<div>
+									<h1>123</h1>
+									<h2>3333</h2>
+								</div>
+							</template>
+			
+				2,Vue.etend  写法改变了   不使用
+				
+				
+				3,Vue.component(组件名称,{
+					template:...
+				})
+				
+				
+				4,组件的简介定义方式
+				
+		-->	
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>json</title>
+	</head>
+	<body>
+		<!--
+		
+		json：
+		
+			JSON对象
+				JSON.stringify
+				JSON.parse
+			
+			简写
+				名字一样的  key和value一样的 留一个
+				方法		:function不用写
+				
+			json标准写法:
+				1,只能用双引号
+				2,所有的名字都必须用引号包起来
+		-->
+		<script>
+			//let json={a:12,b:5};
+// 			let str='http://www.baidu.com/path/user>data='+json;
+// 			console.log(str); //http://www.baidu.com/path/user>data=[object Object]  onerror
+			
+			
+// 			let str='http://www.baidu.com/path/user>data='+JSON.stringify((json));
+// 			console.log(str);  //http://www.baidu.com/path/user>data={"a":12,"b":5} onerror
+			
+// 			let str='http://www.baidu.com/path/user>data='+encodeURI(JSON.stringify((json)));
+// 			console.log(str);  //http://www.baidu.com/path/user>data=%7B%22a%22:12,%22b%22:5%7D  right
+			
+			
+			
+// 			let str = '{"a":"12","b":"5","c":"abc"}';
+// 			let json = JSON.parse(str);
+// 			console.log(json); //{a: "12", b: "5", c: "abc"}
+
+// 			let a = 12;
+// 			let b = 15;
+// 			let json = {a,b,c:55};  
+// 			console.log(json);
+
+
+// 			let json = {
+// 				a:12,
+// 				show:function(){
+// 					console.log(this.a);
+// 				}
+// 			}
+// 			json.show();
+			
+			
+			//简写
+			let json = {
+				a:12,
+				show(){
+					console.log(this.a);
+				}
+			}
+			json.show();
+		</script>
+	</body>
+</html>

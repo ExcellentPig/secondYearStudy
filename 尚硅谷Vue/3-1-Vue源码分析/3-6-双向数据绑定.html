@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="./mvvm-master/js/compile.js"></script>
+	<script src="./mvvm-master/js/mvvm.js"></script>
+	<script src="./mvvm-master/js/observer.js"></script>
+	<script src="./mvvm-master/js/watcher.js"></script>
+	<title>双向数据绑定</title>
+</head>
+<body>
+	<div id="test">
+		<input type="text" v-model="msg"><br>
+		<p>{{msg}}</p>
+	</div>
+	<script>
+		new MVVM({
+			el:'#test',
+			data:{
+				msg:'khan'
+			}
+		})
+	</script>
+	<!--
+	
+	双向数据绑定:
+		1）双向数据绑定是建立在单向数据绑定(model==>View)的基础之上的
+		2）双线数据绑定的实现流程
+				a,在解析v-model指令时，给当前元素添加input监听
+				b,当input的value发生改变时，将最新的值赋值给当前表达式所对应的data属性
+	
+	-->
+</body>
+</html>

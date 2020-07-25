@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义全局组件</title>
+	</head>
+	<body>
+		<!--
+		
+		使用别人的组件:
+		
+			Vue.use(Vuesource)
+			Vue.use(VueRouter)
+			Vue.use(MintUI)
+			
+			axios
+		
+		
+		-------------------------
+		
+		自定义全局组件:
+		
+		
+			见vueDemo 中的 custom-global-component
+			
+			css3加载动画效果
+			
+			|-loading/
+				|-index.js  //导出组件
+				|-Loading.vue //Loading组件
+				
+			组要文件index.js代码:
+			
+				import LoadingComponent from './Loading.vue'
+				
+				const Loading = {
+					install(Vue){
+						Vue.component('Loading',LoadingComponent)
+					}
+				};
+				
+				export default Loading;
+				
+		
+		
+		-->
+	</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>CSS选择器</title>
+		<style>
+			/*通用选择器*/
+			* {
+				color: purple;
+			}
+
+			/*标签选择器*/
+			div {
+				color: blue;
+			}
+
+			p {
+				color: darkgoldenrod;
+			}
+
+			span {
+				color: darkred;
+			}
+
+			/*类选择器*/
+			.test {
+				background-color: skyblue;
+			}
+
+			.test2 {
+				border: 2px solid darkorange;
+			}
+
+			/*id选择器*/
+			#big {
+				font-size: 100px;
+				font-weight: bold;
+			}
+
+			/*复合选择器*/
+			/* .test1{
+			background-color: darkorange;
+		} */
+			div.test1 {
+				color: red;
+			}
+
+			div#main {
+				color: dimgray;
+			}
+
+			/*群组选择器 并列选择器*/
+			div,
+			span,
+			.test1 {
+				border-bottom: 3px solid darkcyan;
+			}
+
+			/*后代选择器*/
+			#div1 p {
+				color: red;
+			}
+
+			#div1 span p {
+				color: darkblue;
+			}
+
+			/*直接后代选择器*/
+			#div1>p {
+				font-size: 30px;
+			}
+
+			/*兄弟选择器
+		
+			查找一个兄弟元素  兄弟元素 + 兄弟元素{}
+			查找后边所以的兄弟元素 兄弟元素 ~ 兄弟元素{}
+		*/
+			#div2+p {
+				font-size: 25px;
+			}
+
+			#div2~p {
+				font-size: 30px;
+			}
+
+			/*属性选择器
+	   
+	   [属性名]
+	   [属性名="属性值"]
+	   [属性名~="属性值"]
+	   [属性名|="属性值"]
+	   [属性名^="属性值"]
+	   [属性名$="属性值"]
+		[属性名*="属性值"]
+	   */
+			div[name] {
+				font-size: 30px;
+			}
+			
+			div[name='khan']{
+				background-color: darkblue;
+			}
+			div[name][age]{
+				color: darkorange;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="big" class="test2">1</div>
+		<div>2</div>
+		<div class="test test2">3</div>
+		<p>p1</p>
+		<p>p2</p>
+		<p class="test">p3</p>
+		<span class="test2">span1</span>
+		<span>2</span>
+		<span class="test">3</span>
+
+		<div id="main">div1</div>
+		<div>2</div>
+		<div class="test1">3</div>
+		<p>p1</p>
+		<p>2</p>
+		<p class="test1">3</p>
+		<span>span1</span>
+		<span>2</span>
+		<span class="test1">3</span>
+
+		<div id="div1">
+			<p>div>p</p>
+			<span>
+				<p>div>span>p</p>
+			</span>
+		</div>
+		<p>外部的p</p>
+
+		<div id="div2">
+			<p>div中的p</p>
+			<span>
+				<p>div里的span里的p</p>
+			</span>
+		</div>
+		<p>div相邻的p</p>
+		<p>p相邻的p</p>
+		<p>p相邻的p</p>
+		<p>p相邻的p</p>
+		<p>p相邻的p</p>
+
+
+		<div name="khan" age="20">khan</div>
+		<div name="khan1" sex="man">khan1</div>
+		<div>khan3</div>
+	</body>
+</html>

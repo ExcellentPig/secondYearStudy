@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>异步操作</title>
+	</head>
+	<body>
+		<!--
+		
+		异步操作---ajax
+		
+			ajax('http://aaa/com/a/1,txt',function(){});
+			
+			异步操作:
+				同时进行多个操作
+				用户体验好
+				代码混乱
+				
+			同步操作:
+				一次只能进行一个操作
+				用户体验差
+				代码清晰
+				
+			//异步
+			ajax('http://taobao.com/api/user',funciton(){
+				ajax('http:taobao.com/items',function(){
+					ajax('http://taobao.com/api/ad',funciton(){
+						
+					},funciton(){
+						alert('error')
+					})
+				},funciton(){
+					alert('error')
+				})
+			},funciton(){
+				alert('error')
+			})
+			
+			//同步
+			let data1 = ajax('http://taobao.com/api/user');
+			let data2 = ajax('http://taobao.com/api/items');
+			let data3 = ajax('http://taobao.com/api/ad');
+			
+			
+		------------------------------------------------------------
+		
+		融合异步、同步
+		
+		Promise
+		
+		async/await
+		
+		-------------------------------------------------------------
+		
+		
+		-->
+	</body>
+</html>

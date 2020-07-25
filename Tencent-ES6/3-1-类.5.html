@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>class</title>
+		<script type="text/javascript">
+			
+			let aaa='jack';
+			let bbb='method';
+			
+			class Person {
+
+				constructor(name, age) { //构造函数(方法) 只要调用new就自动执行
+					//console.log(`构造函数执行了,${name},${age}`)
+
+					this.name = name;
+					this.age = age;
+				}
+				showName() {
+					return `name is ${this.name}`
+				}
+
+				showAge() {
+					return `age is ${this.age}`
+				}
+				
+				// [aaa](){ //调用变量 注意调用方法
+				// 	return  `aaaa`;
+				// }
+				
+				[aaa+bbb](){ //调用变量 注意调用方法
+					return  `aaaa`;
+				}
+			};
+
+
+			let p1 = new Person('khan', 18);
+			console.log(p1.showName());
+			console.log(p1.showAge());
+			// console.log(p1.jack());
+			// console.log(p1[aaa]());
+			console.log(p1.jackmethod());
+			console.log(p1[aaa+bbb]());
+		</script>
+	</head>
+	<body>
+		<!---
+		
+		class：
+		
+			面向对象，类(属性，方法)
+				
+					之前，函数模拟
+					
+					
+					现在class
+					
+					
+		
+		
+		->
+	</body>
+</html>

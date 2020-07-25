@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue雏形</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: '#box',
+					data: {
+						msg: 'welcome vue'
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+		</div>
+	</body>
+</html>

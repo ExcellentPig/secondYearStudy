@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue源码分析</title>
+	</head>
+	<body>
+		<!--
+		
+		https://github.com/DMQ/mvvm
+		
+		
+		
+		3,Object.defineProperty(obj,propertyName,{}):给对象添加属性(指定描述符)
+		4,Object.keys(obj):得到对象自身可枚举属性组成的数组
+		5,obj.hasOwnProperty(prop):判断prop是否是obj自身的属性
+		6,DocumentFragment:文档碎片(高效批量更新多个节点)
+		
+		-->
+		<div id="test">khan</div>
+		<ul id="fragment_test">
+			<li>test1</li>
+			<li>test2</li>
+			<li>test3</li>
+		</ul>
+		<script>
+			//2,node.nodeType:得到节点类型
+			//節點: document\element\attr\text
+			const elementNode = document.getElementById('test');
+			const attrNode=elementNode.getAttributeNode('id');
+			const textNode = elementNode.firstChild;
+			console.log(elementNode.nodeType, attrNode.nodeType, textNode.nodeType);
+			
+		</script>
+	</body>
+</html>

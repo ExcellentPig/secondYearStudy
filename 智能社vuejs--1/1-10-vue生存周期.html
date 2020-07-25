@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue生存周期.</title>
+		<script src="../js/vue-2.5.15.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+		</div>
+		<script>
+			let vm = new Vue({
+				el: "#box",
+				data: {
+					msg: 'khan'
+				},
+				created() {
+					alert('实例已经创建');
+				},
+				beforeCompile: function() {
+					alert('编译之前');
+				},
+				compiled() {
+					alert('编译之后');
+				},
+				ready() {
+					alert('加载完');
+				},
+				beforeDestroy() {
+					alert('销毁之前');
+				},
+				destoryed() {
+					alert('销毁之后');
+				}
+			});
+
+			document.onclick = function() {
+				vm.$destroy();
+			}
+
+
+			/**
+			 * 
+			 * 
+			 * vue 生存周期:
+				 
+				 钩子函数:
+				 
+				 created    		实例已经创建
+				 beforeCompile 		编译之前  
+				 compiled 			编译之后
+				 ready 				插入到文档中
+				 
+				 
+				 beforeDestroy       销毁之前
+				 destroyed 			 销毁之后
+			 */
+		</script>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数</title>
+		<script type="text/javascript">
+			
+			// let json={
+			// 	id:1,
+			// 	show:function(){
+			// 		alert(this.id);
+			// 	}
+			// };
+			// 
+			// json.show();
+			
+			
+			// let json={
+			// 	id:1,
+			// 	show:function(){
+			// 		setTimeout(function(){
+			// 			alert(this.id);  //this ===> window
+			// 		},2000)
+			// 	}
+			// };
+			// 
+			// json.show();
+			
+			
+			var id =10;  //var 定义一个全局变量是属于window,let和const不属于
+			let json={
+				id:1,
+				show:function(){
+					setTimeout(function(){
+						alert(this.id);  //this ===> window
+					},2000)
+				}
+			};
+			
+			json.show();
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		函数
+			默认参数
+			
+			函数的参数默认被定义，不能在使用let,const再定义
+			
+			扩展运算符(rest运算符):
+					
+					...    
+					
+					展开数组
+					
+					剩余作用
+						放在最后
+						
+			
+			箭头函数:
+			
+					=>
+					
+					()=>return ...
+					
+					()=>{
+						
+					}
+					
+					注意:
+						
+					
+		
+		-->
+	</body>
+</html>

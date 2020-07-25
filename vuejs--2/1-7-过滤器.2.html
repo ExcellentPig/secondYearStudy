@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<!--
+		过滤器:
+		
+			{{msg | filterA}}
+			{{msg | filterA | filterB}}
+		
+			{{'khan' | uppercase}}
+			{{'ABC' | lowercase}}
+			{{'AAAA' | lowercase | capitalize}}
+			
+			{{msg | filterA '参数'}}
+			
+			{{12 | currency}}
+			{{25 | currency '￥'}}
+			
+			....
+		-->
+		<div id="box">
+			{{12 | currency}}
+			<br>
+			{{25 | currency '￥'}}
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>

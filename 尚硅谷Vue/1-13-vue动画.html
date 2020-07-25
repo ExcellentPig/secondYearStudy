@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>vue过渡/动画</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<style>
+			/*指定显示/隐藏的过渡*/
+			.xxx-enter-active,
+			.xxx-leave-active {
+				transition: opacity 1s;
+			}
+
+			/*隐藏时的样式*/
+			.xxx-enter,
+			.xxx-leave-to {
+				opacity: 0;
+			}
+			
+			
+			/*显示的过渡效果*/
+			.move-enter-active{
+				transition: all 1s;
+			}
+			
+			
+			/*隐藏的过渡效果*/
+			.move-leave-active{
+				transition: all 3s;
+			}
+			
+			/*隐藏时的样式*/
+			.move-enter,
+			.move-leave-to {
+				opacity: 0;
+				transform: translateX(20px);
+			}
+			
+			
+			/*animation*/
+				
+			.bounce-enter-active{
+				animation: bounce-in .5s; /*使用 bounce-in*/
+			}
+			.bounce-leave-active{
+				animation: bounce-in .5s reverse;/*reverse 反过来*/
+			}
+			@keyframes bounce-in{  /*定义animation*/
+				0% { /*时间的推移 效果的改变*/
+					transform: scale(0);
+				}
+				50% {/*放大1.5倍*/
+					transform: scale(1.5);
+				}
+				100% {
+					transform: scale(1);
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+	
+		vue动画的理解
+		
+		1）操作的是css的transition或animation
+		2）vue会给目标元素添加/移除特定的class
+		
+		3）基本过渡动画的编码
+			
+			在目标元素外包裹<transition name="xxx">
+			定义class样式
+				指定过渡样式:transition
+				指定隐藏时的样式:opicity/其他
+			
+		3）过渡的相关类名
+		
+			xxx-enter-active:指定显示的transition
+			xxx-leave-active:指定隐藏的transition
+			xxx-enter/xxx-leave-to:指定隐藏时的样式
+	
+	-->
+
+		<div id="test">
+			<button @click="isShow=!isShow">toggle</button>
+			<transition name="xxx">
+				<p v-show="isShow" class="xxx-enter-to">hello</p>
+			</transition>
+		</div>
+		<div id="test1">
+			<button @click="isShow=!isShow">toggle</button>
+			<transition name="move">
+				<p v-show="isShow">hello</p>
+			</transition>
+		</div>
+		
+		<!--animation-->
+		<div id="example-2">
+			<button @click="show=!show">toggle show</button>
+			<br>
+			<transition name="bounce">
+				<p v-if="show" style="display: inline-block;">
+					khan
+				</p>
+			</transition>
+		</div>
+		<script>
+			new Vue({
+				el: '#test',
+				data() {
+					return {
+						isShow: true
+					}
+				}
+			})
+			
+			new Vue({
+				el:'#test1',
+				data(){
+					return {
+						isShow:true
+					}
+				}
+			})
+			
+			new Vue({
+				el:'#example-2',
+				data:{
+					show:true
+				}
+			})
+		</script>
+	</body>
+</html>

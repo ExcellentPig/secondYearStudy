@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>generator</title>
+	</head>
+	<body>
+		<script>
+			
+			
+// 			function show(){
+// 				console.log('a');
+// 				console.log('b');
+// 			}
+// 			show();
+			
+			
+			//*
+			function *show(){
+				console.log('a');
+				
+				yield;
+				
+				console.log('b');
+			}
+			let genObj=show();
+			console.log(genObj);
+			genObj.next();
+			genObj.next();
+			genObj.next(); //none
+		</script>
+		<!--
+		
+		generator  生成器   可以用于请求数据
+		解决异步操作相关问题
+		
+		普通函数----一路到底
+		generator函数----中间能暂停
+		
+		yield 暂时放弃执行
+		
+		genObj.next();  执行下一个
+		
+		
+		----------------------------------------------
+		
+		generator 暂停 相当于把一个函数切分成了小函数
+		
+		
+		----------------------------------------------
+		
+		generator不能写成箭头函数
+		
+		
+		
+		Promise--一次读一堆
+		
+		generator--逻辑性
+		
+		-->
+	</body>
+</html>

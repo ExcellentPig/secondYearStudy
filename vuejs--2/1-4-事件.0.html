@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<!--
+		
+		v-on:click=""
+		
+		简写 @click=""
+		
+		事件对象
+		
+		-->
+		<div id="box">
+			<input type="button" value="btn" v-on:click="show">
+			<input type="button" value="btn1" @click="show">
+			<input type="button" value="事件对象" @click="show1($event)">
+			<input type="button" value="事件对象" @click="show2($event,12)">
+			
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					
+				},
+				methods:{
+					show(){
+						alert(1)
+					},
+					show1(ev){
+						alert(ev.clientX)
+					},
+					show2(ev,b){
+						alert(ev.clientX);
+						alert(b);
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

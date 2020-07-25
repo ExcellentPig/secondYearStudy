@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>高度崩塌-解决办法2</title>
+		<style>
+			#box1 {
+				border: 1px solid red;
+			}
+			#box2 {
+				width: 100px;
+				height: 200px;
+				background-color: lightcoral;
+
+				float: right;
+				/*高度塌陷  元素位置上移*/
+
+
+			}
+
+			#box3 {
+				/* width: 90%; */
+				height: 100px;
+				background-color: lightgray;
+			}
+			
+			/**
+			 * 通过after伪类清除浮动 开启BFC
+				
+				class=".clearfix"
+			 */
+			.clearfix:after{
+				content: "";  
+				display: block;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		BFC 块级格式化环境
+		
+		开启方式:
+		
+				设置元素浮动
+				设置元素绝对定位
+				设置元素的类型为inline-block
+				设置overflow为一个非默认值 :一般使用overflow:hidden来开启
+		
+		
+				clear：可以清除浮动对当前元素产生的影响
+				
+						none
+						left
+						right
+						both
+						
+				after伪类，向父元素后添加一个块元素。并对其清除浮动
+		-->
+		<div id="box1" class="clearfix">
+			<div id="box2">
+
+			</div>
+		</div>
+		<div id="box3">
+
+		</div>
+	</body>
+</html>

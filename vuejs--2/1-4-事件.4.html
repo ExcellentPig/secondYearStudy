@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<!--
+		事件冒泡：
+				阻止冒泡
+					1,ev.cancelBubble=true;
+					2,@click.stop="show()"
+				
+				默认行为:
+					1,ev.preventDefault();
+					@contextmenu.prevent="show()"
+					
+				键盘事件:
+					@keydown  @keyup
+					keyCode
+		
+		-->
+		<div id="box">
+			<!-- <input type="text" @keydown="show()"> -->
+			<!-- <input type="text" @keydown="show($event)"> -->
+			<input type="text" @keyup="show($event)">
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					
+				},
+				methods:{
+					show(ev){
+						if(ev.keyCode==13){
+							alert('回车了')
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

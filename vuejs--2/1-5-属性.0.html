@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>属性</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<!--
+		属性:
+			v-bind:src="url"
+			
+			简写:
+				:src="url"
+				
+		-->
+		<div id="box">
+			<!--能出来但是会报错 404-->
+			<img src="{{url}}" alt="">
+			<br>
+			<img v-bind:src="url" alt="">
+			<br>
+			<img :src="url" alt="">
+		</div>
+		<script>
+			new Vue({
+				el:'#box',
+				data:{
+					url:'../img/google-icon.png'
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>KOA</title>
+</head>
+<body>
+	<script>
+		const koa = require('koa');  //引入koa
+		const mysql = require('koa-mysql');
+		
+		mysql.createPool({host:'loaclhost',user:'root',password:'root',database:'xxx'})
+		
+		
+		let server=new koa();
+		
+		server.use(function *(){
+			// this.body='abc';
+			yield db.query(`SELECT * FROM user_table`);
+			
+			this.body=data;
+		})
+		
+		server.listen(80);
+		
+	</script>
+	<!--
+	
+	
+	generator--KOA
+	*node.js
+	
+	cnpm i koa
+	
+	node server.js
+	
+	cnpm i koa-mysql
+	-->
+</body>
+</html>

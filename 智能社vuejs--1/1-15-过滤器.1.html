@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器</title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" v-model="msg | filterHTtml" >
+			<div v-html="msg">
+				
+			</div>
+		</div>
+		<script>
+			
+// 			Vue.filter('filterHtml',function(input){
+// 				return input.replace(/<[^<]+>/g,'');
+// 			})
+
+// 			Vue.filter('filterHtml',{
+// 				read(input ){
+// 					return input.replace(/<[^<+]>/g,'');
+// 				},
+// 				write(val){
+// 					return val;
+// 				}
+// 			})
+			
+			let vm=new Vue({
+				el:'#box',
+				data:{
+					msg:'<strong>khan</strong>'
+				},
+				methods:{
+					
+				}
+			})
+			/**
+			 * 过滤器
+			 * 	capitalize	uppercase	currency
+			 * 
+			 * 	debounce->配合事件	延迟执行
+			 * 
+			 * 	数组配合使用:
+			 * 		limitBy	限制几个
+			 * 		limitBty 参数(几个)
+			 * 		limitBt	 取几个  从哪里开始
+			 * 
+			 * 		filterBy 过滤数据
+			 * 		filterBy '谁'
+			 * 		
+			 * 
+			 * 		orderBy	排序
+			 * 		orderBy	1/-1  正序/倒叙
+			 * 
+			 * 
+			 * 
+			 * 	自定义过滤器:
+			 * 		Vue.filter(name,funciton(input){
+					
+					})
+					
+					时间转化器
+					
+					过滤html标签
+					
+					双向过滤器:
+						数据->视图
+						view->model
+			 */
+		</script>
+	</body>
+</html>

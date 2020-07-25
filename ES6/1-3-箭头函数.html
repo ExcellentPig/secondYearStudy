@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>箭头函数</title>
+	</head>
+	<body>
+		<script>
+			/**
+			 * 
+			 * 箭头函数 
+			 * 
+			 * //一般
+			 * function 名字(){
+				 
+			 }
+			 * 
+			 * //es6
+			 * ()=>{
+				 
+			 }
+			 * 
+			 * 
+			 * 1，如果只有一个参数，()可以省略
+			 * 2，如果只有一个return 可以省略
+			 * 3，this指向问题
+			 * 
+			 */
+			
+// 			function show(){
+// 				
+// 			}
+// 			
+// 			let show=()=>{
+// 				
+// 			}
+
+// 			window.onload=function(){
+// 				console.log('abc');
+// 			}
+
+// 			window.onload=()=>{
+// 				console.log('abc');
+// 			}
+
+// 
+// 			let show=function(){
+// 				console.log('anc');
+// 			}
+// 			show();
+			
+// 			let show=()=>{
+// 				console.log('abc');
+// 			}
+// 			show();
+
+			//传参数
+// 			let show=function (a,b){
+// 				console.log(a+b);
+// 			}
+// 			show(1,2);
+// 
+// 			let show=(a,b)=>{
+// 				console.log(a+b);
+// 			}
+// 			show(1,2);
+
+			// let arr = [99,5,2,10,0,3,5,88,100];
+// 			arr.sort(function(n1,n2){
+// 				return n1-n2;
+// 			})
+// 			console.log(arr);
+			
+// 			arr.sort((n1,n2)=>{
+// 				return n1-n2;
+// 			})
+// 			console.log(arr);
+
+
+			
+// 			let show=function (a){
+// 				return a*2;
+// 			}
+// 			console.log(2);
+// 			
+// 			let show=(a)=>{
+// 				return a*2;
+// 			}
+			//()可以省略
+// 			let show=a=>{
+// 				return a*2;
+// 			}
+			//{}可以省略
+			let show=a=>a*2;
+			console.log(2);
+		</script>
+	</body>
+</html>

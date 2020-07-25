@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue指令</title>
+		<script src="../js/vue-2.5.15.js"></script>
+	</head>
+	<body>
+		<!--		
+		自定义指令：
+		
+			1，注册全局指令
+				Vue.directive('my-direcive',function(el,binding){
+					el.innerHTML=binding.value.toupperCase()
+				})
+			
+			2，注册局部指令
+				directives:{
+					'my-directive':{
+						bind(el,binding){
+							el.innerHTML=binding.value.toupperCase()
+						}
+					}
+				}
+			
+			3，使用指令
+				v-my-directive='xxx'
+		
+		-->
+		<div id="test1">
+			<p v-upper-text="msg1"></p>
+			<p v-lower-text="msg1"></p>
+		</div>
+		<div id="test2">
+			<p v-upper-text="msg2"></p>
+			
+			<!--不能使用 因为是局部指令-->
+			<p v-lower-text="msg2"></p>
+		</div>
+		<script>
+			
+			//定义全局指令
+			//el:指令属性所在的标签对象
+			//binding:包含指令相关信息的对象
+			Vue.directive('upper-text',function(el,binding){
+				console.log(el,binding);
+				el.textContent=binding.value.toUpperCase();
+			})
+			
+			new Vue({
+				el:'#test1',
+				data:{
+					msg1:'NBA I Love This Game!'
+				},
+				directives:{  //定义局部指令 只在当前vm管理范围内有效
+					'lower-text'(el,binding){
+						el.textContent=binding.value.toLowerCase();
+					}
+				}
+			})
+			
+			new Vue({
+				el:'#test2',
+				data:{
+					msg2:'JUST Do It!'
+				}
+			})
+		</script>
+	</body>
+</html>

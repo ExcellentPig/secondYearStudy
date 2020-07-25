@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>属性</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<script>
+			window.onload = function() {
+				new Vue({
+					el: '#box',
+					data: {
+						// url: '../img/facebook-icon.png'
+						url: '../img/facebook-icon.png',
+						width:'500px',
+						title:'khan',
+						
+						red:'red',
+						b:'blue',
+						a:true,
+						json:{
+							pink:true
+						} ,
+						c:{
+							color:'red' 
+						},
+						d:{
+							backgroundColor:'pink'
+						},
+						j:{
+							color:'pink',
+							backgroundColor:'blue'
+						}
+					}
+
+				})
+			}
+		</script>
+		<style>
+			.red{
+				color: red;
+			}
+			.blue{
+				background: blue ;
+			}
+			.pink{
+				color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		v-bind:src="url"
+		:src="url"  简写
+		
+		
+		class和style
+			:class=""     :class="[red]"/:class="[red,blue]"	red是data数据
+						  :class="{pink:true}" /:class="{pink:false}"/:class="{pink:a}" a是data数据
+						  :class="json"  json是data数据
+			:style=""		与上面差不多
+							样式要使用驼峰命名法
+		
+		-->
+		<div id="box">
+			<!--不能使用了-->
+			<!-- <img src="{{url}}"> -->
+			<img v-bind:src="url" alt="">
+			<img :src="url" alt="">
+			
+			<img :src="url" alt="" :width="width" :title="title">
+			<br />
+			<strong :class="[red,b]">khan</strong>
+			<strong :class="{pink:true}">khan</strong>
+			<strong :class="{pink:false}">khan</strong>
+			<strong :class="{pink:a}">khan</strong>
+			<strong :class="json">khan</strong>
+			
+			<br>
+			<b :style="[c,d]">rose</b>
+			<b :style="j">rose</b>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue2.0</title>
+		<script src="../js/vue-2.5.15.js "></script>
+		<!-- <script src="vue.js"></script> -->
+	</head>
+	<body>
+		<div id="box">
+			{{msg | toDou(12,5 )}}
+		</div>
+		<script>
+			Vue.filter('toDou',function(input,a,b){
+				// alert(input)
+				console.log(a,b)
+				return input<10?'0'+input:''+input;
+			})
+			new Vue({
+				el:'#box',
+				data:{
+					msg:9
+				}
+			})
+		</script>
+		<!--
+			vue2.0
+				
+				bower info vue   查看版本
+				
+				
+				变化:
+					1，在每个组件模板做，不再支持片段代码
+							组件中的模板:
+								之前:<template id="aaa">
+										....
+								
+									</template>
+									
+								现在:必须有一个根元素包裹住所有代码
+								
+					2，关于组件定义:
+							Vue.extend   改动
+							
+							Vue.component(组件名称,{  //继续能用
+								data(){},
+								methods:{},
+								template:
+							})
+							
+							var Home = {
+								template:
+							}
+							
+					3，生命周期
+							之前:
+									init 	
+									created
+									beforeCompile
+									compiled
+									ready
+									beforDestroy
+									destroyed
+									
+							现在:
+									beforeCreate    组件刚刚被创建，属性都没有
+									created 		实例已经创建完成，属性已经绑定
+									beforeMount 	模板编译之前
+									mounted 		模板编译之后
+									beforeUpdate 	组件更新之前
+									updated 		组件更新完毕
+									beforeDestroy 	组件销毁前
+									destroyed 		组件销毁后
+									
+					4,循环
+					
+						默认可以添加重复数据
+						
+						去掉了隐式的变量   {{$index}} $key....
+						
+						之前：
+								v-for="(index,val) in array"
+								
+						现在:
+								v-for="(val,index)" in array
+								
+						:key="index"  提高循环性能
+						
+						track-by="id" -> <li v-for="(val,index) in list :key="index></li>
+		
+					"
+					5,自定义键盘指令:
+					
+						之前:
+							Vue.directiVe('on').KeyCodes.f1=112;
+							
+						现在:
+							Vue.config.KeyCodes.ctrl=17
+							
+							
+					6，过滤器：
+							之前:
+								系统自带了很多过滤器
+										{{msg | currency}}
+										....
+										
+							现在:
+								内置过滤器全部删除,需要通过JS自己实现
+								
+							lodash 	工具库  _.debounce(fn,200)
+							
+							
+							自定义过滤器: 存在
+										传参发生变化
+		-->							
+			
+	</body>
+</html>

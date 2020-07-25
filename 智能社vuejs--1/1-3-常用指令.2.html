@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>常用指令</title>
+		<script src="../js/vue-2.5.15.js"></script>
+		<script>
+			window.onload=function(){
+				new Vue({
+					el:'#box',
+					data:{
+						arr:['apple','banana','orange'],
+						json:{a:2,b:'khan'}
+					},
+					methods:{
+						show(){
+							alert(1);
+						},
+						add(){
+							console.log(this); //vm
+							this.arr.push('khan');
+						}
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		常用指令:
+			指令:扩展html标签功能，属性
+			
+			事件:
+			v-on:click="函数"   简写@click="函数"
+			methods:{
+				函数
+			}
+			
+		-->
+		<div id="box">
+			<input type="button" value="按钮" v-on:click="show()">
+			<input type="button" value="按钮" @click="show()">
+			<input type="button" value="添加" @click="add()">
+			<input type="button" value="mouseover" @mouseover="show()">
+			<input type="button" value="mouseout" @mouseout="show()">
+			<input type="button" value="dblclick" @dblclick="show()">
+			<ul>
+				<li v-for="value in arr">{{value}}</li>
+			</ul>
+		</div>
+	</body>
+</html>

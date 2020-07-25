@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义键盘信息.</title>
+		<script src="./vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" @keydown.enter="show">
+			<input type="text" @keydown.a="show">
+		</div>
+		<script>
+			let vm = new Vue({
+				el:'#box',
+				methods:{
+					show(){
+						alert(1);
+					}
+				}
+			});
+			
+		</script>
+		<!--
+		
+		自定义键盘信息:
+				 @keydown.a="show"
+		-->
+	</body>
+</html>

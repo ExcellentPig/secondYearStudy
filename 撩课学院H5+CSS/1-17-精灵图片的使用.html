@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>精灵图片的使用</title>
+	</head>
+	<style>
+		#box1{
+			width: 120px;
+			height: 55px;
+			
+			background-image: url(../img/toolbars.png);
+		}
+		
+		#box2{
+			width: 120px;
+			height: 54px;
+			background-image: url(../img/toolbars.png);
+			
+			/*位置*/
+			background-position: -220px -1px;
+			margin: 50px;
+		}
+		#box3{
+			width: 16px;
+			height: 18px;
+			background-image: url(../img/toolbars.png);
+			
+			background-position: -47px -197px;
+		}
+		
+		/**
+		 * 
+		   步骤：
+		   
+				利用Fireworks 查看图片 剪切图片获取宽高和XY的位置
+				CSS中设置对应宽高，backround-image 引入大图片
+				background-positio 对应XY  (负数)
+		 
+		 */
+	</style>
+	<body>
+		<!--
+		
+		雪碧图  精灵图片  CSS Sprites
+		
+		相对于把每张小图标以.png格式文件的形式引用到页面上，
+		使用雪碧图只需要引用一张图片，对内存和带宽更好
+		
+		
+		好处:性能更好
+		
+		软件:Fireworks
+		
+			序列号:WPD800-56630-44132-98869
+			注册码:WPD800-55739-53532-55154
+		
+		-->
+		
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+	</body>
+</html>

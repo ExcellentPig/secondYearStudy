@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vue路由</title>
+	</head>
+	<body>
+		<!--
+		
+		中文文档:http://router.vuejs.org/zh-cn
+		
+		https://reacttraining.com/react-router/web/guides/philosophy
+		
+		下载:
+				npm install vue-router --save
+		
+		
+		VueRoute():用于创建路由器的构造函数
+				
+				new VueRouter({
+					//多个配置项
+				})
+				
+				路由配置
+				routes;[
+					{
+						//一般路由
+						path:'/about',
+						component:About
+					},
+					{
+						//自动跳转酷游
+						path:'/',
+						redirect:'/about'
+					}
+				]
+				
+				注册路由器：
+					import router from './router'
+					new Vue({
+						router
+					})
+					
+				使用路由组件标签:
+					<router-link>  生成理由链接
+						<router-link TO="./XXX">xxx</router-link>
+					<router-view>  显示当前路由组件
+						<router-view></router-view>
+						
+				优化路由配置:
+						linkActiveClass:'active', //指定选中的路由链接的class
+		
+		
+				
+				配置嵌套路由:router.js
+				
+					path:'/home',
+					component:home,
+					children:[
+						{
+							path:'news',
+							component:News
+						},
+					]
+					
+		
+				----------------------------------------------------
+				缓存路由:
+					<keep-alive>
+						<router-view></router-view>
+					</keep-alive>
+				
+				------------------------------------------------------------
+				
+				向路由组件传递数据
+				
+					路由路径携带参数(param/query)	
+					
+					<router-view></router-view>属性携带数据
+				
+				------------------------------------------------------
+				
+				编程式路由导航  JS代码实现路由的跳转
+				
+				window.location='b.html' //url
+				window.location.href=url
+				
+				API
+				
+				this.$router.push(path) 相当于点击路由链接(可以返回到当前路由界面)
+				this.$router.replace(path) 用新路由替换当前路由(不可以返回到当前路由界面)
+				this.$router.back()  请求(返回)上一个记录路由
+				this.$router.go(-1) 请求(返回)上一个路由记录
+				
+				
+		-->
+	</body>
+</html>

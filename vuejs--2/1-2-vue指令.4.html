@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>指令</title>
+		<script src="./vue.js"></script>
+		<style>
+			.div{
+				width: 100px;
+				height: 100px;
+				background-color: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+		
+		
+		指令:
+			扩展html标签功能
+			
+		v-model:
+				一般用在表单元素上(input)
+				双向数据绑定
+				
+		v-for:
+				循环
+				v-for="name in arr"
+						{{$index}}
+						{{$key}}  --- json
+						
+		v-on:
+			事件
+			v-on:click/mouseover/...="函数"
+			放入methods
+			
+			
+		v-show:
+			显示隐藏
+			v-show="true/fasle"
+			
+		
+		-->
+		<div id="box">
+			<input type="button" value="点击消失" v-on:click="show=!show">
+			<!-- <div class="div" v-show="false">
+				
+			</div> -->
+			<div class="div" v-show="show">
+				
+			</div>
+		</div>
+		<script>
+			new Vue({
+				el:'#box', //放选择器  class id 标签
+				data:{
+					show:true
+				}
+			})
+		</script>
+	</body>
+</html>

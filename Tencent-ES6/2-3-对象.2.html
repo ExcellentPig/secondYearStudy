@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>对象</title>
+		<script type="text/javascript">
+			
+			let x=10;
+			let y=20;
+			function show({x,y}){
+				console.log(x,y);
+			}
+			
+			show({x,y})
+			
+		</script>
+	</head>
+	<body>
+		<!--
+		
+		对象:json
+			
+				简洁语法
+					
+					let age=18;
+					
+					let json={
+						name,
+						age
+					}
+					
+					-----------------------
+					
+					let json={
+						name,
+						age,
+						showA(){  //不用箭头函数
+							return this.name;
+						}
+					}
+					
+					------------------------
+					
+					new Vuex.Store({
+						state,
+						mutation,
+						ttpes,
+						actions
+					})
+					
+				
+				Object.is()  //比较两个值是否相等
+					
+					Object.is('a','a');
+					
+					
+		
+		-->
+	</body>
+</html>

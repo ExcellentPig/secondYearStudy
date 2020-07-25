@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>search</title>
+</head>
+<body>
+	<!--
+	
+	search
+		字符串搜索
+			返回出现的位置
+			忽略大小写:i --- ignore
+			判断浏览器类型
+			
+	
+	-->
+	<script>
+		// 			var re = new RegExp('a');
+		// 			var str='abcdksjdla';
+		// 			console.log(str.search(re)); //0
+		
+		// 			var re=/a/;
+		// 			var str='abcdksjdla';
+		// 			console.log(str.search(re));
+		
+		// 			var re=/a/;
+		// 			var str='Abcdksjdl';
+		// 			console.log(str.search(re)); //-1区分大小写
+		
+		// 			var re = new RegExp('a','i'); //i忽略大小写
+		// 			var str='Abcdksjdl';
+		// 			console.log(str.search(re));
+					
+					var re = /a/i; //i忽略大小写
+					var str='Abcdksjdl';
+					console.log(str.search(re));
+	</script>
+</body>
+</html>

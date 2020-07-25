@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>组件</title>
+		<script src="vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			<aaa></aaa>
+		</div>
+		<script>
+			
+			var vm = new Vue({
+				el: '#box',
+				data:{
+					a:'aaa'
+				},
+				components:{
+					'aaa':{
+						 template:'<h2>aaa组件</h2><bbb></bbb>',
+						 components:{
+							 'bbb':{
+								  template:'<h3>bbb组件</h3>',
+							 }
+						 }
+					}
+				}
+			})
+		</script>
+		<!--
+		
+		
+		vue组件:
+			组件:一个大对象
+			
+		1,	全局组件		
+			Vue.extend({
+				template:'<h3>khan</h3>'
+			});
+			
+			Vue.component('aaa',Aaa);
+		
+			组件里面放数据:
+				data要是函数形式
+				var Aaa=Vue.extend({
+					data(){
+						return {
+							msg:'kahnn'
+						}
+					},
+					template:'<h3>{{msg}}</h3>'
+				});
+				
+			
+		局部组件:放在组件内部
+				var vm = new Vue({
+					el: '#box',
+					data: {
+				
+					},
+					components:{//局部组件
+						aaa:Aaa
+					}
+				})
+				
+		------------------------------------------------------------
+		
+		Vue.component('my-aaa',{
+			template:'<strong>khan</strong>'
+		})
+					
+		//局部
+		components:{
+			'my-aaa':{
+				template:'<h2>khan</h2>'
+			}
+		}
+		
+		
+		-------------------------------------------------------------
+		
+		配合模板:
+				template:'标签'
+				
+				单独放在某个地方
+					
+				1,	<script type="x-template" id="aaa">
+						<h2 @click="change">{{msg}}</h2>
+						<ul>
+							<li>1111</li>
+							<li>1111</li>
+							<li>1111</li>
+							<li>1111</li>
+							<li>1111</li>
+						</ul>
+					</script>
+		
+					template:'#aaa'	
+					
+					
+				2, 
+					<template id="aaa">
+						<h1>h1</h1>
+						<ul>
+							<li>111</li>
+							<li>111</li>
+							<li>111</li>
+							<li v-for="item in arr">{{item}}</li>
+						</ul>
+					</template>
+					
+		--------------------------------------------------------------
+		
+		动态组件:
+				<component :is="a">
+					
+				</component>
+				
+		-------------------------------------------------------------
+		
+		vue-devtools -》 vue调试工具
+		
+		父子組件:
+				components:{
+					'aaa':{
+						 template:'<h2>aaa组件</h2><bbb></bbb>',
+						 components:{
+							 'bbb':{
+								  template:'<h3>bbb组件</h3>',
+							 }
+						 }
+					}
+				}
+				
+		
+		-->
+	</body>
+</html>

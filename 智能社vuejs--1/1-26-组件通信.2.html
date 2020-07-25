@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件通信</title>
+		<script src="../js/vue.js"></script>
+		<script>
+			 window.onload=function(){
+			    new Vue({
+			        el:'#box',
+			        data:{			       
+			                a:'我是父组件数据'		       
+			        },
+			        components:{
+			            'child-com':{
+							data(){
+								return {
+										b:''
+								}
+							},
+			                props:['msg'],
+			                template:'#child',
+							mounted(){
+								this.b=this.msg
+							},
+			                methods:{
+			                    change(){
+			                        //this.msg='被更改了'
+			                        //this.msg.a='被改了';
+									//this.msg.a="change"
+									this.b='change'
+			                    }
+			                }
+			            }
+			        }
+			    });
+			};
+		</script>
+	</head>
+	<body>
+		<template id="child">
+			<div>
+				<h3>我是子组件</h3>
+				<input type="button" value="btn" @click="change">
+				<!-- <strong>{{msg.a}}</strong> -->
+				<strong>{{b}}</strong>
+			</div>
+		</template>
+		<div id="box">
+			父级:{{a}}
+			<br>
+			<child-com :msg="a"></child-com>
+		</div>
+		<!--
+		
+		组件通信:
+				vm.$emit()
+				vm.$on();
+				
+			父组件和子组件
+			
+			子组件想拿到父组件的数据:
+					通过props
+					
+					之前，子组件可以更改父组件的信息，可以是同步 sync
+					现在不允许直接给父级的数据做赋值的操作
+					
+					想改:
+						父组件每次传一个对象给子组件，对象之间引用
+						只是不报错，可以通过mounted中转
+						
+		
+		-->
+	</body>
+</html>

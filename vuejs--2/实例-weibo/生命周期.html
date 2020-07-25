@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>生命周期</title>
+		<script src="../vue.js"></script>
+	</head>
+	<body>
+		<div id="box">
+			{{msg}}
+		</div>
+		<script>
+			var vm=new Vue({
+				el:'#box',
+				data:{
+					msg:'well'
+				},
+				created(){
+					alert('实例已经创建成功');
+				},
+				beforeCompile(){
+					alert('编译之前')
+				},
+				compiled(){
+					alert('编译之后')
+				},
+				ready(){
+					alert('插入到文档中')
+				},
+				beforeDestroy(){
+					alert('销毁之前')
+				},
+				destroyed(){
+					alert('销毁之后')
+				}
+			})
+			
+			document.onclick = function() {
+				vm.$destroy();
+			}
+		</script>
+	</body>
+</html>
